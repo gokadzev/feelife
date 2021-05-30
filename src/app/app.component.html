@@ -1,0 +1,168 @@
+<div class="components">
+  <aside class="left">
+    <div class="logo">
+      <!-- <a href="./"><img src="../assets/images/logo.jpg" alt=""></a> -->
+    </div>
+    <div class="tabs">
+      <h1>MENU</h1>
+      <div class="tab">
+        <a href="./"><img src="../assets/icons/home.svg" alt=""> <p>Home</p> </a>
+      </div>
+      <div class="tab">
+        <a href="./search"><img src="../assets/icons/search.svg" alt=""> <p>Search</p> </a>
+      </div>
+      <div class="tab">
+        <a href="./discover"><img src="../assets/icons/discover.svg" alt=""><p>Discover</p> </a>
+      </div>
+      <div class="tab">
+        <a href="./albums"><img src="../assets/icons/album.svg" alt=""> <p>Albums</p> </a>
+      </div>
+      <div class="tab">
+        <a href="./artists"><img src="../assets/icons/artist.svg" alt=""><p>Artists</p> </a>
+      </div>
+    </div>
+    <div class="tabs">
+      <h1>LIBRARY</h1>
+      <div class="tab">
+        <a href="./recent"><img src="../assets/icons/recent.svg" alt=""><p>Recent</p> </a>
+      </div>
+      <div class="tab">
+        <a href="./favourites"><img src="../assets/icons/heart.svg" alt=""><p>Favourites</p> </a>
+      </div>
+    </div>
+    <div class="tabs">
+      <h1>PLAYLIST</h1>
+    </div>
+    <div class="tabs">
+      <h1>GENERAL</h1>
+      <div class="tab">
+        <a href="./settings"><img src="../assets/icons/settings.svg" alt=""><p>Settings</p> </a>
+      </div>
+      <div class="tab">
+        <a href="./logout"><img src="../assets/icons/exit.svg" alt=""><p>Log Out</p> </a>
+      </div>
+    </div>
+  </aside>
+  <aside class="center">
+    <router-outlet></router-outlet>
+  </aside>
+  <aside class="right">
+    <div class="feature tabs">
+      <h1>NOTIFICATIONS</h1>
+    </div>
+    <div class="feature tabs">
+      <h1>TOP ARTISTS</h1>
+      <div class="artists-list">
+      </div>
+    </div>
+
+    <div class="player">
+      <h1>NOW PLAYING</h1>
+      <div class="songInfo">
+        <img [src]="activeSong?.coverphoto" alt="">
+        <h3>{{ activeSong?.singer }}</h3>
+        <p>{{ activeSong?.songtitle }}</p>
+      </div>
+
+      <div class="col-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 text-left">
+              {{ currentTime$ | async }}
+            </div>
+            <div class="col-6 text-right" *ngIf="player?.duration">
+              {{ durationTime }}
+            </div>
+          </div>
+  
+            <div class="row row1">
+            <div class="progress-bar bg-info" role="progressbar"
+            [ngStyle]="{'width': (currentProgress$ | async) + '%'}"
+            [attr.aria-valuenow]="(currentProgress$ | async) "
+            aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+  
+          <table class="player">
+            <td><button type="button" class="btn btn-outline-dark" (click)="playPreviousSong()"><img src="../assets/icons/skip-back.svg" alt=""></button></td>
+    
+            <td [style.width]="isPlaying == true ? '72px' : '0px'" [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark" *ngIf="isPlaying" (click)="player.pause()"><img src="../assets/icons/pauze.svg" alt=""></button></td>
+            <td [style.width]="isPlaying == false ? '72px' : '0px'" [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark" *ngIf="!isPlaying" (click)="playSong(activeSong)"><img src="../assets/icons/play.svg" alt=""></button></td>
+      
+            <td><button type="button" class="btn btn-outline-dark" (click)="playNextSong()"><img src="../assets/icons/skip-forward.svg" alt=""></button></td>
+          </table>
+      </div>
+
+
+      <audio #player
+      (timeupdate)="onTimeUpdate()"
+      (pause)="onPause()"></audio>
+
+
+    </div>
+
+
+    <!-- <ion-content style="--background:black">
+      <ion-icon class="dropbutton" name="arrow-{{upordown}}-outline" (click)="changeScreenModeFromIcon()"></ion-icon>
+      <section class="lyrics-area" [ngStyle]="{'display':this.lyricsStatus == false ? 'none' : 'block' }" [innerHTML]="lyrics">
+        <br><br><br>
+      </section>
+      <section class="audio-image" [ngStyle]="{'display':this.lyricsStatus == false ? 'block' : 'none' }">
+        <ion-img *ngIf="activeSong?.coverphoto !== undefined && activeSong?.coverphoto !== null" [src]="activeSong?.coverphoto" class="coverImage"></ion-img>
+        <ion-img *ngIf="activeSong?.coverphoto == undefined && activeSong?.coverphoto == null" [src]="this.backgroundImage" class="coverImage"></ion-img>
+       </section>
+  
+  
+       <div class="bodyPlayer" [ngStyle]="{'background-image':this.screenClass == 'mini' ? 'url(' + this.backgroundImage + ')' : 'unset' }">
+       <div [ngClass]="{'glass': this.screenClass === 'mini'}">
+        <div class="info">
+          <h4>{{ activeSong?.singer }}</h4>
+          <h3>{{ activeSong?.songtitle }}</h3>
+      </div>
+  
+      <div class="col-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 text-left">
+              {{ currentTime$ | async }}
+            </div>
+            <div class="col-6 text-right" *ngIf="player?.duration">
+              {{ durationTime }}
+            </div>
+          </div>
+  
+            <div class="row row1">
+            <div class="progress-bar bg-info" role="progressbar"
+            [ngStyle]="{'width': (currentProgress$ | async) + '%'}"
+            [attr.aria-valuenow]="(currentProgress$ | async) "
+            aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+  
+          <table class="player">
+            <td><button type="button" class="btn btn-outline-dark" (click)="playPreviousSong()"><ion-icon name="play-skip-back"></ion-icon></button></td>
+    
+            <td [style.width]="isPlaying == true ? '72px' : '0px'" [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark" *ngIf="isPlaying" (click)="player.pause()"><ion-icon class="pbutton" name="pause-circle"></ion-icon></button></td>
+            <td [style.width]="isPlaying == false ? '72px' : '0px'" [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark" *ngIf="!isPlaying" (click)="playSong(activeSong)"><ion-icon class="pbutton" name="play-circle"></ion-icon></button></td>
+      
+            <td><button type="button" class="btn btn-outline-dark" (click)="playNextSong()"><ion-icon name="play-skip-forward"></ion-icon></button></td>
+          </table>
+      </div>
+  
+  
+      </div>
+  
+        <div class="additionalFeatures">
+          <button (click)="repeatChange()">
+            <ion-icon color={{repeatButton}} name="repeat-outline" role="img" class="ios hydrated" aria-label="repeat button"></ion-icon>
+          </button>
+          <button (click)="shuffleChange()">
+            <ion-icon color={{shuffleButton}} name="shuffle-outline" role="img" class="ios hydrated" aria-label="shuffle button"></ion-icon>
+          </button>
+          <button (click)="lyricsStatusChange()">
+            <ion-icon color={{lyricsButton}} name="text-outline" role="img" class="ios hydrated" aria-label="lyrics button"></ion-icon>
+          </button>
+        </div>
+      </div> -->
+  </aside>
+</div>
