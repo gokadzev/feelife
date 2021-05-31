@@ -1,0 +1,30 @@
+.image {
+    width: 115px;
+    height: 115px;
+    border-radius: 22px;
+}
+
+h3 {
+    font-size: 17px;
+}
+
+p {
+    font-size: 14px;
+}
+
+.play {
+    position: relative;
+    border: none;
+    background: white;
+    border-radius: 6px;
+    right: 40px;
+    bottom: 17px;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+}
+
+.play img {
+    width: 18px;
+    height: 18px;
+}

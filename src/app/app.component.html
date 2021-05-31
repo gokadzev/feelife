@@ -49,6 +49,15 @@
   <aside class="right">
     <div class="feature tabs">
       <h1>NOTIFICATIONS</h1>
+      <div class="notifications">
+        <div class="notification">
+          <img src="../assets/icons/added.svg" alt="">
+          <div class="notifInfo">
+            <h3>Songs Added</h3>
+            <p *ngIf="this.songs != undefined">{{ songs.length }}</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="feature tabs">
       <h1>TOP ARTISTS</h1>
@@ -60,36 +69,35 @@
       <h1>NOW PLAYING</h1>
       <div class="songInfo">
         <img [src]="activeSong?.coverphoto" alt="">
-        <h3>{{ activeSong?.singer }}</h3>
-        <p>{{ activeSong?.songtitle }}</p>
+        <h3 class="singer">{{ activeSong?.singer }}</h3>
+        <p class="song">{{ activeSong?.songtitle }}</p>
       </div>
 
       <div class="col-12">
         <div class="container">
-          <div class="row">
-            <div class="col-6 text-left">
-              {{ currentTime$ | async }}
-            </div>
-            <div class="col-6 text-right" *ngIf="player?.duration">
-              {{ durationTime }}
-            </div>
-          </div>
-  
             <div class="row row1">
+              <div class="col-6 text-left">
+                {{ currentTime$ | async }}
+              </div>
             <div class="progress-bar bg-info" role="progressbar"
             [ngStyle]="{'width': (currentProgress$ | async) + '%'}"
             [attr.aria-valuenow]="(currentProgress$ | async) "
             aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="col-6 text-right" *ngIf="player?.duration">
+              {{ durationTime }}
+            </div>
             </div>
           </div>
   
-          <table class="player">
+          <table class="playerControllers">
+            <button class="addFunc" (click)="shuffleChange()"><img src="../assets/icons/shuffle.svg" alt=""></button>
             <td><button type="button" class="btn btn-outline-dark" (click)="playPreviousSong()"><img src="../assets/icons/skip-back.svg" alt=""></button></td>
     
-            <td [style.width]="isPlaying == true ? '72px' : '0px'" [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark" *ngIf="isPlaying" (click)="player.pause()"><img src="../assets/icons/pauze.svg" alt=""></button></td>
-            <td [style.width]="isPlaying == false ? '72px' : '0px'" [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark" *ngIf="!isPlaying" (click)="playSong(activeSong)"><img src="../assets/icons/play.svg" alt=""></button></td>
+            <td [style.width]="isPlaying == true ? '72px' : '0px'" [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark ppcontrol" *ngIf="isPlaying" (click)="player.pause()"><img src="../assets/icons/pauze.svg" alt=""></button></td>
+            <td [style.width]="isPlaying == false ? '72px' : '0px'" [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark ppcontrol" *ngIf="!isPlaying" (click)="playSong(activeSong)"><img src="../assets/icons/play.svg" alt=""></button></td>
       
             <td><button type="button" class="btn btn-outline-dark" (click)="playNextSong()"><img src="../assets/icons/skip-forward.svg" alt=""></button></td>
+            <button class="addFunc" (click)="repeatChange()"><img src="../assets/icons/repeat.svg" alt=""></button>
           </table>
       </div>
 
@@ -101,68 +109,5 @@
 
     </div>
 
-
-    <!-- <ion-content style="--background:black">
-      <ion-icon class="dropbutton" name="arrow-{{upordown}}-outline" (click)="changeScreenModeFromIcon()"></ion-icon>
-      <section class="lyrics-area" [ngStyle]="{'display':this.lyricsStatus == false ? 'none' : 'block' }" [innerHTML]="lyrics">
-        <br><br><br>
-      </section>
-      <section class="audio-image" [ngStyle]="{'display':this.lyricsStatus == false ? 'block' : 'none' }">
-        <ion-img *ngIf="activeSong?.coverphoto !== undefined && activeSong?.coverphoto !== null" [src]="activeSong?.coverphoto" class="coverImage"></ion-img>
-        <ion-img *ngIf="activeSong?.coverphoto == undefined && activeSong?.coverphoto == null" [src]="this.backgroundImage" class="coverImage"></ion-img>
-       </section>
-  
-  
-       <div class="bodyPlayer" [ngStyle]="{'background-image':this.screenClass == 'mini' ? 'url(' + this.backgroundImage + ')' : 'unset' }">
-       <div [ngClass]="{'glass': this.screenClass === 'mini'}">
-        <div class="info">
-          <h4>{{ activeSong?.singer }}</h4>
-          <h3>{{ activeSong?.songtitle }}</h3>
-      </div>
-  
-      <div class="col-12">
-        <div class="container">
-          <div class="row">
-            <div class="col-6 text-left">
-              {{ currentTime$ | async }}
-            </div>
-            <div class="col-6 text-right" *ngIf="player?.duration">
-              {{ durationTime }}
-            </div>
-          </div>
-  
-            <div class="row row1">
-            <div class="progress-bar bg-info" role="progressbar"
-            [ngStyle]="{'width': (currentProgress$ | async) + '%'}"
-            [attr.aria-valuenow]="(currentProgress$ | async) "
-            aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-  
-          <table class="player">
-            <td><button type="button" class="btn btn-outline-dark" (click)="playPreviousSong()"><ion-icon name="play-skip-back"></ion-icon></button></td>
-    
-            <td [style.width]="isPlaying == true ? '72px' : '0px'" [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark" *ngIf="isPlaying" (click)="player.pause()"><ion-icon class="pbutton" name="pause-circle"></ion-icon></button></td>
-            <td [style.width]="isPlaying == false ? '72px' : '0px'" [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark" *ngIf="!isPlaying" (click)="playSong(activeSong)"><ion-icon class="pbutton" name="play-circle"></ion-icon></button></td>
-      
-            <td><button type="button" class="btn btn-outline-dark" (click)="playNextSong()"><ion-icon name="play-skip-forward"></ion-icon></button></td>
-          </table>
-      </div>
-  
-  
-      </div>
-  
-        <div class="additionalFeatures">
-          <button (click)="repeatChange()">
-            <ion-icon color={{repeatButton}} name="repeat-outline" role="img" class="ios hydrated" aria-label="repeat button"></ion-icon>
-          </button>
-          <button (click)="shuffleChange()">
-            <ion-icon color={{shuffleButton}} name="shuffle-outline" role="img" class="ios hydrated" aria-label="shuffle button"></ion-icon>
-          </button>
-          <button (click)="lyricsStatusChange()">
-            <ion-icon color={{lyricsButton}} name="text-outline" role="img" class="ios hydrated" aria-label="lyrics button"></ion-icon>
-          </button>
-        </div>
-      </div> -->
   </aside>
 </div>

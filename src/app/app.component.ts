@@ -27,7 +27,7 @@ export class AppComponent {
 
   @ViewChild('player', {static: true}) player!: ElementRef;
 
-  songs:PLsong [] = [];
+  songs:PLsong [];
 
   singers: PLsinger[] = [];
 
@@ -41,7 +41,7 @@ export class AppComponent {
   songCoverImage:any;
   firstSongPlayer:boolean = false;
 
-  paramsSubscription!: Subscription;
+  paramsSubscription: Subscription = null;
 
 
   activedsong = false;
@@ -57,11 +57,14 @@ export class AppComponent {
 
   ngOnInit() {
 
+    this.refresher.getAllSongs();
 
     this.dataexchanger.songs.subscribe((songs:any) => {
       this.songs = songs;
       this.newArrayForDataSave = songs;
-      console.log(this.songs)
+      if(this.activeSong == undefined){
+        this.chooseSong(this.songs[0])
+      }
     })
 
 
@@ -77,17 +80,18 @@ export class AppComponent {
  
     
     this.statusExchanger.activeSongId.subscribe((item:number) => {
+      console.log(item)
       if(item == undefined){
         this.chooseSong(this.songs[0]);
         this.activedsong = true;
       } else {
       if(this.firstSongPlayer == true){
-      if(this.activeSong.id != this.songs[item - 1].id){
-        this.playSong(this.songs[item - 1]);
+      if(this.activeSong.id != this.songs[item].id){
+        this.playSong(this.songs[item]);
         this.activedsong = true;
       }        
       } else {
-        this.playSong(this.songs[item - 1]);
+        this.playSong(this.songs[item]);
         this.firstSongPlayer = true;
         this.activedsong = true;
       }
@@ -98,14 +102,7 @@ export class AppComponent {
 
 
 
-  ngOnDestroy() {
-    this.dataexchanger.songs.unsubscribe();
-    this.dataexchanger.singers.unsubscribe();
-  }
-
-
-
-  lyrics!: string;
+  lyrics: string;
 
   playSong(song:any): void {
     this.durationTime = undefined;
@@ -241,39 +238,30 @@ export class AppComponent {
   repeatStatus:boolean=false;
   shuffleStatus:boolean=false;
   lyricsStatus:boolean=false;
-  repeatButton:string="light";
-  shuffleButton:string="light";
-  lyricsButton:string="light";
 
 
   lyricsStatusChange(){
     if(this.lyricsStatus == true){
       this.lyricsStatus = false
-      this.lyricsButton="light"
     } else {
       this.lyricsStatus = true
-      this.lyricsButton="success"
     }
   }
 
   repeatChange(){
     if(this.repeatStatus == true){
       this.repeatStatus = false
-      this.repeatButton="light"
     } else {
       this.repeatStatus = true
-      this.repeatButton="success"
     }
   }
 
   shuffleChange(){
     if(this.shuffleStatus == true){
       this.shuffleStatus = false
-      this.shuffleButton="light"
       this.statusExchanger.shuffleStatus.emit(true);
     } else {
       this.shuffleStatus = true
-      this.shuffleButton="success"
       this.statusExchanger.shuffleStatus.emit(false);
     }
   }

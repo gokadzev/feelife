@@ -1,1 +1,14 @@
-<p>home works!</p>
+<h3>Global Top 50</h3>
+<div class="global50">
+    <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
+</div>
+
+<h3>Songs You Might Like</h3>
+<div class="suggestions">
+    <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
+</div>
+
+<h3>Recently Played</h3>
+<div class="recently">
+    <app-song *ngFor="let item of songs | slice:0:10" [song]="item"></app-song>
+</div>

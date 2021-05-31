@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PLsong } from 'src/app/shared_models/song.model';
+import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  songs:PLsong [];
+
+  constructor(private dataexchanger:DataexchangerService) { }
 
   ngOnInit(): void {
+
+    this.dataexchanger.songs.subscribe((songs:any) => {
+      this.songs = songs;
+    })
+
   }
 
 }

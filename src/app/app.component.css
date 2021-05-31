@@ -1,0 +1,110 @@
+.components {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+}
+
+.left {
+    width: 100%;
+    max-width: 190px;
+}
+
+.center {
+    width: 45%;
+}
+
+.left .tabs .tab a img {
+    width: 25px;
+    height: 25px;
+}
+
+.left .tabs .tab {
+    max-height: 40px;
+}
+
+.left .tabs .tab a {
+    display: flex;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.player {
+    background-color: #4BA3A7;
+    text-align: center;
+    padding: 20px;
+    border-radius: 14px;
+    width: 200px;
+    height: 335px;
+    color: white;
+}
+
+.player .songInfo .singer,.song {
+    margin: 3px auto;
+}
+
+.player .songInfo img {
+    width: 180px;
+    height: 140px;
+    border-radius: 14px;
+    object-fit: cover;
+
+}
+
+.player .container .row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px auto;
+}
+
+.playerControllers {
+    margin: auto;
+}
+
+.playerControllers button {
+    border: none;
+    background-color: unset;
+}
+
+.playerControllers button img {
+    width: 25px;
+    height: 25px;
+    filter: invert(1);
+}
+
+.playerControllers .ppcontrol {
+    background-color: #6ac7cc;
+    padding: 12px;
+    border-radius: 7px;
+}
+
+.addFunc img {
+    width: 18px!important;
+    height: 18px!important;
+}
+
+.player h1 {
+    font-size: 15px;
+}
+
+.notifications .notification {
+    display: flex;
+    align-items: center;
+}
+
+.notifications .notification img {
+    width: 45px;
+    height: 45px;
+}
+
+.notifications .notification .notifInfo h3 {
+    margin: unset;
+    font-size: 17px;
+}
+
+.notifications .notification .notifInfo p {
+    margin: 3px auto;
+}

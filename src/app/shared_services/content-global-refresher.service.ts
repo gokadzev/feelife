@@ -25,7 +25,7 @@ export class ContentGlobalRefresherService {
 
   randnum = Math.round(Math.random() * 900000)
   apiUrl = 'http://localhost/index.php?' + this.randnum;
-  playlistsApiUrl = 'http://localhost/playlists.php?' + this.randnum;
+  // playlistsApiUrl = 'http://localhost/playlists.php?' + this.randnum;
 
 
   getAllSongs(){
@@ -38,9 +38,9 @@ export class ContentGlobalRefresherService {
     this.songs = response;
 
 
-    this.webRequest.getDataFromApi(this.playlistsApiUrl).subscribe((response:any) => {
-      this.playlists = response;
-    });
+    // this.webRequest.getDataFromApi(this.playlistsApiUrl).subscribe((response:any) => {
+    //   this.playlists = response;
+    // });
 
 
     var singer = 'something'
@@ -59,7 +59,14 @@ export class ContentGlobalRefresherService {
 
 
   getSongs(){
-    this.dataexchanger.songs.emit(this.songs);
+    this.webRequest.getDataFromApi(this.apiUrl).subscribe((response:any) => {
+      for(var i = 0; i < response.length; i++){
+        var randnumber = Math.round(Math.random() * response.length);
+        this.shuffledArray.push(response[randnumber])
+      }
+      this.dataexchanger.songs.emit(response);
+    })
+
   }
 
   getSingers(){

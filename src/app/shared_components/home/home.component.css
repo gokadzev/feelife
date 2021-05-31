@@ -1,0 +1,5 @@
+.suggestions, .global50 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}

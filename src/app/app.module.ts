@@ -12,6 +12,8 @@ import { RecentComponent } from './shared_components/recent/recent.component';
 import { FavouritesComponent } from './shared_components/favourites/favourites.component';
 import { SettingsComponent } from './shared_components/settings/settings.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SongComponent } from './shared_components/home/song/song.component';
+import { SongCubeComponent } from './shared_components/home/song-cube/song-cube.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     ArtistsComponent,
     RecentComponent,
     FavouritesComponent,
-    SettingsComponent
+    SettingsComponent,
+    SongComponent,
+    SongCubeComponent
   ],
   imports: [
     BrowserModule,
