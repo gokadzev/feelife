@@ -40,6 +40,7 @@ a {
     width: 200px;
     height: 335px;
     color: white;
+    margin-top: 10%;
 }
 
 .player .songInfo .singer,.song {
@@ -107,4 +108,15 @@ a {
 
 .notifications .notification .notifInfo p {
     margin: 3px auto;
+}
+
+.artists-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 300px;
+}
+
+.right h1 {
+    font-size: 17px;
 }

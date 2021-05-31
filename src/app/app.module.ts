@@ -12,8 +12,9 @@ import { RecentComponent } from './shared_components/recent/recent.component';
 import { FavouritesComponent } from './shared_components/favourites/favourites.component';
 import { SettingsComponent } from './shared_components/settings/settings.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SongComponent } from './shared_components/home/song/song.component';
-import { SongCubeComponent } from './shared_components/home/song-cube/song-cube.component';
+import { SongComponent } from './shared_components/additional_components/song/song.component';
+import { SongCubeComponent } from './shared_components/additional_components/song-cube/song-cube.component';
+import { ArtistComponent } from './shared_components/additional_components/artist/artist.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SongCubeComponent } from './shared_components/home/song-cube/song-cube.
     FavouritesComponent,
     SettingsComponent,
     SongComponent,
-    SongCubeComponent
+    SongCubeComponent,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,

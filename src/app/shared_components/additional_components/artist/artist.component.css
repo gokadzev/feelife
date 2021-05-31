@@ -1,0 +1,17 @@
+img {
+    width: 75px;
+    height: 75px;
+    border-radius: 22px;
+}
+
+h3 {
+    font-size: 14px;
+    margin: unset;
+}
+
+.singer {
+    text-align: center;
+    width: 75px;
+    height: 95px;
+    margin: auto 10px;
+}

@@ -6,10 +6,13 @@
 
 h3 {
     font-size: 17px;
+    margin: unset;
 }
 
 p {
     font-size: 14px;
+    margin: unset;
+    margin-top: 6px;
 }
 
 .play {
