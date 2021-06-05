@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PLsinger } from 'src/app/shared_models/singer.model';
+import { ContentGlobalRefresherService } from 'src/app/shared_services/content-global-refresher.service';
+import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
 
 @Component({
   selector: 'app-artists',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistsComponent implements OnInit {
 
-  constructor() { }
+  singers:PLsinger [] = [];
+
+  constructor(private dataexchanger:DataexchangerService, private refresher:ContentGlobalRefresherService) { }
 
   ngOnInit(): void {
+
+    this.dataexchanger.singers.subscribe((singers:any) => {
+      this.singers = singers;
+    })
+
+    this.refresher.getSingers();
+
+
   }
 
 }

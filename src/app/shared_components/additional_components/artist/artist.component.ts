@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PLsinger } from 'src/app/shared_models/singer.model';
+import { SingerdataexchangeService } from 'src/app/shared_services/singerdataexchange.service';
 
 @Component({
   selector: 'app-artist',
@@ -11,9 +12,13 @@ export class ArtistComponent implements OnInit {
   @Input()
   singer!: PLsinger;
 
-  constructor() { }
+  constructor(private singerdex:SingerdataexchangeService) { }
 
   ngOnInit(): void {
+  }
+
+  sendSinger(singerId:any){
+    this.singerdex.singerdataexchange.emit(singerId)
   }
 
 }

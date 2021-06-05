@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { PLsinger } from 'src/app/shared_models/singer.model';
+import { PLsong } from 'src/app/shared_models/song.model';
+import { ContentGlobalRefresherService } from 'src/app/shared_services/content-global-refresher.service';
+import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +11,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  songs:PLsong [];
+  singers:PLsinger [];
+  arrayForDataSave:PLsong[];
+  newArrayForDataSave:PLsinger[];
+
+  constructor(private dataexchanger:DataexchangerService,private refresher:ContentGlobalRefresherService) { }
 
   ngOnInit(): void {
+
+    
+    this.dataexchanger.songs.subscribe((songs:any) => {
+      this.songs = songs;
+      this.newArrayForDataSave = songs;
+    })
+
+
+    this.dataexchanger.singers.subscribe((singers:any) => {
+      this.singers = singers;
+      this.newArrayForDataSave = singers;
+    })
+
+
+    this.refresher.getSongs();
+    this.refresher.getSingers();
+  }
+
+
+  Search(newSong:any){
+    this.songs = this.arrayForDataSave;
+    console.log(newSong)
+
+    let SingersFilter = this.arrayForDataSave.filter(value => value.singer.toLowerCase().slice(0,newSong.length) === newSong.toLowerCase())
+    let SongsFilter = this.arrayForDataSave.filter(value => value.songtitle.toLowerCase().slice(0,newSong.length) === newSong.toLowerCase())
+    SingersFilter = SingersFilter.concat(SongsFilter)
+    if(newSong == ''){
+      this.songs = this.arrayForDataSave;
+      SingersFilter = [];
+    } else {
+      this.songs = [];
+      this.songs = SingersFilter;
+    }
   }
 
 }

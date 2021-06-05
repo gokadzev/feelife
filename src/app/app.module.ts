@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SongComponent } from './shared_components/additional_components/song/song.component';
 import { SongCubeComponent } from './shared_components/additional_components/song-cube/song-cube.component';
 import { ArtistComponent } from './shared_components/additional_components/artist/artist.component';
+import { ArtistPageComponent } from './shared_components/artist-page/artist-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ArtistComponent } from './shared_components/additional_components/artis
     SettingsComponent,
     SongComponent,
     SongCubeComponent,
-    ArtistComponent
+    ArtistComponent,
+    ArtistPageComponent
   ],
   imports: [
     BrowserModule,

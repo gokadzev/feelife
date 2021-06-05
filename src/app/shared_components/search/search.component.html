@@ -1,1 +1,6 @@
-<p>search works!</p>
+<input placeholder="Search..." (input)="Search($event.target.value)" >
+
+<section class="results">
+    <h1>SONGS</h1>
+    <app-song *ngFor="let item of songs" [song]="item"></app-song>
+</section>

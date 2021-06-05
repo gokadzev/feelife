@@ -120,3 +120,7 @@ a {
 .right h1 {
     font-size: 17px;
 }
+
+.left a p {
+    margin-left: 10px;
+}

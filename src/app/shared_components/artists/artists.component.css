@@ -1,0 +1,9 @@
+.artists-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+app-artist {
+    margin: auto 30px;
+}

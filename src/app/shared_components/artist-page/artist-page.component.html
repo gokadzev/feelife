@@ -1,0 +1,6 @@
+   <h3>{{this.singers[this.singerId].singer}}</h3>
+   <img [src]="this.singers[this.singerId].coverphoto">
+
+   <div class="singerSongs">
+    <app-song *ngFor="let item of singerSongs" [song]="item"></app-song>
+   </div>
