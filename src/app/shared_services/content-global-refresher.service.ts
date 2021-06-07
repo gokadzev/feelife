@@ -24,8 +24,8 @@ export class ContentGlobalRefresherService {
   
 
   randnum = Math.round(Math.random() * 900000)
-  apiUrl = 'http://localhost/index.php?' + this.randnum;
-  // playlistsApiUrl = 'http://localhost/playlists.php?' + this.randnum;
+  apiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmp.json?' + this.randnum;
+  playlistsApiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmplaylists.json?' + this.randnum;
 
 
   getAllSongs(){
@@ -38,9 +38,9 @@ export class ContentGlobalRefresherService {
     this.songs = response;
 
 
-    // this.webRequest.getDataFromApi(this.playlistsApiUrl).subscribe((response:any) => {
-    //   this.playlists = response;
-    // });
+    this.webRequest.getDataFromApi(this.playlistsApiUrl).subscribe((response:any) => {
+      this.playlists = response;
+    });
 
 
     var singer = 'something'
