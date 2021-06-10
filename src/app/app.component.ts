@@ -18,8 +18,6 @@ export class AppComponent {
 
 
 
-
-
   // player 
 
   currentProgress$ = new BehaviorSubject(0);
@@ -57,6 +55,7 @@ export class AppComponent {
 
   ngOnInit() {
 
+
     this.refresher.getAllSongs();
 
     this.dataexchanger.songs.subscribe((songs:any) => {
@@ -77,10 +76,10 @@ export class AppComponent {
     this.refresher.getSingers();
 
 
+
  
     
     this.statusExchanger.activeSongId.subscribe((item:number) => {
-      console.log(item)
       if(item == undefined){
         this.chooseSong(this.songs[0]);
         this.activedsong = true;

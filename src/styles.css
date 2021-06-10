@@ -6,3 +6,18 @@ body {
 h3 {
     font-family: 'Padauk', sans-serif;
 }
+
+body.dark-mode {
+    background-color: #36435f;
+    color: #dfe6e9;
+}
+  
+body.light-mode {
+    background-color: #F0F3F9;
+    color: #2d3436;
+}
+
+body:not(.dark-mode-preloading) {
+    transition: all 0.3s linear;
+}
+  

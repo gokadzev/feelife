@@ -4,6 +4,7 @@ import { ArtistPageComponent } from './shared_components/artist-page/artist-page
 import { ArtistsComponent } from './shared_components/artists/artists.component';
 import { HomeComponent } from './shared_components/home/home.component';
 import { SearchComponent } from './shared_components/search/search.component';
+import { SettingsComponent } from './shared_components/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'artist-info',
     component:ArtistPageComponent
+  },
+  {
+    path:'settings',
+    component:SettingsComponent
   }
 ];
 
