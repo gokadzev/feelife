@@ -19,11 +19,10 @@ export class SearchComponent implements OnInit {
   constructor(private dataexchanger:DataexchangerService,private refresher:ContentGlobalRefresherService) { }
 
   ngOnInit(): void {
-
     
     this.dataexchanger.songs.subscribe((songs:any) => {
       this.songs = songs;
-      this.newArrayForDataSave = songs;
+      this.arrayForDataSave = songs;
     })
 
 
@@ -32,15 +31,13 @@ export class SearchComponent implements OnInit {
       this.newArrayForDataSave = singers;
     })
 
+    this.refresher.getData('songs&singers');
 
-    this.refresher.getSongs();
-    this.refresher.getSingers();
   }
 
 
   Search(newSong:any){
     this.songs = this.arrayForDataSave;
-    console.log(newSong)
 
     let SingersFilter = this.arrayForDataSave.filter(value => value.singer.toLowerCase().slice(0,newSong.length) === newSong.toLowerCase())
     let SongsFilter = this.arrayForDataSave.filter(value => value.songtitle.toLowerCase().slice(0,newSong.length) === newSong.toLowerCase())

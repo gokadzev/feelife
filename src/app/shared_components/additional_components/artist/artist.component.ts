@@ -17,8 +17,5 @@ export class ArtistComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sendSinger(singerId:any){
-    this.singerdex.singerdataexchange.emit(singerId)
-  }
 
 }

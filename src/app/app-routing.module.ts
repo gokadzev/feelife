@@ -24,6 +24,10 @@ const routes: Routes = [
     component:ArtistPageComponent
   },
   {
+    path:'artist-info/:id',
+    component:ArtistPageComponent
+  },
+  {
     path:'settings',
     component:SettingsComponent
   }

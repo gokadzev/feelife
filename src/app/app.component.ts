@@ -25,7 +25,7 @@ export class AppComponent {
 
   @ViewChild('player', {static: true}) player!: ElementRef;
 
-  songs:PLsong [];
+  songs:any;
 
   singers: PLsinger[] = [];
 
@@ -47,37 +47,24 @@ export class AppComponent {
 
 
 
-  constructor(private statusExchanger:StatusExchangerService,public router: Router, private dataexchanger:DataexchangerService,private refresher:ContentGlobalRefresherService, private webRequest:HttpserviceService){
+  constructor(private statusExchanger:StatusExchangerService, private dataExchanger:DataexchangerService, private contentRefresher:ContentGlobalRefresherService, public router: Router){
     
   }
   
+  apiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmp.json?';
   
 
   ngOnInit() {
 
 
-    this.refresher.getAllSongs();
-
-    this.dataexchanger.songs.subscribe((songs:any) => {
+    this.dataExchanger.songs.subscribe((songs:any) => {
       this.songs = songs;
-      this.newArrayForDataSave = songs;
-      if(this.activeSong == undefined){
-        this.chooseSong(this.songs[0])
-      }
     })
-
-
-    this.dataexchanger.singers.subscribe((singers:any) => {
+    this.dataExchanger.singers.subscribe((singers:any) => {
       this.singers = singers;
     })
 
-
-    this.refresher.getSongs();
-    this.refresher.getSingers();
-
-
-
- 
+    this.contentRefresher.getData('songs&singers');
     
     this.statusExchanger.activeSongId.subscribe((item:number) => {
       if(item == undefined){
@@ -101,8 +88,6 @@ export class AppComponent {
 
 
 
-  lyrics: string;
-
   playSong(song:any): void {
     this.durationTime = undefined;
     this.audio.pause();
@@ -119,17 +104,6 @@ export class AppComponent {
 
     this.isPlaying = true;
 
-    var singer = this.activeSong.singer.replace(/ /g,"_");
-    var song = this.activeSong.songtitle.replace(/ /g,"_");
-    song = song.replace(/'/g, '');
-
-    
-    var apiUrl:string = 'https://api.lyrics.ovh/v1/'+singer+'/'+song;
-    this.lyrics='';
-
-    this.webRequest.getDataFromApi(apiUrl).subscribe((response:any) => {
-      this.lyrics = response.lyrics.replace(/(?:\r\n|\r|\n)/g, '<br>');
-    })
 
 
 }
@@ -236,16 +210,7 @@ export class AppComponent {
 
   repeatStatus:boolean=false;
   shuffleStatus:boolean=false;
-  lyricsStatus:boolean=false;
 
-
-  lyricsStatusChange(){
-    if(this.lyricsStatus == true){
-      this.lyricsStatus = false
-    } else {
-      this.lyricsStatus = true
-    }
-  }
 
   repeatChange(){
     if(this.repeatStatus == true){

@@ -20,7 +20,7 @@ export class ArtistsComponent implements OnInit {
       this.singers = singers;
     })
 
-    this.refresher.getSingers();
+    this.refresher.getData('singers');
 
 
   }

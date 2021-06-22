@@ -35,7 +35,7 @@ a {
 .player {
     background-color: #4BA3A7;
     text-align: center;
-    padding: 20px;
+    padding: 8px 13px 35px 13px;
     border-radius: 14px;
     width: 200px;
     height: 335px;
@@ -59,6 +59,7 @@ a {
     display: flex;
     justify-content: space-between;
     margin: 15px auto;
+    height: 20px;
 }
 
 .playerControllers {

@@ -11,15 +11,9 @@ import { HttpserviceService } from './httpservice.service';
 })
 export class ContentGlobalRefresherService {
 
-  constructor(private webRequest:HttpserviceService, public router:Router, private dataexchanger:DataexchangerService) { }
+  constructor(private httpserv:HttpserviceService, public router:Router, private dataexchanger:DataexchangerService) { }
 
-  shuffledArray: any [] = [];
-  songs: PLsong[] = [];
-  singers: PLsinger[] = [];
-
-  playlists:Playlist [] = [];
-
-  favoriteSongs:any;
+  favoriteSongs:any [] = [];
   
   
 
@@ -28,58 +22,64 @@ export class ContentGlobalRefresherService {
   playlistsApiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmplaylists.json?' + this.randnum;
 
 
-  getAllSongs(){
-    this.webRequest.getDataFromApi(this.apiUrl).subscribe((response:any) => {
-    for(var i = 0; i < response.length; i++){
-      var randnumber = Math.round(Math.random() * response.length);
-      this.shuffledArray.push(response[randnumber])
+
+  getData(type:string){
+
+    if(type == 'songs'){
+      this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
+        var tempdata = JSON.stringify(songs)
+        var convertedData = JSON.parse(tempdata);
+        this.dataexchanger.songs.emit(convertedData);
+      }); 
+  
+    } else if (type == 'singers'){
+
+      this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
+        var tempdata = JSON.stringify(songs)
+        var convertedData = JSON.parse(tempdata);
+        var singers:PLsinger [] = [];
+        var singer = 'something'
+
+        for(var i = 0; i < convertedData.length; i++){
+          if(singer != convertedData[i].coverphoto){
+            singers.push(new PLsinger(i,convertedData[i].singer,convertedData[i].coverphoto))
+            singer = convertedData[i].coverphoto
+          }
+        }
+
+        this.dataexchanger.singers.emit(singers);
+      }); 
+    } else if (type == 'playlists'){
+      this.httpserv.getSubscribableData(this.playlistsApiUrl).subscribe(playlists=>{
+        var tempdata = JSON.stringify(playlists)
+        var convertedData = JSON.parse(tempdata);
+        this.dataexchanger.playlists.emit(convertedData);
+      }); 
+    } else if (type == "shuffledSongs"){
+      // this.dataexchanger.shuffledArray.emit(this.shuffledArray);
+    } else if(type == "songs&singers"){
+      this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
+        var tempdata = JSON.stringify(songs)
+        var convertedData = JSON.parse(tempdata);
+        this.dataexchanger.songs.emit(convertedData);
+
+        var singers:PLsinger [] = [];
+
+        var singer = 'something'
+
+        for(var i = 0; i < convertedData.length; i++){
+          if(singer != convertedData[i].coverphoto){
+            singers.push(new PLsinger(i,convertedData[i].singer,convertedData[i].coverphoto))
+            singer = convertedData[i].coverphoto
+          }
+        }
+        this.dataexchanger.singers.emit(singers);
+      }); 
+
     }
 
-    this.songs = response;
-
-
-    this.webRequest.getDataFromApi(this.playlistsApiUrl).subscribe((response:any) => {
-      this.playlists = response;
-    });
-
-
-    var singer = 'something'
-
-    for(var i = 0; i < response.length; i++){
-      if(singer != response[i].coverphoto){
-        this.singers.push(new PLsinger(i,response[i].singer,response[i].coverphoto))
-        singer = response[i].coverphoto
-      }
-
-    }
-
-     });
   }
 
-
-
-  getSongs(){
-    this.webRequest.getDataFromApi(this.apiUrl).subscribe((response:any) => {
-      for(var i = 0; i < response.length; i++){
-        var randnumber = Math.round(Math.random() * response.length);
-        this.shuffledArray.push(response[randnumber])
-      }
-      this.dataexchanger.songs.emit(response);
-    })
-
-  }
-
-  getSingers(){
-    this.dataexchanger.singers.emit(this.singers);
-  }
-
-  getShuffledArray(){
-    this.dataexchanger.shuffledArray.emit(this.shuffledArray);
-  }
-
-  getPlaylists(){
-    this.dataexchanger.playlists.emit(this.playlists)
-  }
 
 
 }

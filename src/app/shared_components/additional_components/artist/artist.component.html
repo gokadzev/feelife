@@ -1,4 +1,4 @@
-<div class="singer" (click)="sendSinger(singer.id)" [routerLink]="['/artist-info']" >
+<div class="singer" [routerLink]="['/artist-info/'+singer.id]" >
     <img [src]="singer.coverphoto" alt="">
     <h3>{{ singer.singer }}</h3>
 </div>
