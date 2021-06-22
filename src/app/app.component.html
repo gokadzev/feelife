@@ -6,40 +6,43 @@
     <div class="tabs">
       <h1>MENU</h1>
       <div class="tab">
-        <a href="./"><img src="../assets/icons/home.svg" alt=""> <p>Home</p> </a>
+        <a [routerLink]="['/']"><img src="../assets/icons/home.svg" alt=""> <p>Home</p> </a>
       </div>
       <div class="tab">
-        <a href="./search"><img src="../assets/icons/search.svg" alt=""> <p>Search</p> </a>
+        <a [routerLink]="['search']"><img src="../assets/icons/search.svg" alt=""> <p>Search</p> </a>
       </div>
       <div class="tab">
-        <a href="./discover"><img src="../assets/icons/discover.svg" alt=""><p>Discover</p> </a>
+        <a [routerLink]="['discover']"><img src="../assets/icons/discover.svg" alt=""><p>Discover</p> </a>
       </div>
       <div class="tab">
-        <a href="./albums"><img src="../assets/icons/album.svg" alt=""> <p>Albums</p> </a>
+        <a [routerLink]="['albums']"><img src="../assets/icons/album.svg" alt=""> <p>Albums</p> </a>
       </div>
       <div class="tab">
-        <a href="./artists"><img src="../assets/icons/artist.svg" alt=""><p>Artists</p> </a>
+        <a [routerLink]="['artists']"><img src="../assets/icons/artist.svg" alt=""><p>Artists</p> </a>
       </div>
     </div>
     <div class="tabs">
       <h1>LIBRARY</h1>
       <div class="tab">
-        <a href="./recent"><img src="../assets/icons/recent.svg" alt=""><p>Recent</p> </a>
+        <a [routerLink]="['recent']"><img src="../assets/icons/recent.svg" alt=""><p>Recent</p> </a>
       </div>
       <div class="tab">
-        <a href="./favourites"><img src="../assets/icons/heart.svg" alt=""><p>Favourites</p> </a>
+        <a [routerLink]="['favourites']"><img src="../assets/icons/heart.svg" alt=""><p>Favourites</p> </a>
       </div>
     </div>
     <div class="tabs">
       <h1>PLAYLIST</h1>
+      <div class="playlists-list">
+        <app-playlist *ngFor="let item of playlists | slice:0:6" [playlist]="item"></app-playlist>
+      </div>
     </div>
     <div class="tabs">
       <h1>GENERAL</h1>
       <div class="tab">
-        <a href="./settings"><img src="../assets/icons/settings.svg" alt=""><p>Settings</p> </a>
+        <a [routerLink]="['settings']"><img src="../assets/icons/settings.svg" alt=""><p>Settings</p> </a>
       </div>
       <div class="tab">
-        <a href="./logout"><img src="../assets/icons/exit.svg" alt=""><p>Log Out</p> </a>
+        <a [routerLink]="['logout']"><img src="../assets/icons/exit.svg" alt=""><p>Log Out</p> </a>
       </div>
     </div>
   </aside>
@@ -69,7 +72,8 @@
     <div class="player">
       <h1>NOW PLAYING</h1>
       <div class="songInfo">
-        <img [src]="activeSong?.coverphoto" alt="">
+        <img *ngIf="!activeSong?.coverphoto" [src]="this.songs[0].coverphoto" alt="">
+        <img *ngIf="activeSong?.coverphoto" [src]="activeSong?.coverphoto" alt="">
         <h3 class="singer">{{ activeSong?.singer }}</h3>
         <p class="song">{{ activeSong?.songtitle }}</p>
       </div>

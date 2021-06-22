@@ -1,0 +1,15 @@
+.image {
+    width: 115px;
+    height: 115px;
+    border-radius: 22px;
+    object-fit: cover;
+}
+
+h3 {
+    font-size: 17px;
+    margin: unset;
+}
+
+
+
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PLsinger } from 'src/app/shared_models/singer.model';
 import { PLsong } from 'src/app/shared_models/song.model';
@@ -12,6 +12,8 @@ import { SingerdataexchangeService } from 'src/app/shared_services/singerdataexc
   styleUrls: ['./artist-page.component.css']
 })
 export class ArtistPageComponent implements OnInit {
+
+
 
   singerId:any;
   singerSongs:PLsong [] = [];
@@ -35,11 +37,9 @@ export class ArtistPageComponent implements OnInit {
 
     this.router.paramMap.subscribe(params => {
       this.singerId = params.get('id')
+      this.singerSongs = this.songs.filter(s => s.singer == this.singers[this.singerId].singer);
     })
   }
 
 
-  getSingerInfo(){
-    this.singerSongs = this.songs.filter(s => s.singer == this.singers[this.singerId].singer);
-  }
 }

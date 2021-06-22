@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
+import { Playlist } from './shared_models/playlist.model';
 import { PLsinger } from './shared_models/singer.model';
 import { PLsong } from './shared_models/song.model';
 import { ContentGlobalRefresherService } from './shared_services/content-global-refresher.service';
@@ -29,6 +30,7 @@ export class AppComponent {
 
   singers: PLsinger[] = [];
 
+  playlists: Playlist[] = [];
 
   favoritedSongs:PLsong[] = [];
 
@@ -51,9 +53,6 @@ export class AppComponent {
     
   }
   
-  apiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmp.json?';
-  
-
   ngOnInit() {
 
 
@@ -63,8 +62,11 @@ export class AppComponent {
     this.dataExchanger.singers.subscribe((singers:any) => {
       this.singers = singers;
     })
+    this.dataExchanger.playlists.subscribe((playlists:any) => {
+      this.playlists = playlists;
+    })
 
-    this.contentRefresher.getData('songs&singers');
+    this.contentRefresher.getData('all');
     
     this.statusExchanger.activeSongId.subscribe((item:number) => {
       if(item == undefined){
