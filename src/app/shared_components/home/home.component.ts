@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PLsong } from 'src/app/shared_models/song.model';
+import { ContentGlobalRefresherService } from 'src/app/shared_services/content-global-refresher.service';
 import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   songs:PLsong [];
 
-  constructor(private dataexchanger:DataexchangerService) { }
+  constructor(private dataexchanger:DataexchangerService, private refresher:ContentGlobalRefresherService) { }
 
   ngOnInit(): void {
 
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
       this.songs = songs;
     })
 
+    this.refresher.getData('songs');
   }
 
 }

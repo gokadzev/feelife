@@ -81,6 +81,7 @@
       <div class="col-12">
         <div class="container">
             <div class="row row1">
+              <div class="left-side">
               <div class="col-6 text-left">
                 {{ currentTime$ | async }}
               </div>
@@ -88,6 +89,7 @@
             [ngStyle]="{'width': (currentProgress$ | async) + '%'}"
             [attr.aria-valuenow]="(currentProgress$ | async) "
             aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
             <div class="col-6 text-right" *ngIf="player?.duration">
               {{ durationTime }}
             </div>

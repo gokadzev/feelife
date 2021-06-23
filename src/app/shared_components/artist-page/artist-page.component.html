@@ -1,4 +1,4 @@
-   <div class="singerInfo">
+   <div class="singerInfo" *ngIf="this.singerId">
    <h3>{{this.singers[this.singerId].singer}}</h3>
    <img class="artistPhoto" [src]="this.singers[this.singerId].coverphoto">
 

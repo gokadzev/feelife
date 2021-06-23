@@ -7,10 +7,17 @@
 .left {
     width: 100%;
     max-width: 190px;
+    position: fixed;
+}
+
+.right {
+    position: fixed;
+    left: 79%;
 }
 
 .center {
-    width: 45%;
+    width: 49%;
+    margin: auto;
 }
 
 .left .tabs .tab a img {
@@ -25,6 +32,11 @@
 .left .tabs .tab a {
     display: flex;
     align-items: center;
+    font-weight: 600;
+}
+
+.left .tabs .tab a:hover {
+    color: rgb(189, 123, 1);
 }
 
 a {
@@ -60,6 +72,18 @@ a {
     justify-content: space-between;
     margin: 15px auto;
     height: 20px;
+}
+
+.player .container .left-side {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.player .container .row .progress-bar {
+    height: 10px;
+    background-color: white;
+    margin-left: 5px;
 }
 
 .playerControllers {

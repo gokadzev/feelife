@@ -17,6 +17,8 @@ import { SongCubeComponent } from './shared_components/additional_components/son
 import { ArtistComponent } from './shared_components/additional_components/artist/artist.component';
 import { ArtistPageComponent } from './shared_components/artist-page/artist-page.component';
 import { PlaylistComponent } from './shared_components/additional_components/playlist/playlist.component';
+import { PlaylistsComponent } from './shared_components/playlists/playlists.component';
+import { PlaylistPageComponent } from './shared_components/playlists/playlist-page/playlist-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { PlaylistComponent } from './shared_components/additional_components/pla
     SongCubeComponent,
     ArtistComponent,
     ArtistPageComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    PlaylistsComponent,
+    PlaylistPageComponent
   ],
   imports: [
     BrowserModule,

@@ -16,9 +16,9 @@ export class ArtistPageComponent implements OnInit {
 
 
   singerId:any;
-  singerSongs:PLsong [] = [];
-  singers:PLsinger[] = [];
-  songs:PLsong[] = [];
+  singerSongs:PLsong [];
+  singers:PLsinger[];
+  songs:PLsong[];
 
   constructor(private router:ActivatedRoute,private dataexchanger:DataexchangerService, private refresher:ContentGlobalRefresherService) { }
 
@@ -34,10 +34,11 @@ export class ArtistPageComponent implements OnInit {
     this.refresher.getData('songs&singers');
 
 
-
     this.router.paramMap.subscribe(params => {
       this.singerId = params.get('id')
-      this.singerSongs = this.songs.filter(s => s.singer == this.singers[this.singerId].singer);
+      setTimeout( () => {
+        this.singerSongs = this.songs.filter(s => s.singer == this.singers[this.singerId].singer);
+      }, 800 );
     })
   }
 
