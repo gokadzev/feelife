@@ -116,24 +116,22 @@ a {
     font-size: 15px;
 }
 
-.notifications .notification {
+.profile a {
     display: flex;
     align-items: center;
+    font-weight: 600;
 }
 
-.notifications .notification img {
+.profile a:hover {
+    color: rgb(189, 123, 1);
+}
+
+.profile img {
     width: 45px;
     height: 45px;
+    margin-right: 10px;
 }
 
-.notifications .notification .notifInfo h3 {
-    margin: unset;
-    font-size: 17px;
-}
-
-.notifications .notification .notifInfo p {
-    margin: 3px auto;
-}
 
 .artists-list {
     display: flex;

@@ -51,14 +51,10 @@
   </aside>
   <aside class="right">
     <div class="feature tabs">
-      <h1>NOTIFICATIONS</h1>
-      <div class="notifications">
-        <div class="notification">
-          <img src="../assets/icons/added.svg" alt="">
-          <div class="notifInfo">
-            <h3>Songs Added</h3>
-            <p *ngIf="this.songs != undefined">{{ songs.length }}</p>
-          </div>
+      <h1>PROFILE</h1>
+      <div class="profile">
+      <div class="tab">
+        <a [routerLink]="['profile']"><img src="../assets/icons/user-circle.svg" alt=""><p>profile</p> </a>
         </div>
       </div>
     </div>

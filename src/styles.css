@@ -11,6 +11,10 @@ body.dark-mode {
     background-color: #36435f;
     color: #dfe6e9;
 }
+
+body.dark-mode a {
+    color: #dfe6e9;
+}
   
 body.light-mode {
     background-color: #F0F3F9;

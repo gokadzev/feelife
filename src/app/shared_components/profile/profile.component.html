@@ -1,0 +1,23 @@
+<section class="profile">
+    <div class="profile-info">
+        <div class="profile-image">
+            <img src="../../../assets/icons/user-circle.svg" alt="">
+        </div>
+        <div class="profile-details">
+            <div class="detail">
+                <h3>Name: XXXXXXXXXXXXX</h3>
+            </div>
+            <div class="detail">
+                <h3>Created: XX.XX.XXXX</h3>
+            </div>
+        </div>
+    </div>
+    <div class="added-songs">
+        <div class="title"> User Added Songs</div>
+        <app-song *ngFor='let item of songs | slice:navStart:navEnd' [song]="item"></app-song>
+    </div>
+    <div class="navigator">
+        <button *ngIf="this.navStart != 0" (click)="goBack()">Back</button>
+        <button (click)="goNext()">Next</button>
+    </div>
+</section>

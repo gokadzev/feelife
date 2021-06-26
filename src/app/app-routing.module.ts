@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArtistPageComponent } from './shared_components/artist-page/artist-page.component';
 import { ArtistsComponent } from './shared_components/artists/artists.component';
 import { HomeComponent } from './shared_components/home/home.component';
+import { ProfileComponent } from './shared_components/profile/profile.component';
 import { SearchComponent } from './shared_components/search/search.component';
 import { SettingsComponent } from './shared_components/settings/settings.component';
 
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path:'settings',
     component:SettingsComponent
+  },
+  {
+    path:'profile',
+    component:ProfileComponent
   }
 ];
 

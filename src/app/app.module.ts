@@ -19,6 +19,7 @@ import { ArtistPageComponent } from './shared_components/artist-page/artist-page
 import { PlaylistComponent } from './shared_components/additional_components/playlist/playlist.component';
 import { PlaylistsComponent } from './shared_components/playlists/playlists.component';
 import { PlaylistPageComponent } from './shared_components/playlists/playlist-page/playlist-page.component';
+import { ProfileComponent } from './shared_components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PlaylistPageComponent } from './shared_components/playlists/playlist-pa
     ArtistPageComponent,
     PlaylistComponent,
     PlaylistsComponent,
-    PlaylistPageComponent
+    PlaylistPageComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

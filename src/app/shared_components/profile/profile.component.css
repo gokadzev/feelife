@@ -1,0 +1,29 @@
+.profile-info {
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 160px;
+}
+
+.added-songs .title {
+    font-size: 25px;
+    margin: 25px auto;
+}
+
+.navigator {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 192px;
+}
+
+.navigator button {
+    background: none;
+    border: 1px solid black;
+    width: 90px;
+    height: 40px;
+}
