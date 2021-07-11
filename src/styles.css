@@ -8,12 +8,12 @@ h3 {
 }
 
 body.dark-mode {
-    background-color: #36435f;
-    color: #dfe6e9;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 body.dark-mode a {
-    color: #dfe6e9;
+    color: #ffffff;
 }
   
 body.light-mode {

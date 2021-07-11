@@ -20,6 +20,20 @@
     margin: auto;
 }
 
+
+.right h1 {
+    font-size: 17px;
+    margin: 5px auto;
+}
+
+.left a p {
+    margin-left: 10px;
+}
+
+.left .tabs h1 {
+    margin: 12px auto;
+}
+
 .left .tabs .tab a img {
     width: 25px;
     height: 25px;
@@ -52,7 +66,7 @@ a {
     width: 200px;
     height: 335px;
     color: white;
-    margin-top: 10%;
+    margin-top: 2%;
 }
 
 .player .songInfo .singer,.song {
@@ -138,12 +152,4 @@ a {
     flex-wrap: wrap;
     width: 100%;
     max-width: 300px;
-}
-
-.right h1 {
-    font-size: 17px;
-}
-
-.left a p {
-    margin-left: 10px;
 }

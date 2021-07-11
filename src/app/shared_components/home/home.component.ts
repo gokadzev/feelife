@@ -11,6 +11,8 @@ import { DataexchangerService } from 'src/app/shared_services/dataexchanger.serv
 export class HomeComponent implements OnInit {
 
   songs:PLsong [];
+  GlobalEnd:number = 4;
+  SuggestionsEnd:number = 4;
 
   constructor(private dataexchanger:DataexchangerService, private refresher:ContentGlobalRefresherService) { }
 
@@ -21,6 +23,14 @@ export class HomeComponent implements OnInit {
     })
 
     this.refresher.getData('songs');
+  }
+
+  showTopGlobalMore(){
+    this.GlobalEnd = this.songs.length;
+  }
+
+  showSuggestionsMore(){
+    this.SuggestionsEnd = this.songs.length;
   }
 
 }

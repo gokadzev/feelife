@@ -1,3 +1,15 @@
+.songCube {
+    margin: auto;
+    text-align: center;
+    max-width: 119px;
+    height: 125px;
+    margin-top: 20px;
+}
+
+.songInfo {
+    text-align: center;
+}
+
 .image {
     width: 115px;
     height: 115px;
@@ -6,14 +18,15 @@
 }
 
 h3 {
-    font-size: 17px;
+    max-width: 119px;
+    font-size: 15px;
     margin: unset;
 }
 
 p {
     font-size: 14px;
     margin: unset;
-    margin-top: 6px;
+    margin-top: 3px;
 }
 
 .play {
@@ -21,8 +34,8 @@ p {
     border: none;
     background: white;
     border-radius: 6px;
-    right: 40px;
-    bottom: 17px;
+    left: 35px;
+    bottom: 45px;
     width: 30px;
     height: 30px;
     align-items: center;

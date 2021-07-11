@@ -1,14 +1,22 @@
+<div class="title">
 <h3>Global Top 50</h3>
+<button (click)="showTopGlobalMore()"><img src="../../../assets/icons/more.svg" alt=""></button>
+</div>
 <div class="global50">
-    <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
+    <app-song-cube *ngFor="let item of songs | slice:0:GlobalEnd" [song]="item"></app-song-cube>
 </div>
 
+<div class="title">
 <h3>Songs You Might Like</h3>
+<button (click)="showSuggestionsMore()"><img src="../../../assets/icons/more.svg" alt=""></button>
+</div>
+
 <div class="suggestions">
-    <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
+    <app-song-cube *ngFor="let item of songs | slice:0:SuggestionsEnd" [song]="item"></app-song-cube>
 </div>
 
 <h3>Recently Played</h3>
+
 <div class="recently">
     <app-song *ngFor="let item of songs | slice:0:10" [song]="item"></app-song>
 </div>
