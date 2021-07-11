@@ -16,6 +16,7 @@ export class ArtistPageComponent implements OnInit {
 
 
   singerId:any;
+  singer:PLsinger[];
   singerSongs:PLsong [];
   singers:PLsinger[];
   songs:PLsong[];
@@ -37,8 +38,9 @@ export class ArtistPageComponent implements OnInit {
     this.router.paramMap.subscribe(params => {
       this.singerId = params.get('id')
       setTimeout( () => {
-        this.singerSongs = this.songs.filter(s => s.singer == this.singers[this.singerId].singer);
-      }, 800 );
+        this.singer = this.singers.filter(s => s.id == this.singerId);
+        this.singerSongs = this.songs.filter(s => s.singer == this.singer[0].singer);
+      }, 500 );
     })
   }
 
