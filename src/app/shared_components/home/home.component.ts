@@ -12,7 +12,9 @@ export class HomeComponent implements OnInit {
 
   songs:PLsong [];
   GlobalEnd:number = 4;
+  GlobalEndExpanded = false;
   SuggestionsEnd:number = 4;
+  SuggestionsEndExpanded = false;
 
   constructor(private dataexchanger:DataexchangerService, private refresher:ContentGlobalRefresherService) { }
 
@@ -26,11 +28,23 @@ export class HomeComponent implements OnInit {
   }
 
   showTopGlobalMore(){
+    if(this.GlobalEndExpanded == false){
     this.GlobalEnd = this.songs.length;
+    this.GlobalEndExpanded = true
+    } else {
+      this.GlobalEndExpanded = false
+      this.GlobalEnd = 4
+    }
   }
 
   showSuggestionsMore(){
-    this.SuggestionsEnd = this.songs.length;
+    if(this.SuggestionsEndExpanded == false){
+      this.SuggestionsEnd = this.songs.length;
+      this.SuggestionsEndExpanded = true;
+    } else {
+      this.SuggestionsEndExpanded = false
+      this.SuggestionsEnd = 4
+    }
   }
 
 }
