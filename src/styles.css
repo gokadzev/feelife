@@ -12,6 +12,10 @@ body.dark-mode {
     color: #ffffff;
 }
 
+body.dark-mode .svg {
+    filter: invert(1);
+}
+
 body.dark-mode a {
     color: #ffffff;
 }

@@ -6,28 +6,28 @@
     <div class="tabs">
       <h1>MENU</h1>
       <div class="tab">
-        <a [routerLink]="['/']"><img src="../assets/icons/home.svg" alt=""> <p>Home</p> </a>
+        <a [routerLink]="['/']"><img class="svg" src="../assets/icons/home.svg" alt=""> <p>Home</p> </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['search']"><img src="../assets/icons/search.svg" alt=""> <p>Search</p> </a>
+        <a [routerLink]="['search']"><img class="svg"  src="../assets/icons/search.svg" alt=""> <p>Search</p> </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['discover']"><img src="../assets/icons/discover.svg" alt=""><p>Discover</p> </a>
+        <a [routerLink]="['discover']"><img class="svg"  src="../assets/icons/discover.svg" alt=""><p>Discover</p> </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['albums']"><img src="../assets/icons/album.svg" alt=""> <p>Albums</p> </a>
+        <a [routerLink]="['albums']"><img class="svg"  src="../assets/icons/album.svg" alt=""> <p>Albums</p> </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['artists']"><img src="../assets/icons/artist.svg" alt=""><p>Artists</p> </a>
+        <a [routerLink]="['artists']"><img class="svg"  src="../assets/icons/artist.svg" alt=""><p>Artists</p> </a>
       </div>
     </div>
     <div class="tabs">
       <h1>LIBRARY</h1>
       <div class="tab">
-        <a [routerLink]="['recent']"><img src="../assets/icons/recent.svg" alt=""><p>Recent</p> </a>
+        <a [routerLink]="['recent']"><img class="svg" src="../assets/icons/recent.svg" alt=""><p>Recent</p> </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['favourites']"><img src="../assets/icons/heart.svg" alt=""><p>Favourites</p> </a>
+        <a [routerLink]="['favourites']"><img class="svg" src="../assets/icons/heart.svg" alt=""><p>Favourites</p> </a>
       </div>
     </div>
     <div class="tabs">
@@ -39,10 +39,10 @@
     <div class="tabs">
       <h1>GENERAL</h1>
       <div class="tab">
-        <a [routerLink]="['settings']"><img src="../assets/icons/settings.svg" alt=""><p>Settings</p> </a>
+        <a [routerLink]="['settings']"><img class="svg" src="../assets/icons/settings.svg" alt=""><p>Settings</p> </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['logout']"><img src="../assets/icons/exit.svg" alt=""><p>Log Out</p> </a>
+        <a [routerLink]="['logout']"><img class="svg" src="../assets/icons/exit.svg" alt=""><p>Log Out</p> </a>
       </div>
     </div>
   </aside>
@@ -54,7 +54,7 @@
       <h1>PROFILE</h1>
       <div class="profile">
       <div class="tab">
-        <a [routerLink]="['profile']"><img src="../assets/icons/user-circle.svg" alt=""><p>profile</p> </a>
+        <a [routerLink]="['profile']"><img class="svg" src="../assets/icons/user-circle.svg" alt=""><p>profile</p> </a>
         </div>
       </div>
     </div>
@@ -93,14 +93,14 @@
           </div>
   
           <table class="playerControllers">
-            <button class="addFunc" (click)="shuffleChange()"><img src="../assets/icons/shuffle.svg" alt=""></button>
-            <td><button type="button" class="btn btn-outline-dark" (click)="playPreviousSong()"><img src="../assets/icons/skip-back.svg" alt=""></button></td>
+            <button class="addFunc" (click)="shuffleChange()"><img class="svg" src="../assets/icons/shuffle.svg" alt=""></button>
+            <td><button type="button" class="btn btn-outline-dark" (click)="playPreviousSong()"><img class="svg" src="../assets/icons/skip-back.svg" alt=""></button></td>
     
-            <td [style.width]="isPlaying == true ? '72px' : '0px'" [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark ppcontrol" *ngIf="isPlaying" (click)="player.pause()"><img src="../assets/icons/pauze.svg" alt=""></button></td>
-            <td [style.width]="isPlaying == false ? '72px' : '0px'" [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark ppcontrol" *ngIf="!isPlaying" (click)="playSong(activeSong)"><img src="../assets/icons/play.svg" alt=""></button></td>
+            <td [style.width]="isPlaying == true ? '72px' : '0px'" [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark ppcontrol" *ngIf="isPlaying" (click)="player.pause()"><img class="svg" src="../assets/icons/pauze.svg" alt=""></button></td>
+            <td [style.width]="isPlaying == false ? '72px' : '0px'" [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button" class="btn btn-outline-dark ppcontrol" *ngIf="!isPlaying" (click)="playSong(activeSong)"><img class="svg" src="../assets/icons/play.svg" alt=""></button></td>
       
-            <td><button type="button" class="btn btn-outline-dark" (click)="playNextSong()"><img src="../assets/icons/skip-forward.svg" alt=""></button></td>
-            <button class="addFunc" (click)="repeatChange()"><img src="../assets/icons/repeat.svg" alt=""></button>
+            <td><button type="button" class="btn btn-outline-dark" (click)="playNextSong()"><img class="svg" src="../assets/icons/skip-forward.svg" alt=""></button></td>
+            <button class="addFunc" (click)="repeatChange()"><img class="svg" src="../assets/icons/repeat.svg" alt=""></button>
           </table>
       </div>
 
