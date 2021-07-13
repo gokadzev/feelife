@@ -17,7 +17,8 @@
         <app-song *ngFor='let item of songs | slice:navStart:navEnd' [song]="item"></app-song>
     </div>
     <div class="navigator">
-        <button *ngIf="this.navStart != 0" (click)="goBack()">Back</button>
-        <button (click)="goNext()">Next</button>
+        <button *ngIf="this.navStart == 0"></button>
+        <button *ngIf="this.navStart != 0" (click)="goBack()"><img src="../../../assets/icons/arrow-left.svg" alt="" class="svg"></button>
+        <button (click)="goNext()"><img src="../../../assets/icons/arrow-right.svg" alt="" class="svg"></button>
     </div>
 </section>
