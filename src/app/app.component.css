@@ -2,6 +2,42 @@
     transition: 0.1s;
 }
 
+.header {
+    margin-bottom: 10px;
+}
+
+.navController {
+    display: none;
+}
+
+.header .openedNav {
+    display: inline-block;
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    align-items: center;
+}
+
+.header .openedNav .tabs {
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+}
+
+.menuButton {
+    border: none;
+    background: none;
+}
+
+.menuButton img {
+    width: 25px;
+    height: 25px;
+}
+
+.mobileNavbar {
+    display: none;
+}
+
 .components {
     display: flex;
     justify-content: space-between;
@@ -30,30 +66,30 @@
     margin: 5px auto;
 }
 
-.left a p {
+.left a p, .mobileNavbar a p {
     margin-left: 10px;
 }
 
-.left .tabs h1 {
+.left .tabs h1, .mobileNavbar .tabs h1 {
     margin: 12px auto;
 }
 
-.left .tabs .tab a img {
+.left .tabs .tab a img, .mobileNavbar .tabs .tab a img {
     width: 25px;
     height: 25px;
 }
 
-.left .tabs .tab {
+.left .tabs .tab, .mobileNavbar .tabs .tab {
     max-height: 40px;
 }
 
-.left .tabs .tab a {
+.left .tabs .tab a, .mobileNavbar .tabs .tab a {
     display: flex;
     align-items: center;
     font-weight: 600;
 }
 
-.left .tabs .tab a:hover, .profile a:hover {
+.left .tabs .tab a:hover, .profile a:hover{
     color: #4BA3A7;
 }
 
@@ -153,4 +189,19 @@ a {
     flex-wrap: wrap;
     width: 100%;
     max-width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+    .left,.right {
+        display: none;
+    }
+
+    .center {
+        width: 100%;
+    }
+
+    .navController {
+        display: flex;
+        justify-content: space-between;
+    }
 }

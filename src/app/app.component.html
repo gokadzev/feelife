@@ -1,3 +1,43 @@
+<section class="header">
+  <div class="navController">
+  <button class="menuButton"></button>
+  <button class="menuButton" (click)="changeMobileNavStatus()">
+    <img *ngIf="this.mobileNavStatus == ''" class="svg" src="../assets/icons/menu.svg" alt="">
+    <img *ngIf="this.mobileNavStatus == 'openedNav'" src="../assets/icons/x.svg" alt="" class="svg">
+  </button>
+  </div>
+  <div class="mobileNavbar {{mobileNavStatus}}">
+    <div class="tabs">
+      <div class="tab">
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['/']"><img class="svg" src="../assets/icons/home.svg" alt=""> <p>Home</p> </a>
+      </div>
+      <div class="tab">
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['search']"><img class="svg"  src="../assets/icons/search.svg" alt=""> <p>Search</p> </a>
+      </div>
+      <div class="tab">
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['discover']"><img class="svg"  src="../assets/icons/discover.svg" alt=""><p>Discover</p> </a>
+      </div>
+      <div class="tab">
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['albums']"><img class="svg"  src="../assets/icons/album.svg" alt=""> <p>Albums</p> </a>
+      </div>
+      <div class="tab">
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['artists']"><img class="svg"  src="../assets/icons/artist.svg" alt=""><p>Artists</p> </a>
+      </div>
+      <div class="tab">
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['recent']"><img class="svg" src="../assets/icons/recent.svg" alt=""><p>Recent</p> </a>
+      </div>
+      <div class="tab">
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['favourites']"><img class="svg" src="../assets/icons/heart.svg" alt=""><p>Favourites</p> </a>
+      </div>
+      <div class="tab">
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['settings']"><img class="svg" src="../assets/icons/settings.svg" alt=""><p>Settings</p> </a>
+      </div>
+      <div class="tab">
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['logout']"><img class="svg" src="../assets/icons/exit.svg" alt=""><p>Log Out</p> </a>
+      </div>
+    </div>
+  </div>
+</section>
 <div class="components">
   <aside class="left">
     <div class="logo">

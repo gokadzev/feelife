@@ -17,7 +17,7 @@ import { StatusExchangerService } from './shared_services/status-exchanger.servi
 export class AppComponent {
   title = 'Feelify';
 
-
+  mobileNavStatus:string = '';
 
   // player 
 
@@ -229,6 +229,14 @@ export class AppComponent {
     } else {
       this.shuffleStatus = true
       this.statusExchanger.shuffleStatus.emit(false);
+    }
+  }
+
+  changeMobileNavStatus(){
+    if(this.mobileNavStatus == ''){
+      this.mobileNavStatus = 'openedNav'
+    } else {
+      this.mobileNavStatus = ''
     }
   }
 
