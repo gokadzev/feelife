@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AlbumsComponent } from './shared_components/albums/albums.component';
 import { ArtistPageComponent } from './shared_components/artist-page/artist-page.component';
 import { ArtistsComponent } from './shared_components/artists/artists.component';
 import { HomeComponent } from './shared_components/home/home.component';
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path:'search',
     component:SearchComponent
+  },
+  {
+    path:'albums',
+    component:AlbumsComponent
   },
   {
     path:'artists',

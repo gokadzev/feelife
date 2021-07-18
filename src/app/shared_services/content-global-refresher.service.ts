@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Album } from '../shared_models/album.model';
 import { Playlist } from '../shared_models/playlist.model';
 import { PLsinger } from '../shared_models/singer.model';
 import { PLsong } from '../shared_models/song.model';
@@ -18,7 +19,7 @@ export class ContentGlobalRefresherService {
   
 
   randnum = Math.round(Math.random() * 900000)
-  apiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmp.json?' + this.randnum;
+  apiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmpwa.json?' + this.randnum;
   playlistsApiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmplaylists.json?' + this.randnum;
 
 
@@ -75,6 +76,23 @@ export class ContentGlobalRefresherService {
         }
         this.dataexchanger.singers.emit(singers);
       }); 
+    } else if(type="albums"){
+
+      this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
+        var tempdata = JSON.stringify(songs)
+        var convertedData = JSON.parse(tempdata);
+        var convertedData1:Album [] = [];
+
+        for(var i =0; i < convertedData.length; i++){
+          let filteredArray = convertedData1.filter(value => value.album === convertedData[i].album)
+          if(filteredArray.length == 0){
+            convertedData1.push(new Album(convertedData[i].album,convertedData[i].albumCover))
+          }
+        }
+        
+        this.dataexchanger.albums.emit(convertedData1);
+      }); 
+
     } else if(type == "all"){
         this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
           var tempdata = JSON.stringify(songs)

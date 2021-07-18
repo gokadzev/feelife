@@ -20,6 +20,7 @@ import { PlaylistComponent } from './shared_components/additional_components/pla
 import { PlaylistsComponent } from './shared_components/playlists/playlists.component';
 import { PlaylistPageComponent } from './shared_components/playlists/playlist-page/playlist-page.component';
 import { ProfileComponent } from './shared_components/profile/profile.component';
+import { AlbumCubeComponent } from './shared_components/additional_components/album-cube/album-cube.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProfileComponent } from './shared_components/profile/profile.component'
     PlaylistComponent,
     PlaylistsComponent,
     PlaylistPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    AlbumCubeComponent
   ],
   imports: [
     BrowserModule,
