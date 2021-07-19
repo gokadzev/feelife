@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Album } from '../shared_models/album.model';
-import { Playlist } from '../shared_models/playlist.model';
 import { PLsinger } from '../shared_models/singer.model';
 import { PLsong } from '../shared_models/song.model';
 import { DataexchangerService } from './dataexchanger.service';
@@ -57,7 +56,23 @@ export class ContentGlobalRefresherService {
         this.dataexchanger.playlists.emit(convertedData);
       }); 
     } else if (type == "shuffledSongs"){
-      // this.dataexchanger.shuffledArray.emit(this.shuffledArray);
+      var shuffledArray:PLsong[] = [];
+      var songsList:PLsong[];
+      this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
+        var tempdata = JSON.stringify(songs)
+        songsList = JSON.parse(tempdata);
+        for(var i = 0; i <15; i++){
+          var randNum:number = Math.round(Math.random() * songsList.length)
+          if(songsList[randNum].id != undefined){
+            var tempArray = shuffledArray.filter(s => s.id == songsList[randNum].id);
+          }
+          if(tempArray.length == 0){
+            shuffledArray.push(songsList[randNum])
+            tempArray = null;
+          }
+        }
+      }); 
+      this.dataexchanger.shuffledArray.emit(shuffledArray);
     } else if(type == "songs&singers"){
       this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
         var tempdata = JSON.stringify(songs)

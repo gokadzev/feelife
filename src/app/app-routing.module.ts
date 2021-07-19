@@ -4,6 +4,7 @@ import { AlbumPageComponent } from './shared_components/album-page/album-page.co
 import { AlbumsComponent } from './shared_components/albums/albums.component';
 import { ArtistPageComponent } from './shared_components/artist-page/artist-page.component';
 import { ArtistsComponent } from './shared_components/artists/artists.component';
+import { DiscoverComponent } from './shared_components/discover/discover.component';
 import { HomeComponent } from './shared_components/home/home.component';
 import { PlaylistPageComponent } from './shared_components/playlists/playlist-page/playlist-page.component';
 import { PlaylistsComponent } from './shared_components/playlists/playlists.component';
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path:'search',
     component:SearchComponent
+  },
+  {
+    path:'discover',
+    component:DiscoverComponent
   },
   {
     path:'playlists',
