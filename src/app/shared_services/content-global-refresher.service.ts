@@ -94,12 +94,12 @@ export class ContentGlobalRefresherService {
         songsList = JSON.parse(tempdata);
         for(var i = 0; i <15; i++){
           var randNum:number = Math.round(Math.random() * songsList.length)
-          if(songsList[randNum].id != undefined){
+          if(songsList[randNum] != undefined){
             var tempArray = shuffledArray.filter(s => s.id == songsList[randNum].id);
-          }
-          if(tempArray.length == 0){
-            shuffledArray.push(songsList[randNum])
-            tempArray = null;
+            if(tempArray.length == 0){
+              shuffledArray.push(songsList[randNum])
+              tempArray = null;
+            }
           }
         }
       }); 
@@ -109,12 +109,12 @@ export class ContentGlobalRefresherService {
 
       for(var i = 0; i <15; i++){
         var randNum:number = Math.round(Math.random() * this.songs.length)
-        if(this.songs[randNum].id != undefined){
+        if(this.songs[randNum] != undefined){
           var tempArray = shuffledArray.filter(s => s.id == this.songs[randNum].id);
-        }
-        if(tempArray.length == 0){
-          shuffledArray.push(this.songs[randNum])
-          tempArray = null;
+          if(tempArray.length == 0){
+            shuffledArray.push(this.songs[randNum])
+            tempArray = null;
+          }
         }
       }
 
