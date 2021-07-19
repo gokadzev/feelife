@@ -92,32 +92,6 @@ export class ContentGlobalRefresherService {
         
         this.dataexchanger.albums.emit(convertedData1);
       }); 
-
-    } else if(type == "all"){
-        this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
-          var tempdata = JSON.stringify(songs)
-          var convertedData = JSON.parse(tempdata);
-          this.dataexchanger.songs.emit(convertedData);
-  
-          var singers:PLsinger [] = [];
-  
-          var singer = 'something'
-  
-          for(var i = 0; i < convertedData.length; i++){
-            if(singer != convertedData[i].coverphoto){
-              singers.push(new PLsinger(i,convertedData[i].singer,convertedData[i].coverphoto))
-              singer = convertedData[i].coverphoto
-            }
-          }
-          this.dataexchanger.singers.emit(singers);
-        }); 
-
-        this.httpserv.getSubscribableData(this.playlistsApiUrl).subscribe(playlists=>{
-          var tempdata = JSON.stringify(playlists)
-          var convertedData = JSON.parse(tempdata);
-          this.dataexchanger.playlists.emit(convertedData);
-        }); 
-
     }
 
   }

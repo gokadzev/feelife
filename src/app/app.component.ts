@@ -6,7 +6,6 @@ import { PLsinger } from './shared_models/singer.model';
 import { PLsong } from './shared_models/song.model';
 import { ContentGlobalRefresherService } from './shared_services/content-global-refresher.service';
 import { DataexchangerService } from './shared_services/dataexchanger.service';
-import { HttpserviceService } from './shared_services/httpservice.service';
 import { StatusExchangerService } from './shared_services/status-exchanger.service';
 
 @Component({
@@ -19,19 +18,14 @@ export class AppComponent {
 
   mobileNavStatus:string = '';
 
-  // player 
-
   currentProgress$ = new BehaviorSubject(0);
   currentTime$ = new Subject();
 
   @ViewChild('player', {static: true}) player!: ElementRef;
 
   songs:any;
-
   singers: PLsinger[] = [];
-
   playlists: Playlist[] = [];
-
   favoritedSongs:PLsong[] = [];
 
   audio = new Audio();
@@ -43,19 +37,13 @@ export class AppComponent {
 
   paramsSubscription: Subscription = null;
 
-
   activedsong = false;
-
-
-
 
   constructor(private statusExchanger:StatusExchangerService, private dataExchanger:DataexchangerService, private contentRefresher:ContentGlobalRefresherService, public router: Router){
     
   }
   
   ngOnInit() {
-
-
     this.dataExchanger.songs.subscribe((songs:any) => {
       this.songs = songs;
     })
@@ -66,7 +54,8 @@ export class AppComponent {
       this.playlists = playlists;
     })
 
-    this.contentRefresher.getData('all');
+    this.contentRefresher.getData('songs&singers');
+    this.contentRefresher.getData('playlists');
     
     this.statusExchanger.activeSongId.subscribe((item:number) => {
       if(item == undefined){
@@ -87,8 +76,6 @@ export class AppComponent {
     })
 
   }
-
-
 
   playSong(song:any): void {
     this.durationTime = undefined;
@@ -114,30 +101,24 @@ export class AppComponent {
     this.durationTime = undefined;
     this.audio.pause();
 
-    // this.checkFavoriteSongs();
     this.player.nativeElement.src = song.path;
     this.activeSong = song;
   }
 
   onTimeUpdate() {
-
-    // Set song duration time
     if (!this.durationTime) {
       this.setSongDuration();
     }
 
-    // Emit converted audio currenttime in user friendly ex. 01:15
     const currentMinutes = this.generateMinutes(this.player.nativeElement.currentTime);
     const currentSeconds = this.generateSeconds(this.player.nativeElement.currentTime);
     this.currentTime$.next(this.generateTimeToDisplay(currentMinutes, currentSeconds));
 
 
-    // Emit amount of song played percents
     const percents = this.generatePercentage(this.player.nativeElement.currentTime, this.player.nativeElement.duration);
     if (!isNaN(percents)) {
       this.currentProgress$.next(percents);
     }
-
 
     if(this.player.nativeElement.currentTime > this.player.nativeElement.duration - 1){
       if(this.repeatStatus == true){
@@ -149,7 +130,7 @@ export class AppComponent {
 
   }
 
-  // Play song that comes after active song
+
   playNextSong(): void {
     const songId:number = parseInt(this.activeSong.id);
     if (songId === -1) {
@@ -159,7 +140,6 @@ export class AppComponent {
     }
   }
 
-  // Play song that comes before active song
   playPreviousSong(): void {
     const songId:number = parseInt(this.activeSong.id);
     if (songId === -1) {
@@ -169,7 +149,7 @@ export class AppComponent {
     }
   }
 
-  // Calculate song duration and set it to user friendly format, ex. 01:15
+
   setSongDuration(): void {
     const durationInMinutes = this.generateMinutes(this.player.nativeElement.duration);
     const durationInSeconds = this.generateSeconds(this.player.nativeElement.duration);
@@ -179,12 +159,12 @@ export class AppComponent {
     }
   }
 
-  // Generate minutes from audio time
+
   generateMinutes(currentTime: number): number {
     return Math.floor(currentTime / 60);
   }
 
-  // Generate seconds from audio time
+
   generateSeconds(currentTime: number): number | string {
     const secsFormula = Math.floor(currentTime % 60);
     return secsFormula < 10 ? '0' + String(secsFormula) : secsFormula;
@@ -194,7 +174,7 @@ export class AppComponent {
     return `${currentMinutes}:${currentSeconds}`;
   }
 
-  // Generate percentage of current song
+
   generatePercentage(currentTime: number, duration: number): number {
     return Math.round((currentTime / duration) * 100);
   }

@@ -108,7 +108,7 @@
     <div class="player">
       <h1>NOW PLAYING</h1>
       <div class="songInfo">
-        <img *ngIf="!activeSong?.coverphoto" [src]="this.songs[0].coverphoto" alt="">
+        <img *ngIf="!activeSong?.coverphoto && this.songs" [src]="this.songs[0].coverphoto" alt="">
         <img *ngIf="activeSong?.coverphoto" [src]="activeSong?.coverphoto" alt="">
         <h3 class="singer">{{ activeSong?.singer }}</h3>
         <p class="song">{{ activeSong?.songtitle }}</p>

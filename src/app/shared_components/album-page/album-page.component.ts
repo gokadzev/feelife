@@ -4,7 +4,6 @@ import { Album } from 'src/app/shared_models/album.model';
 import { PLsong } from 'src/app/shared_models/song.model';
 import { ContentGlobalRefresherService } from 'src/app/shared_services/content-global-refresher.service';
 import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
-import { StatusExchangerService } from 'src/app/shared_services/status-exchanger.service';
 
 @Component({
   selector: 'app-album-page',

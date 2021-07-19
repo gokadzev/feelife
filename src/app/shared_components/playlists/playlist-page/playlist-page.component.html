@@ -1,1 +1,9 @@
-<p>playlist-page works!</p>
+<div class="playlistInfo">
+    <h3>{{this.playlistName}}</h3>
+    <img class="playlistCover" [src]="this.playlistCover">
+ 
+    <div class="playlistSongs">
+     <app-song *ngFor="let item of playlistSongs" [song]="item"></app-song>
+    </div>
+ 
+ </div>
