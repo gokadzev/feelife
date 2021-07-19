@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AlbumPageComponent } from './shared_components/album-page/album-page.component';
 import { AlbumsComponent } from './shared_components/albums/albums.component';
 import { ArtistPageComponent } from './shared_components/artist-page/artist-page.component';
 import { ArtistsComponent } from './shared_components/artists/artists.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path:'albums',
     component:AlbumsComponent
+  },
+  {
+    path:'album/:album',
+    component:AlbumPageComponent
   },
   {
     path:'artists',
