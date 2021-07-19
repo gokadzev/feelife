@@ -1,3 +1,14 @@
+
+.customiseTab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sectionTitle {
+    margin: 2% auto;
+}
+
 .nightButton {
     border: none;
     width: 40px;
