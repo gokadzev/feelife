@@ -1,10 +1,17 @@
 <section class="settings">
     <h1 class="sectionTitle">CUSTOMISE</h1>
+    <h4>NOTE: button statuses and effects will be active after refresh</h4>
      <section class="customise">
         <div class="customiseTab nightMode">
             <h3>NIGHT MODE</h3>
-            <button class="nightButton" (click)="changeNightMode()">
+            <button [ngClass]="this.darkModeStatus == 'true' ? 'turnButton turnedOn' : 'turnButton'" (click)="changeNightMode()">
                 <img src="../../../assets/icons/lightoff.svg" alt="">
+            </button>
+        </div>
+        <div class="customiseTab animations">
+            <h3>ANIMATIONS</h3>
+            <button class="turnButton" [ngClass]="this.animationStatus == 'true' ? 'turnedOn' : ''" (click)="changeAnimationStatus()">
+                <img src="../../../assets/icons/loader.svg" alt="">
             </button>
         </div>
     </section>

@@ -113,6 +113,10 @@ a {
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
+.animatedPlayer {
+    animation: gradientChange 10s infinite;
+}
+
 .player .songInfo .singer,.song {
     margin: 3px auto;
 }
@@ -207,5 +211,28 @@ a {
     .navController {
         display: flex;
         justify-content: space-between;
+    }
+}
+
+
+@keyframes gradientChange {
+    0% {
+        background-color: rgb(75,163,167);
+    }
+    
+    25%{
+        background-color: rgb(52,114,116);
+    }
+
+    50%{
+        background-color: rgb(46,102,104);
+    }
+
+    75%{
+        background-color: rgb(22,48,50);
+    }
+
+    100%{
+        background-color: rgb(75,163,167);
     }
 }

@@ -105,7 +105,7 @@
       </div>
     </div>
 
-    <div class="player">
+    <div class="player" [ngClass]="animationStatus == 'true' ? 'animatedPlayer' : ''">
       <h1>NOW PLAYING</h1>
       <div class="songInfo">
         <img *ngIf="!activeSong?.coverphoto && this.songs" [src]="this.songs[0].coverphoto" alt="">

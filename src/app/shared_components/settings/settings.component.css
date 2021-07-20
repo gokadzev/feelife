@@ -9,8 +9,16 @@
     margin: 2% auto;
 }
 
-.nightButton {
+.turnButton {
     border: none;
     width: 40px;
     height: 40px;
+}
+
+.turnedOn {
+    background-color: #4BA3A7;
+}
+
+.turnedOn img {
+    filter: invert(1);
 }
