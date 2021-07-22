@@ -123,8 +123,8 @@ p {
   height: 115px;
   width: 115px;
   background-size: cover;
+  background-repeat: no-repeat;
   transform-origin: center;
-  background-repeat: round;
 }
 
 #clip1 {
