@@ -17,7 +17,7 @@ export class AppComponent {
   title = 'Feelify';
 
   mobileNavStatus:string = '';
-  animationStatus:any = localStorage.getItem('animations')
+  animationStatus:boolean = JSON.parse(localStorage.getItem('animations'))
   darkModeStatus:any = localStorage.getItem('dark-mode');
 
   currentProgress$ = new BehaviorSubject(0);
@@ -78,9 +78,13 @@ export class AppComponent {
     })
 
     if(this.animationStatus == undefined){
-      this.animationStatus = 'false'
+      this.animationStatus = false
       localStorage.setItem('animations','false')
     }
+
+    this.statusExchanger.animationsStatus.subscribe((status:boolean) => {
+      this.animationStatus = status
+    })
 
     if(this.darkModeStatus == undefined){
       this.darkModeStatus = 'false'

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DarkModeService } from 'angular-dark-mode';
 import { Observable } from 'rxjs';
+import { StatusExchangerService } from 'src/app/shared_services/status-exchanger.service';
 
 @Component({
   selector: 'app-settings',
@@ -10,20 +11,15 @@ import { Observable } from 'rxjs';
 export class SettingsComponent implements OnInit {
 
   darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
-  animationStatus:any = localStorage.getItem('animations')
+  animationStatus:boolean = JSON.parse(localStorage.getItem('animations'))
   darkModeStorage:any = localStorage.getItem('dark-mode')
-  darkModeStatus:string;
+  darkModeStatus:boolean;
 
-  constructor(private darkModeService: DarkModeService) { }
+  constructor(private darkModeService: DarkModeService, private statusExchanger:StatusExchangerService) { }
 
   ngOnInit(): void {
     this.darkModeService.darkMode$.subscribe((status:any) => {
       this.darkModeStatus = status
-      if(this.darkModeStorage == '{"darkMode":true}'){
-        this.darkModeStatus = 'true'
-      } else {
-        this.darkModeStatus = 'false'
-      }
     })
   }
 
@@ -33,13 +29,14 @@ export class SettingsComponent implements OnInit {
   }
 
   changeAnimationStatus(){
-    if(this.animationStatus == 'true'){
-      this.animationStatus == 'false'
+    if(this.animationStatus == true){
       localStorage.setItem('animations','false')
     } else {
-      this.animationStatus == 'true'
       localStorage.setItem('animations','true')
     }
+
+    this.animationStatus = JSON.parse(localStorage.getItem('animations'))
+    this.statusExchanger.animationsStatus.emit(this.animationStatus)
   }
 
 }
