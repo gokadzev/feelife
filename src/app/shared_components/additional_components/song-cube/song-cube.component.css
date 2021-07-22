@@ -48,6 +48,8 @@ p {
 
 /* animated */
 
+/* credits: https://codepen.io/meemaw1/pen/ZqEdZL */
+
 @keyframes clip1 {
   0% {
     clip-path: polygon(0% -50%, 50% -50%, -50% 50%, -100% 50%);
