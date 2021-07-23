@@ -22,6 +22,8 @@ import { PlaylistPageComponent } from './shared_components/playlists/playlist-pa
 import { ProfileComponent } from './shared_components/profile/profile.component';
 import { AlbumCubeComponent } from './shared_components/additional_components/album-cube/album-cube.component';
 import { AlbumPageComponent } from './shared_components/album-page/album-page.component';
+import { Global50Component } from './shared_components/global50/global50.component';
+import { SuggestionsComponent } from './shared_components/suggestions/suggestions.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { AlbumPageComponent } from './shared_components/album-page/album-page.co
     PlaylistPageComponent,
     ProfileComponent,
     AlbumCubeComponent,
-    AlbumPageComponent
+    AlbumPageComponent,
+    Global50Component,
+    SuggestionsComponent
   ],
   imports: [
     BrowserModule,

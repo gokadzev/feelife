@@ -4,13 +4,15 @@ import { ContentGlobalRefresherService } from 'src/app/shared_services/content-g
 import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-global50',
+  templateUrl: './global50.component.html',
+  styleUrls: ['./global50.component.css']
 })
-export class HomeComponent implements OnInit {
+export class Global50Component implements OnInit {
 
   songs:PLsong [];
+  GlobalStart:number = 0;
+  GlobalEnd:number = 16;
 
   constructor(private dataexchanger:DataexchangerService, private refresher:ContentGlobalRefresherService) { }
 
@@ -21,7 +23,19 @@ export class HomeComponent implements OnInit {
     })
 
     this.refresher.getData('songs');
+
   }
+
+  goTo(where:string){
+      if(where == "Back"){
+        this.GlobalStart = this.GlobalStart - 16
+        this.GlobalEnd = this.GlobalEnd - 16
+      } else {
+        this.GlobalStart = this.GlobalStart + 16
+        this.GlobalEnd = this.GlobalEnd + 16
+      }
+  }
+
 
 
 }
