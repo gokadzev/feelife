@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PLsinger } from 'src/app/shared_models/singer.model';
-import { SingerdataexchangeService } from 'src/app/shared_services/singerdataexchange.service';
+import { StatusExchangerService } from 'src/app/shared_services/status-exchanger.service';
 
 @Component({
   selector: 'app-artist',
@@ -12,9 +12,14 @@ export class ArtistComponent implements OnInit {
   @Input()
   singer!: PLsinger;
 
-  constructor(private singerdex:SingerdataexchangeService) { }
+  animationStatus:boolean = JSON.parse(localStorage.getItem('animations'))
+
+  constructor(private statusExchanger:StatusExchangerService) { }
 
   ngOnInit(): void {
+    this.statusExchanger.animationsStatus.subscribe((status:boolean) => {
+      this.animationStatus = status
+    })
   }
 
 
