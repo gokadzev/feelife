@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="added-songs">
-        <div class="title"> User Added Songs</div>
+        <div class="title">{{ 'User Added Songs' | translate }}</div>
         <app-song *ngFor='let item of songs | slice:navStart:navEnd' [song]="item"></app-song>
     </div>
     <div class="navigator">

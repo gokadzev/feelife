@@ -11,6 +11,7 @@ import { PlaylistPageComponent } from './shared_components/playlists/playlist-pa
 import { PlaylistsComponent } from './shared_components/playlists/playlists.component';
 import { ProfileComponent } from './shared_components/profile/profile.component';
 import { SearchComponent } from './shared_components/search/search.component';
+import { LanguagesComponent } from './shared_components/settings/languages/languages.component';
 import { SettingsComponent } from './shared_components/settings/settings.component';
 import { SuggestionsComponent } from './shared_components/suggestions/suggestions.component';
 
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path:'settings',
     component:SettingsComponent
+  },
+  {
+    path:'languages',
+    component:LanguagesComponent
   },
   {
     path:'profile',

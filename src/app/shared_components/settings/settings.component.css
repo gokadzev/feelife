@@ -26,3 +26,9 @@
 .turnedOn img {
     filter: invert(1);
 }
+
+.settingTab {
+    font-weight: bold;
+    margin: 10px 0px;
+
+}

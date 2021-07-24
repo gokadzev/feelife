@@ -11,55 +11,55 @@
       <div class="tab">
         <a (click)="this.changeMobileNavStatus()" [routerLink]="['/']"><img class="svg" src="../assets/icons/home.svg"
             alt="">
-          <p>Home</p>
+          <p>{{ 'Home' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a (click)="this.changeMobileNavStatus()" [routerLink]="['search']"><img class="svg"
             src="../assets/icons/search.svg" alt="">
-          <p>Search</p>
+          <p>{{ 'Search' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a (click)="this.changeMobileNavStatus()" [routerLink]="['discover']"><img class="svg"
             src="../assets/icons/discover.svg" alt="">
-          <p>Discover</p>
+          <p>{{ 'Discover' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a (click)="this.changeMobileNavStatus()" [routerLink]="['albums']"><img class="svg"
             src="../assets/icons/album.svg" alt="">
-          <p>Albums</p>
+          <p> {{ 'Albums' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a (click)="this.changeMobileNavStatus()" [routerLink]="['artists']"><img class="svg"
             src="../assets/icons/artist.svg" alt="">
-          <p>Artists</p>
+          <p>{{ 'Artists' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a (click)="this.changeMobileNavStatus()" [routerLink]="['recent']"><img class="svg"
             src="../assets/icons/recent.svg" alt="">
-          <p>Recent</p>
+          <p>{{ 'Recent' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a (click)="this.changeMobileNavStatus()" [routerLink]="['favourites']"><img class="svg"
             src="../assets/icons/heart.svg" alt="">
-          <p>Favourites</p>
+          <p>{{ 'Favourites' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a (click)="this.changeMobileNavStatus()" [routerLink]="['settings']"><img class="svg"
             src="../assets/icons/settings.svg" alt="">
-          <p>Settings</p>
+          <p>{{ 'Settings' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a (click)="this.changeMobileNavStatus()" [routerLink]="['logout']"><img class="svg"
             src="../assets/icons/exit.svg" alt="">
-          <p>Log Out</p>
+          <p>{{ 'Log Out' | translate }}</p>
         </a>
       </div>
     </div>
@@ -71,62 +71,62 @@
       <!-- <a href="./"><img src="../assets/images/logo.jpg" alt=""></a> -->
     </div>
     <div class="tabs">
-      <h1>MENU</h1>
+      <h1>{{ 'MENU' | translate }}</h1>
       <div class="tab">
         <a [routerLink]="['/']"><img class="svg" src="../assets/icons/home.svg" alt="">
-          <p>Home</p>
+          <p>{{ 'Home' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a [routerLink]="['search']"><img class="svg" src="../assets/icons/search.svg" alt="">
-          <p>Search</p>
+          <p>{{ 'Search' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a [routerLink]="['discover']"><img class="svg" src="../assets/icons/discover.svg" alt="">
-          <p>Discover</p>
+          <p>{{ 'Discover' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a [routerLink]="['albums']"><img class="svg" src="../assets/icons/album.svg" alt="">
-          <p>Albums</p>
+          <p>{{ 'Albums' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a [routerLink]="['artists']"><img class="svg" src="../assets/icons/artist.svg" alt="">
-          <p>Artists</p>
+          <p>{{ 'Artists' | translate }}</p>
         </a>
       </div>
     </div>
     <div class="tabs">
-      <h1>LIBRARY</h1>
+      <h1>{{ 'LIBRARY' | translate }}</h1>
       <div class="tab">
         <a [routerLink]="['recent']"><img class="svg" src="../assets/icons/recent.svg" alt="">
-          <p>Recent</p>
+          <p>{{ 'Recent' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a [routerLink]="['favourites']"><img class="svg" src="../assets/icons/heart.svg" alt="">
-          <p>Favourites</p>
+          <p>{{ 'Favourites' | translate }}</p>
         </a>
       </div>
     </div>
     <div class="tabs">
-      <h1>PLAYLIST</h1>
+      <h1>{{ 'PLAYLIST' | translate }}</h1>
       <div class="playlists-list">
         <app-playlist *ngFor="let item of playlists | slice:0:6" [playlist]="item"></app-playlist>
       </div>
     </div>
     <div class="tabs">
-      <h1>GENERAL</h1>
+      <h1>{{ 'GENERAL' | translate }}</h1>
       <div class="tab">
         <a [routerLink]="['settings']"><img class="svg" src="../assets/icons/settings.svg" alt="">
-          <p>Settings</p>
+          <p>{{ 'Settings' | translate }}</p>
         </a>
       </div>
       <div class="tab">
         <a [routerLink]="['logout']"><img class="svg" src="../assets/icons/exit.svg" alt="">
-          <p>Log Out</p>
+          <p>{{ 'Log Out' | translate }}</p>
         </a>
       </div>
     </div>
@@ -136,24 +136,24 @@
   </aside>
   <aside class="right">
     <div class="feature tabs">
-      <h1>PROFILE</h1>
+      <h1>{{ 'PROFILE' | translate }}</h1>
       <div class="profile">
         <div class="tab">
           <a [routerLink]="['profile']"><img class="svg" src="../assets/icons/user-circle.svg" alt="">
-            <p>profile</p>
+            <p>{{ 'profile' | translate }}</p>
           </a>
         </div>
       </div>
     </div>
     <div class="feature tabs">
-      <h1>TOP ARTISTS</h1>
+      <h1>{{ 'TOP ARTISTS' | translate }}</h1>
       <div class="artists-list">
         <app-artist *ngFor="let item of singers | slice:0:6" [singer]="item"></app-artist>
       </div>
     </div>
 
     <div class="player" [ngClass]="animationStatus == true ? 'animatedPlayer' : ''">
-      <h1>NOW PLAYING</h1>
+      <h1>{{ 'NOW PLAYING' | translate }}</h1>
       <div class="songInfo">
         <div class="animated">
           <div class="div1" *ngIf="!activeSong?.coverphoto && this.songs">

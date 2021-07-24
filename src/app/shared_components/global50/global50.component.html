@@ -1,5 +1,5 @@
 <div class="title">
-    <h3>Global Top 50</h3>
+    <h3>{{ 'Global Top 50' | translate }}</h3>
     </div>
 <div class="global50">
     <app-song-cube *ngFor="let item of songs | slice:GlobalStart:GlobalEnd" [song]="item"></app-song-cube>

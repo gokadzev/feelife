@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 import { Playlist } from './shared_models/playlist.model';
 import { PLsinger } from './shared_models/singer.model';
@@ -41,8 +42,11 @@ export class AppComponent {
 
   activedsong = false;
 
-  constructor(private statusExchanger:StatusExchangerService, private dataExchanger:DataexchangerService, private contentRefresher:ContentGlobalRefresherService, public router: Router){
-    
+  language:string = localStorage.getItem('language');
+
+  constructor(private statusExchanger:StatusExchangerService,private dataExchanger:DataexchangerService,private contentRefresher:ContentGlobalRefresherService,public router: Router,private translate: TranslateService){
+    translate.setDefaultLang(this.language);
+    translate.use(this.language);
   }
   
   ngOnInit() {
@@ -58,6 +62,18 @@ export class AppComponent {
 
     this.contentRefresher.getData('songs&singers');
     this.contentRefresher.getData('playlists');
+
+    if(this.language === null){
+      this.language = 'en'
+      localStorage.setItem("language", 'en');
+    }
+
+    this.statusExchanger.activeLanguageCode.subscribe((code:string) => {
+      this.language = code;
+      localStorage.setItem("language", code);
+      this.translate.setDefaultLang(code);
+      this.translate.use(code);
+    })
     
     this.statusExchanger.activeSongId.subscribe((item:number) => {
       if(item == undefined){

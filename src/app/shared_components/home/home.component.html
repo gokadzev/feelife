@@ -1,5 +1,5 @@
 <div class="title">
-<h3>Global Top 50</h3>
+<h3>{{ 'Global Top 50' | translate }}</h3>
 <button [routerLink]="['/top50']" >
     <img class="svg" src="../../../assets/icons/more.svg" alt="">
 </button>
@@ -9,7 +9,7 @@
 </div>
 
 <div class="title">
-<h3>Songs You Might Like</h3>
+<h3>{{ 'Songs You Might Like' | translate }}</h3>
 <button [routerLink]="['/suggestions']">
     <img class="svg" src="../../../assets/icons/more.svg" alt="">
 </button>
@@ -19,7 +19,7 @@
     <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
 </div>
 
-<h3>Recently Played</h3>
+<h3>{{ 'Recently Played' | translate }}</h3>
 
 <div class="recently">
     <app-song *ngFor="let item of songs | slice:0:10" [song]="item"></app-song>
