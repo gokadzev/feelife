@@ -18,63 +18,78 @@ import { SuggestionsComponent } from './shared_components/suggestions/suggestion
 const routes: Routes = [
   {
     path:'',
-    component:HomeComponent
+    component:HomeComponent,
+    data: { state: 'home' }
   },
   {
     path:'search',
-    component:SearchComponent
+    component:SearchComponent,
+    data: { state: 'search' }
   },
   {
     path:'discover',
-    component:DiscoverComponent
+    component:DiscoverComponent,
+    data: { state: 'discover' }
   },
   {
     path:'top50',
-    component:Global50Component
+    component:Global50Component,
+    data: { state: 'top50' }
   },
   {
     path:'suggestions',
-    component:SuggestionsComponent
+    component:SuggestionsComponent,
+    data: { state: 'suggestions' }
   },
   {
     path:'playlists',
-    component:PlaylistsComponent
+    component:PlaylistsComponent,
+    data: { state: 'playlists' }
   },
   {
     path:'playlist/:playlist',
-    component:PlaylistPageComponent
+    component:PlaylistPageComponent,
+    data: { state: 'playlist' }
   },
   {
     path:'albums',
-    component:AlbumsComponent
+    component:AlbumsComponent,
+    data: { state: 'albums' }
   },
   {
     path:'album/:album',
-    component:AlbumPageComponent
+    component:AlbumPageComponent,
+    data: { state: 'album' }
   },
   {
     path:'artists',
-    component:ArtistsComponent
+    component:ArtistsComponent,
+    data: { state: 'artists' }
   },
   {
     path:'artist-info',
-    component:ArtistPageComponent
+    component:ArtistPageComponent,
+    data: { state: 'artistInfo' }
   },
   {
     path:'artist-info/:id',
-    component:ArtistPageComponent
+    component:ArtistPageComponent,
+    data: { state: 'artistInfoId' }
   },
   {
     path:'settings',
-    component:SettingsComponent
+    component:SettingsComponent,
+    data: { state: 'settings' }
   },
   {
     path:'languages',
-    component:LanguagesComponent
+    component:LanguagesComponent,
+    data: { state: 'languages' }
   },
   {
     path:'profile',
-    component:ProfileComponent
+    component:ProfileComponent,
+    data: { state: 'profile' }
   }
 ];
 

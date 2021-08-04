@@ -29,3 +29,7 @@ body:not(.dark-mode-preloading) {
     transition: all 0.3s linear;
 }
   
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}

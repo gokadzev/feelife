@@ -1,7 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
+import { trigger, animate, style, group, animateChild, query, stagger, transition, state } from '@angular/animations';
 import { Playlist } from './shared_models/playlist.model';
 import { PLsinger } from './shared_models/singer.model';
 import { PLsong } from './shared_models/song.model';
@@ -12,8 +13,26 @@ import { StatusExchangerService } from './shared_services/status-exchanger.servi
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [
+    trigger('routerTransition', [
+      transition('* <=> *', [    
+        query(':enter, :leave', style({ position: 'fixed', width:'47.1%' }),{optional: true}),
+        group([ 
+          query(':enter', [
+            style({ transform: 'translateY(100%)' }),
+            animate('0.6s ease-in-out', style({ transform: 'translateY(0%)' }))
+          ],{optional: true}),
+          query(':leave', [
+            style({ transform: 'translateY(0%)' }),
+            animate('0.6s ease-in-out', style({ transform: 'translateY(-100%)' }))
+          ],{optional: true}),
+        ])
+      ])
+    ])
+   ]
 })
+
 export class AppComponent {
   title = 'Feelify';
 
@@ -30,6 +49,7 @@ export class AppComponent {
   singers: PLsinger[] = [];
   playlists: Playlist[] = [];
   favoritedSongs:PLsong[] = [];
+  innerWidth:any;
 
   audio = new Audio();
   isPlaying = false;
@@ -56,6 +76,8 @@ export class AppComponent {
   }
   
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
+
     this.dataExchanger.songs.subscribe((songs:any) => {
       this.songs = songs;
     })
@@ -113,6 +135,16 @@ export class AppComponent {
       localStorage.setItem('dark-mode','false')
     }
 
+  }
+
+  getState(outlet:any) {
+    // Changing the activatedRouteData.state triggers the animation
+    return outlet.activatedRouteData.state;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
   }
 
   playSong(song:any): void {
