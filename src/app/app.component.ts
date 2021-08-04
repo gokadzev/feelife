@@ -45,8 +45,14 @@ export class AppComponent {
   language:string = localStorage.getItem('language');
 
   constructor(private statusExchanger:StatusExchangerService,private dataExchanger:DataexchangerService,private contentRefresher:ContentGlobalRefresherService,public router: Router,private translate: TranslateService){
-    translate.setDefaultLang(this.language);
-    translate.use(this.language);
+    if(this.language != null || this.language != undefined){
+      translate.setDefaultLang(this.language);
+      translate.use(this.language);
+    } else {
+      translate.setDefaultLang('en');
+      translate.use('en');
+    }
+  
   }
   
   ngOnInit() {
