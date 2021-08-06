@@ -128,7 +128,6 @@ export class AppComponent {
 
     this.statusExchanger.animationsStatus.subscribe((status:boolean) => {
       this.animationStatus = status
-      this.getState('settings')
     })
 
     if(this.darkModeStatus == undefined){
