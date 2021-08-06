@@ -132,10 +132,10 @@
     </div>
   </aside>
   <aside class="center">
-    <div [@routerTransition]="getState(o)" *ngIf="this.innerWidth > 780">
+    <div [@routerTransition]="getState(o)" *ngIf="this.innerWidth > 780 && this.animationStatus == true">
       <router-outlet #o="outlet"></router-outlet>
       </div>
-    <router-outlet *ngIf="this.innerWidth < 780"></router-outlet>
+    <router-outlet *ngIf="this.innerWidth < 780 || this.animationStatus == false"></router-outlet>
   </aside>
   <aside class="right">
     <div class="feature tabs">
