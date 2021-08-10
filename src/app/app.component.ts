@@ -139,7 +139,12 @@ export class AppComponent {
 
   getState(outlet:any) {
     // Changing the activatedRouteData.state triggers the animation
-    return outlet.activatedRouteData.state;
+    if(this.animationStatus == true){
+      return outlet.activatedRouteData.state;
+    }else {
+      return 'animationsAreTurnedOff'
+    }
+
   }
 
   @HostListener('window:resize', ['$event'])
