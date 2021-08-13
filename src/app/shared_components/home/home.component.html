@@ -1,26 +1,25 @@
-<div class="title">
-<h3>{{ 'Global Top 50' | translate }}</h3>
-<button [routerLink]="['/top50']" >
-    <img class="svg" src="../../../assets/icons/more.svg" alt="">
-</button>
-</div>
 <div class="global50">
-    <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
-</div>
-
-<div class="title">
-<h3>{{ 'Songs You Might Like' | translate }}</h3>
-<button [routerLink]="['/suggestions']">
-    <img class="svg" src="../../../assets/icons/more.svg" alt="">
-</button>
+  <div class="title">
+    <h3>{{ 'Global Top 50' | translate }}</h3>
+    <button [routerLink]="['/top50']">
+      <img class="svg" src="../../../assets/icons/more.svg" alt="">
+    </button>
+  </div>
+  <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
 </div>
 
 <div class="suggestions">
-    <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
+  <div class="title">
+    <h3>{{ 'Songs You Might Like' | translate }}</h3>
+    <button [routerLink]="['/suggestions']">
+      <img class="svg" src="../../../assets/icons/more.svg" alt="">
+    </button>
+  </div>
+  <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
 </div>
 
-<h3>{{ 'Recently Played' | translate }}</h3>
 
 <div class="recently">
-    <app-song *ngFor="let item of songs | slice:0:10" [song]="item"></app-song>
+    <h3>{{ 'Recently Played' | translate }}</h3>
+  <app-song *ngFor="let item of songs | slice:0:10" [song]="item"></app-song>
 </div>

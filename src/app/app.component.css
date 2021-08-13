@@ -1,240 +1,251 @@
 * {
-    transition: 0.1s;
+  transition: 0.1s;
+}
+
+
+.logo a {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100px;
+}
+
+.logo a img {
+  width: 28px;
 }
 
 .header {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .navController {
-    display: none;
+  display: none;
 }
 
 .header .openedNav {
-    display: inline-block;
-    width: 100%;
-    height: 250px;
-    text-align: center;
-    align-items: center;
+  display: inline-block;
+  width: 100%;
+  height: 250px;
+  text-align: center;
+  align-items: center;
 }
 
 .header .openedNav .tabs {
-    display: inline-block;
-    align-items: center;
-    text-align: center;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
 }
 
 .menuButton {
-    border: none;
-    background: none;
+  border: none;
+  background: none;
 }
 
 .menuButton img {
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 }
 
 .mobileNavbar {
-    display: none;
+  display: none;
 }
 
 .components {
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 20px;
 }
 
 .left {
-    width: 100%;
-    max-width: 190px;
-    position: fixed;
+  width: 100%;
+  max-width: 190px;
+  position: fixed;
+  border-right: 2px solid #dce2ea8c;
+  height: -webkit-fill-available;
 }
 
 .right {
-    position: fixed;
-    left: 79%;
+  position: fixed;
+  left: 78%;
+  border-left: 2px solid #dce2ea8c;
+  padding-left: 2%;
 }
 
 .center {
-    width: 49%;
-    margin: auto;
+  width: 49%;
+  margin: auto;
 }
 
 
 .right h1 {
-    font-size: 17px;
-    margin: 5px auto;
+  font-size: 17px;
+  margin: 5px auto;
 }
 
-.left a p, .mobileNavbar a p {
-    margin-left: 10px;
+.left a p,
+.mobileNavbar a p {
+  margin-left: 10px;
 }
 
-.left .tabs h1, .mobileNavbar .tabs h1 {
-    margin: 12px auto;
+.left .tabs h1,
+.mobileNavbar .tabs h1 {
+  margin: 7px auto;
+  font-size: 18px;
 }
 
-.left .tabs .tab a img, .mobileNavbar .tabs .tab a img {
-    width: 25px;
-    height: 25px;
+.left .tabs .tab a img,
+.mobileNavbar .tabs .tab a img {
+  width: 25px;
+  height: 25px;
 }
 
-.left .tabs .tab, .mobileNavbar .tabs .tab {
-    max-height: 40px;
+.left .tabs .tab,
+.mobileNavbar .tabs .tab {
+  max-height: 40px;
 }
 
-.left .tabs .tab a, .mobileNavbar .tabs .tab a {
-    display: flex;
-    align-items: center;
-    font-weight: 600;
+.left .tabs .tab a,
+.mobileNavbar .tabs .tab a {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
 }
 
-.left .tabs .tab a:hover, .profile a:hover{
-    color: #4BA3A7;
+.left .tabs .tab a:hover {
+  color: #4BA3A7;
 }
 
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .player {
-    background-color: #4BA3A7;
-    text-align: center;
-    padding: 8px 13px 35px 13px;
-    border-radius: 14px;
-    width: 200px;
-    height: 335px;
-    color: white;
-    margin-top: 2%;
-    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background-color: #4BA3A7;
+  text-align: center;
+  padding: 8px 13px 35px 13px;
+  border-radius: 14px;
+  width: 200px;
+  height: 335px;
+  color: white;
+  margin-top: 2%;
+  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .animatedPlayer {
-    animation: gradientChange 10s infinite;
+  animation: gradientChange 10s infinite;
 }
 
-.player .songInfo .singer,.song {
-    margin: 3px auto;
+.player .songInfo .singer,
+.song {
+  margin: 3px auto;
 }
 
 .player .songInfo img {
-    width: 180px;
-    height: 140px;
-    border-radius: 14px;
-    object-fit: cover;
+  width: 180px;
+  height: 140px;
+  border-radius: 14px;
+  object-fit: cover;
 
 }
 
 .player .container .row {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px auto;
-    height: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px auto;
+  height: 20px;
 }
 
 .player .container .left-side {
-    display: flex;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 
 .player .container .row .progress-bar {
-    height: 10px;
-    background-color: white;
-    margin-left: 5px;
+  height: 10px;
+  background-color: white;
+  margin-left: 5px;
 }
 
 .playerControllers {
-    margin: auto;
+  margin: auto;
 }
 
 .playerControllers button {
-    border: none;
-    background-color: unset;
+  border: none;
+  background-color: unset;
 }
 
 .playerControllers button img {
-    width: 25px;
-    height: 25px;
-    filter: invert(1);
+  width: 25px;
+  height: 25px;
+  filter: invert(1);
 }
 
 .playerControllers .ppcontrol {
-    background-color: #6ac7cc;
-    padding: 12px;
-    border-radius: 7px;
+  background-color: #6ac7cc;
+  padding: 12px;
+  border-radius: 7px;
 }
 
 .addFunc img {
-    width: 18px!important;
-    height: 18px!important;
+  width: 18px !important;
+  height: 18px !important;
 }
 
 .player h1 {
-    font-size: 15px;
-}
-
-.profile a {
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-}
-
-
-.profile img {
-    width: 45px;
-    height: 45px;
-    margin-right: 10px;
+  font-size: 15px;
 }
 
 
 .artists-list {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 300px;
 }
 
 @media screen and (max-width: 768px) {
-    .left,.right {
-        display: none;
-    }
 
-    .center {
-        width: 100%;
-    }
+  .left,
+  .right {
+    display: none;
+  }
 
-    .navController {
-        display: flex;
-        justify-content: space-between;
-    }
+  .center {
+    width: 100%;
+  }
+
+  .navController {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 
 @keyframes gradientChange {
-    0% {
-        background-color: rgb(75,163,167);
-    }
-    
-    25%{
-        background-color: rgb(52,114,116);
-    }
+  0% {
+    background-color: rgb(75, 163, 167);
+  }
 
-    50%{
-        background-color: rgb(46,102,104);
-    }
+  25% {
+    background-color: rgb(52, 114, 116);
+  }
 
-    75%{
-        background-color: rgb(22,48,50);
-    }
+  50% {
+    background-color: rgb(46, 102, 104);
+  }
 
-    100%{
-        background-color: rgb(75,163,167);
-    }
+  75% {
+    background-color: rgb(22, 48, 50);
+  }
+
+  100% {
+    background-color: rgb(75, 163, 167);
+  }
 }
 
 
@@ -243,111 +254,111 @@ a {
 /* credits: https://codepen.io/meemaw1/pen/ZqEdZL */
 
 @keyframes clip1 {
-    0% {
-      clip-path: polygon(0% -50%, 50% -50%, -50% 50%, -100% 50%);
-    }
-  
-    100% {
-      clip-path: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%);
-    }
-  }
-  
-  @keyframes clipa {
-    0% {
-      clip-path: polygon(-5% -55%, 55% -45%, -45% 55%, -95% 55%);
-    }
-  
-    100% {
-      clip-path: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%);
-    }
-  }
-  
-  @keyframes clip2 {
-    0% {
-      clip-path: polygon(50% -50%, 100% -50%, 200% 50%, 150% 50%);
-    }
-  
-    100% {
-      clip-path: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%);
-    }
-  }
-  
-  @keyframes clipb {
-    0% {
-      clip-path: polygon(40% -60%, 100% -50%, 190% 40%, 150% 50%);
-    }
-  
-    100% {
-      clip-path: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%);
-    }
-  }
-  
-  @keyframes clip3 {
-    0% {
-      clip-path: polygon(-100% -150%, -50% -150%, -150% -50%, -200% -50%);
-    }
-  
-    100% {
-      clip-path: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%);
-    }
-  }
-  
-  @keyframes clip4 {
-    0% {
-      clip-path: polygon(150% -150%, 200% -150%, 300% -50%, 250% -50%);
-    }
-  
-    100% {
-      clip-path: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%);
-    }
-  }
-  
-
-  .animatedPlayer .animated {
-    height: 155px;
-    margin-left: 4%;
+  0% {
+    clip-path: polygon(0% -50%, 50% -50%, -50% 50%, -100% 50%);
   }
 
-  .animatedPlayer .songInfo {
-    margin-top: 8%;
+  100% {
+    clip-path: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%);
   }
-  
-  .animatedPlayer .clip {
-    filter: grayscale(1);
-    position: absolute;
-    width: 180px;
-    height: 140px;
-    border-radius: 14px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    transform-origin: center;
+}
+
+@keyframes clipa {
+  0% {
+    clip-path: polygon(-5% -55%, 55% -45%, -45% 55%, -95% 55%);
   }
-  
-  .animatedPlayer #clip1 {
-    animation: clip1 4s linear infinite;
+
+  100% {
+    clip-path: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%);
   }
-  
-  .animatedPlayer #clipa {
-    transform: scale(1.1, 1.1);
-    animation: clipa 9s linear infinite;
+}
+
+@keyframes clip2 {
+  0% {
+    clip-path: polygon(50% -50%, 100% -50%, 200% 50%, 150% 50%);
   }
-  
-  .animatedPlayer #clip2 {
-    transform: scale(1.12, 1.12);
-    animation: clip2 5s linear infinite;
+
+  100% {
+    clip-path: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%);
   }
-  
-  .animatedPlayer #clipb {
-    transform: scale(1.14, 1.14);
-    animation: clipb 4s linear infinite;
+}
+
+@keyframes clipb {
+  0% {
+    clip-path: polygon(40% -60%, 100% -50%, 190% 40%, 150% 50%);
   }
-  
-  .animatedPlayer #clip3 {
-    transform: scale(1.15, 1.15);
-    animation: clip3 7s linear infinite;
+
+  100% {
+    clip-path: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%);
   }
-  
-  .animatedPlayer #clip4 {
-    transform: scale(1.13, 1.13);
-    animation: clip4 6s linear infinite;
+}
+
+@keyframes clip3 {
+  0% {
+    clip-path: polygon(-100% -150%, -50% -150%, -150% -50%, -200% -50%);
   }
+
+  100% {
+    clip-path: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%);
+  }
+}
+
+@keyframes clip4 {
+  0% {
+    clip-path: polygon(150% -150%, 200% -150%, 300% -50%, 250% -50%);
+  }
+
+  100% {
+    clip-path: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%);
+  }
+}
+
+
+.animatedPlayer .animated {
+  height: 155px;
+  margin-left: 4%;
+}
+
+.animatedPlayer .songInfo {
+  margin-top: 8%;
+}
+
+.animatedPlayer .clip {
+  filter: grayscale(1);
+  position: absolute;
+  width: 180px;
+  height: 140px;
+  border-radius: 14px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform-origin: center;
+}
+
+.animatedPlayer #clip1 {
+  animation: clip1 4s linear infinite;
+}
+
+.animatedPlayer #clipa {
+  transform: scale(1.1, 1.1);
+  animation: clipa 9s linear infinite;
+}
+
+.animatedPlayer #clip2 {
+  transform: scale(1.12, 1.12);
+  animation: clip2 5s linear infinite;
+}
+
+.animatedPlayer #clipb {
+  transform: scale(1.14, 1.14);
+  animation: clipb 4s linear infinite;
+}
+
+.animatedPlayer #clip3 {
+  transform: scale(1.15, 1.15);
+  animation: clip3 7s linear infinite;
+}
+
+.animatedPlayer #clip4 {
+  transform: scale(1.13, 1.13);
+  animation: clip4 6s linear infinite;
+}
