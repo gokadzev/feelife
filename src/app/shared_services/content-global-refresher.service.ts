@@ -26,7 +26,7 @@ export class ContentGlobalRefresherService {
   apiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmpwa.json?' + this.randnum;
   playlistsApiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmplaylists.json?' + this.randnum;
 
-
+// because of we haven't real api, we using little bit stranger implementation for get data
 
   getData(type:string){
 

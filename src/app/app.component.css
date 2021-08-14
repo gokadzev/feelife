@@ -114,6 +114,19 @@
   color: #4BA3A7;
 }
 
+.profile a {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+
+.profile img {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -180,8 +193,8 @@ a {
 }
 
 .playerControllers button img {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   filter: invert(1);
 }
 

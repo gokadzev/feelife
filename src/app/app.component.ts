@@ -64,7 +64,13 @@ export class AppComponent {
 
   language:string = localStorage.getItem('language');
 
-  constructor(private statusExchanger:StatusExchangerService,private dataExchanger:DataexchangerService,private contentRefresher:ContentGlobalRefresherService,public router: Router,private translate: TranslateService){
+  constructor(
+    private statusExchanger:StatusExchangerService,
+    private dataExchanger:DataexchangerService,
+    private contentRefresher:ContentGlobalRefresherService,
+    public router: Router,
+    private translate: TranslateService
+    ){
     if(this.language != null || this.language != undefined){
       translate.setDefaultLang(this.language);
       translate.use(this.language);

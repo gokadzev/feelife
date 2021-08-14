@@ -68,7 +68,9 @@
 <div class="components">
   <aside class="left">
     <div class="logo">
-      <a [routerLink]="['/']"><img class="svg" src="../assets/icons/logo.svg" alt=""> <h3>Feelife</h3></a>
+      <a [routerLink]="['/']"><img class="svg" src="../assets/icons/logo.svg" alt="">
+        <h3>Feelife</h3>
+      </a>
     </div>
     <div class="tabs">
       <h1>{{ 'MENU' | translate }}</h1>
@@ -134,12 +136,17 @@
   <aside class="center">
     <div [@routerTransition]="getState(o)">
       <router-outlet #o="outlet"></router-outlet>
-      </div>
+    </div>
   </aside>
   <aside class="right">
     <div class="feature tabs">
-      <h1>{{ 'NOTIFICATIONS' | translate }}</h1>
-      <div class="notifications">
+      <h1>{{ 'PROFILE' | translate }}</h1>
+      <div class="profile">
+        <div class="tab">
+          <a [routerLink]="['profile']"><img class="svg" src="../assets/icons/user-circle.svg" alt="">
+            <p>{{ 'profile' | translate }}</p>
+          </a>
+        </div>
       </div>
     </div>
     <div class="feature tabs">
@@ -154,16 +161,24 @@
       <div class="songInfo">
         <div class="animated">
           <div class="div1" *ngIf="!activeSong?.coverphoto && this.songs">
-            <div id="background" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}"></div>
-            <div id="clip3" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}"></div>
-            <div id="clip4" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}"></div>
-            <div id="clipa" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}"></div>
-            <div id="clip1" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}"></div>
-            <div id="clip2" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}"></div>
-            <div id="clipb" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}"></div>
+            <div id="background" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
+            </div>
+            <div id="clip3" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
+            </div>
+            <div id="clip4" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
+            </div>
+            <div id="clipa" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
+            </div>
+            <div id="clip1" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
+            </div>
+            <div id="clip2" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
+            </div>
+            <div id="clipb" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
+            </div>
           </div>
           <div class="div2" *ngIf="activeSong?.coverphoto">
-            <div id="background" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
+            <div id="background" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}">
+            </div>
             <div id="clip3" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
             <div id="clip4" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
             <div id="clipa" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
@@ -172,7 +187,8 @@
             <div id="clipb" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
           </div>
         </div>
-        <img *ngIf="!activeSong?.coverphoto && this.songs && this.animationStatus == false" [src]="this.songs[0].coverphoto" alt="">
+        <img *ngIf="!activeSong?.coverphoto && this.songs && this.animationStatus == false"
+          [src]="this.songs[0].coverphoto" alt="">
         <img *ngIf="activeSong?.coverphoto && this.animationStatus == false" [src]="activeSong?.coverphoto" alt="">
         <h3 class="singer">{{ activeSong?.singer }}</h3>
         <p class="song">{{ activeSong?.songtitle }}</p>
