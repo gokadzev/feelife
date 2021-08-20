@@ -17,15 +17,15 @@ import { StatusExchangerService } from './shared_services/status-exchanger.servi
   animations: [
     trigger('routerTransition', [
       transition('* <=> *', [    
-        query(':enter, :leave', style({ position: 'fixed', width:'47.1%' }),{optional: true}),
+        query(':enter, :leave', style({ position: 'fixed', width:'47.65%' }),{optional: true}),
         group([ 
           query(':enter', [
             style({ transform: 'translateY(100%)' }),
-            animate('0.6s ease-in-out', style({ transform: 'translateY(0%)' }))
+            animate('0.8s ease-in-out', style({ transform: 'translateY(0%)' }))
           ],{optional: true}),
           query(':leave', [
             style({ transform: 'translateY(0%)' }),
-            animate('0.6s ease-in-out', style({ transform: 'translateY(-100%)' }))
+            animate('0.8s ease-in-out', style({ transform: 'translateY(-100%)' }))
           ],{optional: true}),
         ])
       ])

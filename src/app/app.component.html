@@ -150,7 +150,12 @@
       </div>
     </div>
     <div class="feature tabs">
+      <div class="flex">
       <h1>{{ 'TOP ARTISTS' | translate }}</h1>
+      <button class="moreButton" [routerLink]="['/artists']">
+        <img class="svg" src="../../../assets/icons/more.svg" alt="">
+      </button>
+    </div>
       <div class="artists-list">
         <app-artist *ngFor="let item of singers | slice:0:2" [singer]="item"></app-artist>
       </div>

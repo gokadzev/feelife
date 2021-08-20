@@ -87,7 +87,6 @@ h3 {
   }
 
  .clip {
-    filter: grayscale(1);
     position: absolute;
     width: 70px;
     height: 70px;

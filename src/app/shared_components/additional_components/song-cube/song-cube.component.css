@@ -1,3 +1,8 @@
+.song, .animated {
+  width: 100%;
+  max-width: 140px;
+}
+
 .songCube {
   margin: auto;
   text-align: center;
@@ -112,16 +117,15 @@ p {
 }
 
 .animated .songCube {
-    width: 119px;
+  width: 119px;
 }
 
 .animated .play {
-    top: 78px;
-    bottom: unset;
+  top: 78px;
+  bottom: unset;
 }
 
 .clip {
-  filter: grayscale(1);
   position: absolute;
   height: 115px;
   width: 115px;
