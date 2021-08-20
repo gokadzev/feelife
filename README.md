@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.13.
 
-![web4](https://user-images.githubusercontent.com/79704324/129470909-2fd93c80-2ec3-4eec-bd9d-f897f3412e12.png)
+![image](https://user-images.githubusercontent.com/79704324/130227246-854e3e05-7f85-4997-acd7-dd2a8f7ddb20.png)
 
 
 
