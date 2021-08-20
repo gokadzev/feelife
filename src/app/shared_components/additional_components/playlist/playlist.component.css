@@ -1,15 +1,32 @@
-.image {
-    width: 115px;
-    height: 115px;
-    border-radius: 22px;
-    object-fit: cover;
+.is-active {
+  color: #FA7C05 !important;
 }
 
-h3 {
-    font-size: 17px;
-    margin: unset;
+.is-active-tab {
+  border-right: 3px solid #FA7C05;
 }
 
 
+.playlist {
+  display: flex;
+  align-items: center;
+  height: 25px;
+}
 
+img {
+  width: 25px;
+  height: 25px;
+}
 
+a {
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #687490;
+  text-decoration: none;
+}
+
+a p {
+  margin-left: 10px;
+}

@@ -1,4 +1,6 @@
 .artistPhoto {
     width: 150px;
     margin-bottom: 20px;
+    object-fit: cover;
+    height: 150px;
 }

@@ -2,6 +2,14 @@
   transition: 0.1s;
 }
 
+.is-active {
+  color: #FA7C05!important;
+}
+
+.is-active-tab {
+  border-right: 3px solid #FA7C05;
+}
+
 
 .logo a {
   display: flex;
@@ -69,7 +77,7 @@
   border-left: 2px solid #dce2ea8c;
   padding-left: 2%;
   width: 15vw;
-  height: 50vh;
+  height: -webkit-fill-available;
 }
 
 .center {
@@ -89,9 +97,13 @@
 }
 
 .left .tabs h1,
-.mobileNavbar .tabs h1 {
-  margin: 7px auto;
-  font-size: 18px;
+.mobileNavbar .tabs h1, .right .tabs h1 {
+  margin: 18px auto;
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: #687490;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
 .left .tabs .tab a img,
@@ -103,6 +115,9 @@
 .left .tabs .tab,
 .mobileNavbar .tabs .tab {
   max-height: 40px;
+  display: flex;
+  height: 25px;
+  margin: 15px auto;
 }
 
 .left .tabs .tab a,
@@ -110,16 +125,21 @@
   display: flex;
   align-items: center;
   font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #687490;
 }
 
 .left .tabs .tab a:hover {
-  color: #4BA3A7;
+  color: #FA7C05;
 }
 
 .profile a {
   display: flex;
   align-items: center;
   font-weight: 600;
+  color: #687490;
 }
 
 
@@ -157,6 +177,9 @@ a {
 .player .songInfo .singer,
 .song {
   margin: 3px auto;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 
 .player .songInfo img {
@@ -241,6 +264,7 @@ a {
   .navController {
     display: flex;
     justify-content: space-between;
+    padding: 10px;
   }
 }
 

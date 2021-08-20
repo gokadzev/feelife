@@ -18,6 +18,12 @@ import { SuggestionsComponent } from './shared_components/suggestions/suggestion
 const routes: Routes = [
   {
     path:'',
+    pathMatch:'full',
+    redirectTo:'home',
+    data: { state: 'home' }
+  },
+  {
+    path:'home',
     component:HomeComponent,
     data: { state: 'home' }
   },

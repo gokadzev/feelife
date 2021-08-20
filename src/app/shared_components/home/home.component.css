@@ -10,6 +10,12 @@
     justify-content: space-between;
 }
 
+.title h3 {
+    color: #475476;
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .title button img {
     width: 25px;
     height: 25px;

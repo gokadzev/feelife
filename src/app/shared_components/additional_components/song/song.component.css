@@ -20,12 +20,15 @@
 h3 {
     font-size: 17px;
     margin: unset;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 p {
     font-size: 14px;
     margin: unset;
     margin-top: 6px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 button {

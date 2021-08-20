@@ -3,61 +3,61 @@
     <button class="menuButton"></button>
     <button class="menuButton" (click)="changeMobileNavStatus()">
       <img *ngIf="this.mobileNavStatus == ''" class="svg" src="../assets/icons/menu.svg" alt="">
-      <img *ngIf="this.mobileNavStatus == 'openedNav'" src="../assets/icons/x.svg" alt="" class="svg">
+      <img *ngIf="this.mobileNavStatus == 'openedNav'" class="svg" src="../assets/icons/x.svg" alt="">
     </button>
   </div>
   <div class="mobileNavbar {{mobileNavStatus}}">
     <div class="tabs">
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['/']"><img class="svg" src="../assets/icons/home.svg"
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['/home']"><img src="../assets/icons/home.svg"
             alt="">
           <p>{{ 'Home' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['search']"><img class="svg"
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['search']"><img
             src="../assets/icons/search.svg" alt="">
           <p>{{ 'Search' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['discover']"><img class="svg"
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['discover']"><img
             src="../assets/icons/discover.svg" alt="">
           <p>{{ 'Discover' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['albums']"><img class="svg"
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['albums']"><img
             src="../assets/icons/album.svg" alt="">
           <p> {{ 'Albums' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['artists']"><img class="svg"
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['artists']"><img
             src="../assets/icons/artist.svg" alt="">
           <p>{{ 'Artists' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['recent']"><img class="svg"
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['recent']"><img
             src="../assets/icons/recent.svg" alt="">
           <p>{{ 'Recent' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['favourites']"><img class="svg"
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['favourites']"><img
             src="../assets/icons/heart.svg" alt="">
           <p>{{ 'Favourites' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['settings']"><img class="svg"
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['settings']"><img
             src="../assets/icons/settings.svg" alt="">
           <p>{{ 'Settings' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['logout']"><img class="svg"
+        <a (click)="this.changeMobileNavStatus()" [routerLink]="['logout']"><img
             src="../assets/icons/exit.svg" alt="">
           <p>{{ 'Log Out' | translate }}</p>
         </a>
@@ -68,47 +68,47 @@
 <div class="components">
   <aside class="left">
     <div class="logo">
-      <a [routerLink]="['/']"><img class="svg" src="../assets/icons/logo.svg" alt="">
+      <a [routerLink]="['/home']"><img class="svg" src="../assets/icons/logo.svg" alt="">
         <h3>Feelife</h3>
       </a>
     </div>
     <div class="tabs">
       <h1>{{ 'MENU' | translate }}</h1>
-      <div class="tab">
-        <a [routerLink]="['/']"><img class="svg" src="../assets/icons/home.svg" alt="">
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['/home']" [routerLinkActive]="['is-active']"><img src="../assets/icons/home.svg" alt="">
           <p>{{ 'Home' | translate }}</p>
         </a>
       </div>
-      <div class="tab">
-        <a [routerLink]="['search']"><img class="svg" src="../assets/icons/search.svg" alt="">
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['search']" [routerLinkActive]="['is-active']"><img src="../assets/icons/search.svg" alt="">
           <p>{{ 'Search' | translate }}</p>
         </a>
       </div>
-      <div class="tab">
-        <a [routerLink]="['discover']"><img class="svg" src="../assets/icons/discover.svg" alt="">
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['discover']" [routerLinkActive]="['is-active']"><img src="../assets/icons/discover.svg" alt="">
           <p>{{ 'Discover' | translate }}</p>
         </a>
       </div>
-      <div class="tab">
-        <a [routerLink]="['albums']"><img class="svg" src="../assets/icons/album.svg" alt="">
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['albums']" [routerLinkActive]="['is-active']"><img src="../assets/icons/album.svg" alt="">
           <p>{{ 'Albums' | translate }}</p>
         </a>
       </div>
-      <div class="tab">
-        <a [routerLink]="['artists']"><img class="svg" src="../assets/icons/artist.svg" alt="">
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['artists']" [routerLinkActive]="['is-active']"><img src="../assets/icons/artist.svg" alt="">
           <p>{{ 'Artists' | translate }}</p>
         </a>
       </div>
     </div>
     <div class="tabs">
       <h1>{{ 'LIBRARY' | translate }}</h1>
-      <div class="tab">
-        <a [routerLink]="['recent']"><img class="svg" src="../assets/icons/recent.svg" alt="">
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['recent']" [routerLinkActive]="['is-active']"><img src="../assets/icons/recent.svg" alt="">
           <p>{{ 'Recent' | translate }}</p>
         </a>
       </div>
-      <div class="tab">
-        <a [routerLink]="['favourites']"><img class="svg" src="../assets/icons/heart.svg" alt="">
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['favourites']" [routerLinkActive]="['is-active']"><img src="../assets/icons/heart.svg" alt="">
           <p>{{ 'Favourites' | translate }}</p>
         </a>
       </div>
@@ -116,18 +116,18 @@
     <div class="tabs">
       <h1>{{ 'PLAYLIST' | translate }}</h1>
       <div class="playlists-list">
-        <app-playlist *ngFor="let item of playlists | slice:0:6" [playlist]="item"></app-playlist>
+        <app-playlist *ngFor="let item of playlists | slice:0:3" [playlist]="item"></app-playlist>
       </div>
     </div>
     <div class="tabs">
       <h1>{{ 'GENERAL' | translate }}</h1>
-      <div class="tab">
-        <a [routerLink]="['settings']"><img class="svg" src="../assets/icons/settings.svg" alt="">
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['settings']" [routerLinkActive]="['is-active']"><img src="../assets/icons/settings.svg" alt="">
           <p>{{ 'Settings' | translate }}</p>
         </a>
       </div>
-      <div class="tab">
-        <a [routerLink]="['logout']"><img class="svg" src="../assets/icons/exit.svg" alt="">
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['logout']" [routerLinkActive]="['is-active']"><img src="../assets/icons/exit.svg" alt="">
           <p>{{ 'Log Out' | translate }}</p>
         </a>
       </div>
@@ -212,23 +212,23 @@
         </div>
 
         <table class="playerControllers">
-          <button class="addFunc" (click)="shuffleChange()"><img class="svg" src="../assets/icons/shuffle.svg"
+          <button class="addFunc" (click)="shuffleChange()"><img src="../assets/icons/shuffle.svg"
               alt=""></button>
-          <td><button type="button" class="btn btn-outline-dark" (click)="playPreviousSong()"><img class="svg"
+          <td><button type="button" class="btn btn-outline-dark" (click)="playPreviousSong()"><img
                 src="../assets/icons/skip-back.svg" alt=""></button></td>
 
           <td [style.width]="isPlaying == true ? '72px' : '0px'"
             [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button"
-              class="btn btn-outline-dark ppcontrol" *ngIf="isPlaying" (click)="player.pause()"><img class="svg"
+              class="btn btn-outline-dark ppcontrol" *ngIf="isPlaying" (click)="player.pause()"><img
                 src="../assets/icons/pauze.svg" alt=""></button></td>
           <td [style.width]="isPlaying == false ? '72px' : '0px'"
             [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button"
-              class="btn btn-outline-dark ppcontrol" *ngIf="!isPlaying" (click)="playSong(activeSong)"><img class="svg"
+              class="btn btn-outline-dark ppcontrol" *ngIf="!isPlaying" (click)="playSong(activeSong)"><img
                 src="../assets/icons/play.svg" alt=""></button></td>
 
-          <td><button type="button" class="btn btn-outline-dark" (click)="playNextSong()"><img class="svg"
+          <td><button type="button" class="btn btn-outline-dark" (click)="playNextSong()"><img
                 src="../assets/icons/skip-forward.svg" alt=""></button></td>
-          <button class="addFunc" (click)="repeatChange()"><img class="svg" src="../assets/icons/repeat.svg"
+          <button class="addFunc" (click)="repeatChange()"><img src="../assets/icons/repeat.svg"
               alt=""></button>
         </table>
       </div>

@@ -9,6 +9,7 @@ body {
     height: 100%;
 }
 
+
 body.dark-mode {
     background-color: #181818;
     color: #ffffff;
@@ -18,9 +19,10 @@ body.dark-mode .svg {
     filter: invert(1);
 }
 
-body.dark-mode a {
-    color: #ffffff;
+body.dark-mode a, body.dark-mode p, body.dark-mode h1, body.dark-mode h3 {
+    color: #ffffff!important;
 }
+
   
 body.light-mode {
     background-color: #F0F3F9;

@@ -20,6 +20,8 @@
 
 
 <div class="recently">
+  <div class="title">
     <h3>{{ 'Recently Played' | translate }}</h3>
+  </div>
   <app-song *ngFor="let item of songs | slice:0:10" [song]="item"></app-song>
 </div>

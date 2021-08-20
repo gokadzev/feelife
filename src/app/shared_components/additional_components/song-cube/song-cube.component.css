@@ -18,15 +18,16 @@
 }
 
 h3 {
-  max-width: 119px;
   font-size: 15px;
   margin: unset;
+  font-family: 'Montserrat', sans-serif;
 }
 
 p {
   font-size: 14px;
   margin: unset;
   margin-top: 3px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .play {
