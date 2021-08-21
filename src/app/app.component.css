@@ -8,12 +8,12 @@
 }
 
 .flex h1 {
-  margin-left: 0px!important;
-  margin-right: 0px!important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }
 
 .is-active {
-  color: #FA7C05!important;
+  color: #FA7C05 !important;
 }
 
 .is-active-tab {
@@ -28,6 +28,10 @@
 .moreButton {
   background: none;
   border: none;
+}
+
+.logo {
+  height: 50px;
 }
 
 .logo a {
@@ -116,8 +120,9 @@
 }
 
 .left .tabs h1,
-.mobileNavbar .tabs h1, .right .tabs h1 {
-  margin: 18px auto;
+.mobileNavbar .tabs h1,
+.right .tabs h1 {
+  margin: 20px auto;
   letter-spacing: 3px;
   font-size: 14px;
   color: #687490;
@@ -135,7 +140,7 @@
 .mobileNavbar .tabs .tab {
   max-height: 40px;
   display: flex;
-  height: 25px;
+  height: 30px;
   margin: 15px auto;
 }
 
@@ -261,7 +266,6 @@ a {
 
 .artists-list {
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
   max-width: 300px;
 }
@@ -289,7 +293,7 @@ a {
 @media screen and (max-width: 1190px) {
 
   .player {
-    height: 315px;
+    height: calc(32vh + 55px);
   }
 
   .playerControllers {
@@ -303,17 +307,34 @@ a {
     justify-content: center;
   }
 
-  .player .songInfo img { 
-    height: 110px;
+  .player .songInfo img {
+    height: 14vh;
   }
 
   .player .songInfo .singer {
-    font-size: 1.0625rem;
+    font-size: 2.2vh;
   }
 
   .player .songInfo .song {
-    font-size: .875rem;
+    font-size: 1.7vh;
   }
+
+  .playerControllers button img {
+    width: 2vw;
+    height: 3vh;
+  }
+
+  .left .tabs h1,
+  .mobileNavbar .tabs h1,
+  .right .tabs h1 {
+    margin: 17px auto;
+  }
+
+  .profile img {
+    width: 6vh;
+    height: 6vh;
+  }
+
 }
 
 

@@ -1,6 +1,6 @@
 <input class="searchBar" placeholder="{{ 'Search' | translate }}" (input)="Search($event.target.value)" >
 
 <section class="results">
-    <h1>{{ 'SONGS' | translate }}</h1>
+    <h1 class="greyTitle">{{ 'SONGS' | translate }}</h1>
     <app-song *ngFor="let item of songs" [song]="item"></app-song>
 </section>

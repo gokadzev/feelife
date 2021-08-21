@@ -32,6 +32,13 @@ body.light-mode {
 body:not(.dark-mode-preloading) {
     transition: all 0.3s linear;
 }
+
+.greyTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: #687490;
+    letter-spacing: 5px;
+}
   
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */

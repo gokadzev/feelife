@@ -26,6 +26,7 @@ h3 {
   font-size: 15px;
   margin: unset;
   font-family: 'Montserrat', sans-serif;
+  color: #3c4356;
 }
 
 p {
@@ -40,8 +41,8 @@ p {
   border: none;
   background: white;
   border-radius: 6px;
-  left: 35px;
-  bottom: 45px;
+  left: 28%;
+  bottom: 37%;
   width: 30px;
   height: 30px;
   align-items: center;

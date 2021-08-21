@@ -1,23 +1,23 @@
 <section class="settings">
-    <h1 class="sectionTitle">{{ 'CUSTOMISE' | translate }}</h1>
+    <h1 class="sectionTitle greyTitle">{{ 'CUSTOMISE' | translate }}</h1>
      <section class="customise">
         <div class="customiseTab nightMode">
-            <h3>{{ 'NIGHT MODE' | translate }}</h3>
+            <h3 class="greyTitle">{{ 'NIGHT MODE' | translate }}</h3>
             <button [ngClass]="this.darkModeStatus == true ? 'turnedOn' : 'turnButton'" (click)="changeNightMode()">
                 <img src="../../../assets/icons/lightoff.svg" alt="">
             </button>
         </div>
         <div class="customiseTab animations">
-            <h3>{{ 'ANIMATIONS' | translate }}</h3>
+            <h3 class="greyTitle">{{ 'ANIMATIONS' | translate }}</h3>
             <button class="turnButton" [ngClass]="this.animationStatus == true ? 'turnedOn' : 'turnButton'" (click)="changeAnimationStatus()">
                 <img src="../../../assets/icons/loader.svg" alt="">
             </button>
         </div>
     </section>
-    <h1 class="sectionTitle">{{ 'SETTINGS' | translate }}</h1>
+    <h1 class="sectionTitle greyTitle">{{ 'SETTINGS' | translate }}</h1>
     <div class="otherSettings">
-        <div class="settingTab" [routerLink]="['/languages']" >
+        <h3 class="settingTab greyTitle" [routerLink]="['/languages']" >
             {{ 'Language' | translate }}
-        </div>
+        </h3>
     </div>
 </section>

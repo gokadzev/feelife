@@ -8,7 +8,10 @@
 
 .sectionTitle {
     margin: 2% auto;
+    font-size: 17px;
+    letter-spacing: 7px;
 }
+
 
 .turnButton {
     border: none;
