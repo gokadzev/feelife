@@ -1,9 +1,10 @@
-
-
 .customiseTab {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: bold;
+    margin: 5px 0px;
+    font-size: 15px;
 }
 
 .sectionTitle {
@@ -32,6 +33,6 @@
 
 .settingTab {
     font-weight: bold;
-    margin: 10px 0px;
-
+    margin: 5px 0px;
+    font-size: 15px;
 }

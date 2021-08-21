@@ -19,6 +19,6 @@
     <div class="navigator">
         <button *ngIf="this.navStart == 0"></button>
         <button *ngIf="this.navStart != 0" (click)="goBack()"><img src="../../../assets/icons/arrow-left.svg" alt="" class="svg"></button>
-        <button (click)="goNext()"><img src="../../../assets/icons/arrow-right.svg" alt="" class="svg"></button>
+        <button *ngIf="this.navStart + 10 < this.songs.length" (click)="goNext()"><img src="../../../assets/icons/arrow-right.svg" alt="" class="svg"></button>
     </div>
 </section>

@@ -44,10 +44,6 @@
   width: 28px;
 }
 
-.header {
-  margin-bottom: 10px;
-}
-
 .navController {
   display: none;
 }
@@ -104,7 +100,7 @@
 }
 
 .center {
-  width: 49%;
+  width: 42%;
   margin: auto;
 }
 
