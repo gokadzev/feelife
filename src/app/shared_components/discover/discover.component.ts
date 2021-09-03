@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PLsong } from 'src/app/shared_models/song.model';
-import { ContentGlobalRefresherService } from 'src/app/shared_services/content-global-refresher.service';
-import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
+import { DataManagerService } from 'src/app/shared_services/data-manager.service';
+import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-discover',
@@ -12,7 +12,7 @@ export class DiscoverComponent implements OnInit {
 
   shuffledArray:PLsong[];
 
-  constructor(private dataexchanger:DataexchangerService, private refresher:ContentGlobalRefresherService) { }
+  constructor(private dataexchanger:DataexchangerService, private manager:DataManagerService) { }
 
   ngOnInit(): void {
 
@@ -20,7 +20,7 @@ export class DiscoverComponent implements OnInit {
       this.shuffledArray = shuffledArray;
     })
 
-    this.refresher.getData('shuffledSongs');
+    this.manager.getShuffledSongs(25);
   }
 
 }

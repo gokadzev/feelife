@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Playlist } from 'src/app/shared_models/playlist.model';
 import { PLsong } from 'src/app/shared_models/song.model';
-import { ContentGlobalRefresherService } from 'src/app/shared_services/content-global-refresher.service';
-import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
+import { DataManagerService } from 'src/app/shared_services/data-manager.service';
+import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-playlist-page',
@@ -19,7 +19,7 @@ export class PlaylistPageComponent implements OnInit {
   playlistSongs:PLsong[];
   songs:PLsong[];
 
-  constructor(private router:ActivatedRoute,private dataExchanger:DataexchangerService,private contentRefresher:ContentGlobalRefresherService,) { }
+  constructor(private router:ActivatedRoute,private dataExchanger:DataexchangerService,private manager:DataManagerService,) { }
 
   ngOnInit(): void {
     this.router.paramMap.subscribe(params => {
@@ -45,8 +45,8 @@ export class PlaylistPageComponent implements OnInit {
         this.playlistSongs = playlistSongs
     })
 
-    this.contentRefresher.getData('songs');
-    this.contentRefresher.getData('playlists');
+    this.manager.getSongs();
+    this.manager.getPlaylists();
   }
 
 

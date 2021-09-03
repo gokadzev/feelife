@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentGlobalRefresherService } from 'src/app/shared_services/content-global-refresher.service';
-import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
+import { DataManagerService } from 'src/app/shared_services/data-manager.service';
+import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   navStart:number = 0;
   navEnd:number = 10;
 
-  constructor(private dataExchanger:DataexchangerService,private contentRefresher:ContentGlobalRefresherService) { }
+  constructor(private dataExchanger:DataexchangerService,private manager:DataManagerService) { }
 
   ngOnInit(): void {
 
@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
       this.songs = songs;
     })
 
-    this.contentRefresher.getData('songs');
+    this.manager.getSongs();
   }
 
 

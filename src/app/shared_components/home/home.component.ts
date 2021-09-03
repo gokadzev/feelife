@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PLsong } from 'src/app/shared_models/song.model';
-import { ContentGlobalRefresherService } from 'src/app/shared_services/content-global-refresher.service';
-import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
+import { DataManagerService } from 'src/app/shared_services/data-manager.service';
+import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-home',
@@ -12,15 +12,15 @@ export class HomeComponent implements OnInit {
 
   songs:PLsong [];
 
-  constructor(private dataexchanger:DataexchangerService, private refresher:ContentGlobalRefresherService) { }
+  constructor(private dataexchanger:DataexchangerService, private manager:DataManagerService) { }
 
   ngOnInit(): void {
 
-    this.dataexchanger.songs.subscribe((songs:any) => {
+    this.dataexchanger.shuffledArray.subscribe((songs:any) => {
       this.songs = songs;
     })
 
-    this.refresher.getData('songs');
+    this.manager.getShuffledSongs('all');
   }
 
 

@@ -6,8 +6,8 @@ import { trigger, animate, style, group, animateChild, query, stagger, transitio
 import { Playlist } from './shared_models/playlist.model';
 import { PLsinger } from './shared_models/singer.model';
 import { PLsong } from './shared_models/song.model';
-import { ContentGlobalRefresherService } from './shared_services/content-global-refresher.service';
-import { DataexchangerService } from './shared_services/dataexchanger.service';
+import { DataManagerService } from './shared_services/data-manager.service';
+import { DataexchangerService } from './shared_services/data-exchanger.service';
 import { StatusExchangerService } from './shared_services/status-exchanger.service';
 
 @Component({
@@ -67,7 +67,7 @@ export class AppComponent {
   constructor(
     private statusExchanger:StatusExchangerService,
     private dataExchanger:DataexchangerService,
-    private contentRefresher:ContentGlobalRefresherService,
+    private dataManager:DataManagerService,
     public router: Router,
     private translate: TranslateService
     ){
@@ -94,8 +94,9 @@ export class AppComponent {
       this.playlists = playlists;
     })
 
-    this.contentRefresher.getData('songs&singers');
-    this.contentRefresher.getData('playlists');
+    this.dataManager.getSongs();
+    this.dataManager.getSingers();
+    this.dataManager.getPlaylists();
 
     if(this.language === null){
       this.language = 'en'
@@ -173,8 +174,6 @@ export class AppComponent {
     }
 
     this.isPlaying = true;
-
-
 
 }
 

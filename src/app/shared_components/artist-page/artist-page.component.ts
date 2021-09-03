@@ -1,10 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PLsinger } from 'src/app/shared_models/singer.model';
 import { PLsong } from 'src/app/shared_models/song.model';
-import { ContentGlobalRefresherService } from 'src/app/shared_services/content-global-refresher.service';
-import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
-import { SingerdataexchangeService } from 'src/app/shared_services/singerdataexchange.service';
+import { DataManagerService } from 'src/app/shared_services/data-manager.service';
+import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-artist-page',
@@ -13,15 +12,13 @@ import { SingerdataexchangeService } from 'src/app/shared_services/singerdataexc
 })
 export class ArtistPageComponent implements OnInit {
 
-
-
   singerId:any;
   singer:PLsinger[];
   singerSongs:PLsong [];
   singers:PLsinger[];
   songs:PLsong[];
 
-  constructor(private router:ActivatedRoute,private dataexchanger:DataexchangerService, private refresher:ContentGlobalRefresherService) { }
+  constructor(private router:ActivatedRoute,private dataexchanger:DataexchangerService, private manager:DataManagerService) { }
 
   ngOnInit(): void {
     this.dataexchanger.songs.subscribe((songs:any) => {
@@ -32,7 +29,8 @@ export class ArtistPageComponent implements OnInit {
       this.singers = singers;
     })
 
-    this.refresher.getData('songs&singers');
+    this.manager.getSongs();
+    this.manager.getSingers();
 
 
     this.router.paramMap.subscribe(params => {

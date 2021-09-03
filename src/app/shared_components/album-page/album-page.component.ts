@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Album } from 'src/app/shared_models/album.model';
 import { PLsong } from 'src/app/shared_models/song.model';
-import { ContentGlobalRefresherService } from 'src/app/shared_services/content-global-refresher.service';
-import { DataexchangerService } from 'src/app/shared_services/dataexchanger.service';
+import { DataManagerService } from 'src/app/shared_services/data-manager.service';
+import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-album-page',
@@ -19,7 +19,7 @@ export class AlbumPageComponent implements OnInit {
   albums:Album[];
   albumSongs:PLsong[];
 
-  constructor(private router:ActivatedRoute,private dataexchanger:DataexchangerService,private refresher:ContentGlobalRefresherService) { }
+  constructor(private router:ActivatedRoute,private dataexchanger:DataexchangerService,private manager:DataManagerService) { }
 
   ngOnInit(): void {
     this.router.paramMap.subscribe(params => {
@@ -36,8 +36,8 @@ export class AlbumPageComponent implements OnInit {
       this.songs = songs;
     })
 
-    this.refresher.getData('songs');
-    this.refresher.getData('albums');
+    this.manager.getSongs();
+    this.manager.getAlbums();
 
     setTimeout( () => {
       this.albumSongs = this.songs.filter(s => s.album == this.albumName)
