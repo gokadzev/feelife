@@ -1,6 +1,7 @@
 .song, .animated {
   width: 100%;
   max-width: 140px;
+  margin: 0px 20px;
 }
 
 .songCube {
@@ -133,6 +134,7 @@ p {
   background-size: cover;
   background-repeat: no-repeat;
   transform-origin: center;
+  background-position: center;
 }
 
 #clip1 {
@@ -162,4 +164,11 @@ p {
 #clip4 {
   transform: scale(1.13, 1.13);
   animation: clip4 6s linear infinite;
+}
+
+
+@media screen and (max-width:790px){
+  .song, .animated {
+    margin:0px;
+  }
 }

@@ -26,12 +26,18 @@ h3 {
 
 @media screen and (min-width: 790px){
   img {
-    width: 5vw!important;
-    height: 5vw!important;
+    width: 7vw!important;
+    height: 7vw!important;
   }
 }
 
+
 @media screen and (min-width: 1100px) {
+  img {
+    width: 5vw!important;
+    height: 5vw!important;
+  }
+
   .singer {
     width: 8vw;
     height: 8vw;

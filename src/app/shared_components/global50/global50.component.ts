@@ -27,6 +27,9 @@ export class Global50Component implements OnInit {
   }
 
   goTo(where:string){
+    console.log(where)
+    console.log('start: ' + this.GlobalStart)
+    console.log('end: ' + this.GlobalEnd)
       if(where == "Back"){
         this.GlobalStart = this.GlobalStart - 16
         this.GlobalEnd = this.GlobalEnd - 16

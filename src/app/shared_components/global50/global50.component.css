@@ -20,9 +20,9 @@
 }
 
 .navigation {
-    float: right;
     width: 100%;
     max-width: 120px;
+    padding: 35px;
     display: flex;
     justify-content: space-between;
 }

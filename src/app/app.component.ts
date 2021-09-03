@@ -17,7 +17,7 @@ import { StatusExchangerService } from './shared_services/status-exchanger.servi
   animations: [
     trigger('routerTransition', [
       transition('* <=> *', [    
-        query(':enter, :leave', style({ position: 'fixed', width:'47.65%' }),{optional: true}),
+        query(':enter, :leave', style({ position: 'fixed', width:'40.8%' }),{optional: true}),
         group([ 
           query(':enter', [
             style({ transform: 'translateY(100%)' }),
@@ -292,13 +292,6 @@ export class AppComponent {
     }
   }
 
-  changeMobileNavStatus(){
-    if(this.mobileNavStatus == ''){
-      this.mobileNavStatus = 'openedNav'
-    } else {
-      this.mobileNavStatus = ''
-    }
-  }
 
 
 

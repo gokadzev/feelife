@@ -48,32 +48,21 @@
   display: none;
 }
 
-.header .openedNav {
-  display: inline-block;
-  width: 100%;
-  height: 250px;
-  text-align: center;
-  align-items: center;
-}
-
-.header .openedNav .tabs {
-  display: inline-block;
-  align-items: center;
-  text-align: center;
-}
-
-.menuButton {
-  border: none;
-  background: none;
-}
-
-.menuButton img {
-  width: 25px;
-  height: 25px;
-}
-
-.mobileNavbar {
+.header .mobileNavbar{
   display: none;
+  flex-wrap: nowrap;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+.header .tabs {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  width: 96%;
+  margin: auto;
 }
 
 .components {
@@ -279,17 +268,24 @@ a {
     width: 100%;
   }
 
-  .navController {
+  .header .mobileNavbar {
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
   }
 }
 
 @media screen and (max-width: 1190px) {
 
+  .animatedPlayer .clip {
+    max-width: 145px!important;
+  }
+
+  .animatedPlayer .animated {
+    height: 100px!important;
+  }
+
   .player {
-    height: calc(32vh + 55px);
+    height: calc(38vh + 55px);
+    margin-top: 39%;
   }
 
   .playerControllers {
@@ -303,8 +299,8 @@ a {
     justify-content: center;
   }
 
-  .player .songInfo img {
-    height: 14vh;
+  .player .songInfo img, .animatedPlayer .clip {
+    height: 14vh!important;
   }
 
   .player .songInfo .singer {
@@ -433,12 +429,14 @@ a {
 
 .animatedPlayer .clip {
   position: absolute;
-  width: 180px;
+  width: 100%;
+  max-width: 180px;
   height: 140px;
   border-radius: 14px;
   background-size: cover;
   background-repeat: no-repeat;
   transform-origin: center;
+  background-position: center;
 }
 
 .animatedPlayer #clip1 {

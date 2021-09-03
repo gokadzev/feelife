@@ -1,65 +1,49 @@
 <section class="header">
-  <div class="navController">
-    <button class="menuButton"></button>
-    <button class="menuButton" (click)="changeMobileNavStatus()">
-      <img *ngIf="this.mobileNavStatus == ''" class="svg" src="../assets/icons/menu.svg" alt="">
-      <img *ngIf="this.mobileNavStatus == 'openedNav'" class="svg" src="../assets/icons/x.svg" alt="">
-    </button>
-  </div>
   <div class="mobileNavbar {{mobileNavStatus}}">
     <div class="tabs">
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['/home']"><img src="../assets/icons/home.svg"
+        <a [routerLink]="['/home']"><img src="../assets/icons/home.svg"
             alt="">
-          <p>{{ 'Home' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['search']"><img
+        <a [routerLink]="['search']"><img
             src="../assets/icons/search.svg" alt="">
-          <p>{{ 'Search' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['discover']"><img
+        <a [routerLink]="['discover']"><img
             src="../assets/icons/discover.svg" alt="">
-          <p>{{ 'Discover' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['albums']"><img
+        <a [routerLink]="['albums']"><img
             src="../assets/icons/album.svg" alt="">
-          <p> {{ 'Albums' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['artists']"><img
+        <a [routerLink]="['artists']"><img
             src="../assets/icons/artist.svg" alt="">
-          <p>{{ 'Artists' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['recent']"><img
+        <a [routerLink]="['recent']"><img
             src="../assets/icons/recent.svg" alt="">
-          <p>{{ 'Recent' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['favourites']"><img
+        <a [routerLink]="['favourites']"><img
             src="../assets/icons/heart.svg" alt="">
-          <p>{{ 'Favourites' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['settings']"><img
+        <a [routerLink]="['settings']"><img
             src="../assets/icons/settings.svg" alt="">
-          <p>{{ 'Settings' | translate }}</p>
         </a>
       </div>
       <div class="tab">
-        <a (click)="this.changeMobileNavStatus()" [routerLink]="['logout']"><img
+        <a [routerLink]="['logout']"><img
             src="../assets/icons/exit.svg" alt="">
-          <p>{{ 'Log Out' | translate }}</p>
         </a>
       </div>
     </div>
@@ -164,37 +148,9 @@
     <div class="player" [ngClass]="animationStatus == true ? 'animatedPlayer' : ''">
       <h1>{{ 'NOW PLAYING' | translate }}</h1>
       <div class="songInfo">
-        <div class="animated">
-          <div class="div1" *ngIf="!activeSong?.coverphoto && this.songs">
-            <div id="background" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
-            </div>
-            <div id="clip3" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
-            </div>
-            <div id="clip4" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
-            </div>
-            <div id="clipa" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
-            </div>
-            <div id="clip1" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
-            </div>
-            <div id="clip2" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
-            </div>
-            <div id="clipb" class="clip" [ngStyle]="{'background-image': 'url(' + this.songs[0].coverphoto + ')'}">
-            </div>
-          </div>
-          <div class="div2" *ngIf="activeSong?.coverphoto">
-            <div id="background" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}">
-            </div>
-            <div id="clip3" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
-            <div id="clip4" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
-            <div id="clipa" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
-            <div id="clip1" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
-            <div id="clip2" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
-            <div id="clipb" class="clip" [ngStyle]="{'background-image': 'url(' + activeSong?.coverphoto + ')'}"></div>
-          </div>
-        </div>
-        <img *ngIf="!activeSong?.coverphoto && this.songs && this.animationStatus == false"
+        <img *ngIf="!activeSong?.coverphoto && this.songs"
           [src]="this.songs[0].coverphoto" alt="">
-        <img *ngIf="activeSong?.coverphoto && this.animationStatus == false" [src]="activeSong?.coverphoto" alt="">
+        <img *ngIf="activeSong?.coverphoto" [src]="activeSong?.coverphoto" alt="">
         <h3 class="singer">{{ activeSong?.singer }}</h3>
         <p class="song">{{ activeSong?.songtitle }}</p>
       </div>
