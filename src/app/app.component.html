@@ -151,7 +151,9 @@
         <img *ngIf="!activeSong?.coverphoto && this.songs"
           [src]="this.songs[0].coverphoto" alt="">
         <img *ngIf="activeSong?.coverphoto" [src]="activeSong?.coverphoto" alt="">
+        <h3 class="singer" *ngIf="!activeSong?.singer && this.songs">{{ songs[0].singer }}</h3>
         <h3 class="singer">{{ activeSong?.singer }}</h3>
+        <p class="song" *ngIf="!activeSong?.songtitle && this.songs">{{ songs[0].songtitle }}</p>
         <p class="song">{{ activeSong?.songtitle }}</p>
       </div>
 
