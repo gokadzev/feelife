@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Playlist } from 'src/app/shared_models/playlist.model';
 import { PLsong } from 'src/app/shared_models/song.model';
 import { DataManagerService } from 'src/app/shared_services/data-manager.service';
-import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-playlist-page',
@@ -19,19 +18,18 @@ export class PlaylistPageComponent implements OnInit {
   playlistSongs:PLsong[];
   songs:PLsong[];
 
-  constructor(private router:ActivatedRoute,private dataExchanger:DataexchangerService,private manager:DataManagerService,) { }
+  constructor(private router:ActivatedRoute,private manager:DataManagerService,) { }
 
   ngOnInit(): void {
     this.router.paramMap.subscribe(params => {
       this.playlistName = params.get('playlist')
     })
 
-    this.dataExchanger.songs.subscribe((songs:any) => {
-      this.songs = songs;
-    })
-
-    this.dataExchanger.playlists.subscribe((playlists:any) => {
-      this.playlists = playlists;
+    this.manager.getSongs((res) => {
+      this.songs = res;
+    });
+    this.manager.getPlaylists((res) => {
+      this.playlists = res;
       this.activePlaylist = this.playlists.filter(p => p.name == this.playlistName)
       this.playlistCover = this.activePlaylist[0].cover
 
@@ -43,10 +41,7 @@ export class PlaylistPageComponent implements OnInit {
           playlistSongs.push(temporaryPlaylist[0])
         }}
         this.playlistSongs = playlistSongs
-    })
-
-    this.manager.getSongs();
-    this.manager.getPlaylists();
+    });
   }
 
 

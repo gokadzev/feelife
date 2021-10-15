@@ -7,7 +7,6 @@ import { Playlist } from './shared_models/playlist.model';
 import { PLsinger } from './shared_models/singer.model';
 import { PLsong } from './shared_models/song.model';
 import { DataManagerService } from './shared_services/data-manager.service';
-import { DataexchangerService } from './shared_services/data-exchanger.service';
 import { StatusExchangerService } from './shared_services/status-exchanger.service';
 
 @Component({
@@ -66,7 +65,6 @@ export class AppComponent {
 
   constructor(
     private statusExchanger:StatusExchangerService,
-    private dataExchanger:DataexchangerService,
     private dataManager:DataManagerService,
     public router: Router,
     private translate: TranslateService
@@ -84,19 +82,15 @@ export class AppComponent {
   ngOnInit() {
     this.innerWidth = window.innerWidth;
 
-    this.dataExchanger.songs.subscribe((songs:any) => {
-      this.songs = songs;
-    })
-    this.dataExchanger.singers.subscribe((singers:any) => {
-      this.singers = singers;
-    })
-    this.dataExchanger.playlists.subscribe((playlists:any) => {
-      this.playlists = playlists;
-    })
-
-    this.dataManager.getSongs();
-    this.dataManager.getSingers();
-    this.dataManager.getPlaylists();
+    this.dataManager.getSongs((res) => {
+      this.songs = res;
+    });
+    this.dataManager.getSingers((res) => {
+      this.singers = res;
+    });
+    this.dataManager.getPlaylists((res) => {
+      this.playlists = res;
+    });
 
     if(this.language === null){
       this.language = 'en'

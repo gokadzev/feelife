@@ -24,16 +24,16 @@ export class DataManagerService {
   playlistsApiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmplaylists.json?' + this.randnum;
 
 
-  getSongs(){
-      this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
+  getSongs(callback){
+      return this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
         var tempdata = JSON.stringify(songs)
         var convertedData = JSON.parse(tempdata);
-        this.dataexchanger.songs.emit(convertedData);
+        return callback(convertedData);
       }); 
   }
 
-  getSingers(){
-      this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
+  getSingers(callback){
+      return this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
         var tempdata = JSON.stringify(songs)
         var convertedData = JSON.parse(tempdata);
         var singers:PLsinger[] = [];
@@ -45,12 +45,12 @@ export class DataManagerService {
             singer = convertedData[i].coverphoto
           }
         }
-        this.dataexchanger.singers.emit(singers);
+        return callback(singers);
       })
   }
 
-  getAlbums(){
-    this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
+  getAlbums(callback){
+    return this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
       var tempdata = JSON.stringify(songs)
       var convertedData = JSON.parse(tempdata);
       var convertedData1:Album [] = [];
@@ -61,19 +61,19 @@ export class DataManagerService {
           convertedData1.push(new Album(convertedData[i].album,convertedData[i].albumCover))
         }
       }
-      this.dataexchanger.albums.emit(convertedData1);
+      return callback(convertedData1);
     }); 
   }
 
-  getPlaylists(){
-      this.httpserv.getSubscribableData(this.playlistsApiUrl).subscribe(playlists=>{
+  getPlaylists(callback){
+      return this.httpserv.getSubscribableData(this.playlistsApiUrl).subscribe(playlists=>{
         var tempdata = JSON.stringify(playlists)
         var convertedData = JSON.parse(tempdata);
-        this.dataexchanger.playlists.emit(convertedData);
+        return callback(convertedData);
       });
   }
 
-  getShuffledSongs(number:any){
+  getShuffledSongs(number:any, callback){
     var shuffledArray:PLsong[] = [];
     var songsList:PLsong[];
     this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
@@ -103,7 +103,7 @@ export class DataManagerService {
         }
       }
     }); 
-    this.dataexchanger.shuffledArray.emit(shuffledArray);
+    return callback(shuffledArray);
   }
 
 

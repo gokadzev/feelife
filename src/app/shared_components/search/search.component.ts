@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PLsinger } from 'src/app/shared_models/singer.model';
 import { PLsong } from 'src/app/shared_models/song.model';
 import { DataManagerService } from 'src/app/shared_services/data-manager.service';
-import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-search',
@@ -16,23 +15,18 @@ export class SearchComponent implements OnInit {
   arrayForDataSave:PLsong[];
   newArrayForDataSave:PLsinger[];
 
-  constructor(private dataexchanger:DataexchangerService,private manager:DataManagerService) { }
+  constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
-    
-    this.dataexchanger.shuffledArray.subscribe((songs:any) => {
-      this.songs = songs;
-      this.arrayForDataSave = songs;
-    })
-
-
-    this.dataexchanger.singers.subscribe((singers:any) => {
-      this.singers = singers;
-      this.newArrayForDataSave = singers;
-    })
-
-    this.manager.getShuffledSongs(10);
-    this.manager.getSingers();
+  
+    this.manager.getShuffledSongs(10,(res) => {
+      this.songs = res;
+      this.arrayForDataSave = this.songs;
+      this.newArrayForDataSave = this.singers;
+    });
+    this.manager.getSingers((res) => {
+      this.singers = res;
+    });
 
   }
 

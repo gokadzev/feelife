@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PLsong } from 'src/app/shared_models/song.model';
 import { DataManagerService } from 'src/app/shared_services/data-manager.service';
-import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-global50',
@@ -14,15 +13,12 @@ export class Global50Component implements OnInit {
   GlobalStart:number = 0;
   GlobalEnd:number = 16;
 
-  constructor(private dataexchanger:DataexchangerService, private manager:DataManagerService) { }
+  constructor( private manager:DataManagerService) { }
 
   ngOnInit(): void {
-
-    this.dataexchanger.shuffledArray.subscribe((songs:any) => {
-      this.songs = songs;
-    })
-
-    this.manager.getShuffledSongs(50);
+    this.manager.getShuffledSongs(50,(res) => {
+      this.songs = res;
+    });
 
   }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PLsinger } from 'src/app/shared_models/singer.model';
 import { DataManagerService } from 'src/app/shared_services/data-manager.service';
-import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-artists',
@@ -12,15 +11,13 @@ export class ArtistsComponent implements OnInit {
 
   singers:PLsinger [] = [];
 
-  constructor(private dataexchanger:DataexchangerService, private manager:DataManagerService) { }
+  constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
 
-    this.dataexchanger.singers.subscribe((singers:any) => {
-      this.singers = singers;
-    })
-
-    this.manager.getSingers();
+    this.manager.getSingers((res) => {
+      this.singers = res;
+    });
 
 
   }

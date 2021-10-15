@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { PLsinger } from 'src/app/shared_models/singer.model';
 import { PLsong } from 'src/app/shared_models/song.model';
 import { DataManagerService } from 'src/app/shared_services/data-manager.service';
-import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-artist-page',
@@ -18,19 +17,15 @@ export class ArtistPageComponent implements OnInit {
   singers:PLsinger[];
   songs:PLsong[];
 
-  constructor(private router:ActivatedRoute,private dataexchanger:DataexchangerService, private manager:DataManagerService) { }
+  constructor(private router:ActivatedRoute, private manager:DataManagerService) { }
 
   ngOnInit(): void {
-    this.dataexchanger.songs.subscribe((songs:any) => {
-      this.songs = songs;
-    })
-
-    this.dataexchanger.singers.subscribe((singers:any) => {
-      this.singers = singers;
-    })
-
-    this.manager.getSongs();
-    this.manager.getSingers();
+    this.manager.getSongs((res) => {
+      this.songs = res;
+    });
+    this.manager.getSingers((res) => {
+      this.singers = res;
+    });
 
 
     this.router.paramMap.subscribe(params => {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataManagerService } from 'src/app/shared_services/data-manager.service';
-import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,18 +13,12 @@ export class ProfileComponent implements OnInit {
   navStart:number = 0;
   navEnd:number = 10;
 
-  constructor(private dataExchanger:DataexchangerService,private manager:DataManagerService) { }
+  constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
-
-    //test 
-
-    
-    this.dataExchanger.songs.subscribe((songs:any) => {
-      this.songs = songs;
-    })
-
-    this.manager.getSongs();
+    this.manager.getSongs((res) => {
+      this.songs = res
+    });
   }
 
 

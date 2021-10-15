@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PLsong } from 'src/app/shared_models/song.model';
 import { DataManagerService } from 'src/app/shared_services/data-manager.service';
-import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-suggestions',
@@ -12,14 +11,12 @@ export class SuggestionsComponent implements OnInit {
 
   songs:PLsong [];
 
-  constructor(private dataexchanger:DataexchangerService, private manager:DataManagerService) { }
+  constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
-    this.dataexchanger.shuffledArray.subscribe((songs:any) => {
-      this.songs = songs;
-    })
-
-    this.manager.getShuffledSongs(16);
+    this.manager.getShuffledSongs(16,(res) => {
+      this.songs = res;
+    });
   }
 
 

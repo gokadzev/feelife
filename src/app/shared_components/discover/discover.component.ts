@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PLsong } from 'src/app/shared_models/song.model';
 import { DataManagerService } from 'src/app/shared_services/data-manager.service';
-import { DataexchangerService } from 'src/app/shared_services/data-exchanger.service';
 
 @Component({
   selector: 'app-discover',
@@ -12,15 +11,12 @@ export class DiscoverComponent implements OnInit {
 
   shuffledArray:PLsong[];
 
-  constructor(private dataexchanger:DataexchangerService, private manager:DataManagerService) { }
+  constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
-
-    this.dataexchanger.shuffledArray.subscribe((shuffledArray:any) => {
-      this.shuffledArray = shuffledArray;
-    })
-
-    this.manager.getShuffledSongs(25);
+    this.manager.getShuffledSongs(25,(res) => {
+      this.shuffledArray = res;
+    });
   }
 
 }
