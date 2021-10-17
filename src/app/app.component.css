@@ -81,7 +81,7 @@
 
 .right {
   position: fixed;
-  left: 78%;
+  left: 75%;
   border-left: 2px solid #dce2ea8c;
   padding-left: 2%;
   width: 15vw;
@@ -167,9 +167,8 @@ a {
   text-align: center;
   padding: 8px 13px 35px 13px;
   border-radius: 14px;
-  width: 100%;
-  max-width: 200px;
-  height: 340px;
+  width: 15vw;
+  height: 46vh;
   color: white;
   margin-top: 6%;
   box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
@@ -273,29 +272,10 @@ a {
   }
 }
 
-@media screen and (min-width: 790px) and (max-width: 890px) {
+@media screen and (max-width: 1100px) {
   .player {
-    position: fixed;
-    bottom: 1rem;
-    right: 0.2rem;
-    max-width: 140px;
-    height: 290px;
+    width: 18vw;
   }
-
-  .player .songInfo img {
-    width: 95%;
-    max-width: 180px;
-    height: 14vh!important;
-  }
-
-  .player .songInfo .singer {
-    font-size: 1.6vh!important;
-  }
-
-  .player .songInfo .song {
-    font-size: 1.3vh!important;
-  }
-
 }
 
 @media screen and (max-width: 1190px) {
@@ -306,12 +286,6 @@ a {
 
   .animatedPlayer .animated {
     height: 100px !important;
-  }
-
-  .player {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
   }
 
   .playerControllers {
