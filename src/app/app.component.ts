@@ -12,24 +12,7 @@ import { StatusExchangerService } from './shared_services/status-exchanger.servi
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  animations: [
-    trigger('routerTransition', [
-      transition('* <=> *', [    
-        query(':enter, :leave', style({ position: 'fixed', width:'40.8%' }),{optional: true}),
-        group([ 
-          query(':enter', [
-            style({ transform: 'translateY(100%)' }),
-            animate('0.8s ease-in-out', style({ transform: 'translateY(0%)' }))
-          ],{optional: true}),
-          query(':leave', [
-            style({ transform: 'translateY(0%)' }),
-            animate('0.8s ease-in-out', style({ transform: 'translateY(-100%)' }))
-          ],{optional: true}),
-        ])
-      ])
-    ])
-   ]
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
@@ -138,15 +121,6 @@ export class AppComponent {
 
   }
 
-  getState(outlet:any) {
-    // Changing the activatedRouteData.state triggers the animation
-    if(this.animationStatus == true){
-      return outlet.activatedRouteData.state;
-    }else {
-      return 'animationsAreTurnedOff'
-    }
-
-  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {

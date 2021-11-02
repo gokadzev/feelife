@@ -31,6 +31,7 @@
 }
 
 .logo {
+  margin-left: 10px;
   height: 50px;
 }
 
@@ -68,12 +69,15 @@
 .components {
   display: flex;
   justify-content: space-between;
-  margin: 0px 20px;
+}
+
+.left, .right{
+  width: 100%;
+  padding: 5px;
 }
 
 .left {
-  width: 100%;
-  max-width: 190px;
+  max-width: 210px;
   position: fixed;
   border-right: 2px solid #dce2ea8c;
   height: -webkit-fill-available;
@@ -89,8 +93,9 @@
 }
 
 .center {
-  width: 42%;
-  margin: auto;
+  width: 54vw;
+  left: 20vw;
+  position: absolute;
 }
 
 
@@ -101,6 +106,10 @@
 
 .left a p,
 .mobileNavbar a p {
+  margin-left: 10px;
+}
+
+.left .tabs {
   margin-left: 10px;
 }
 
@@ -264,7 +273,10 @@ a {
   }
 
   .center {
-    width: 100%;
+    position: unset;
+    width: 90%!important;
+    left: 0px!important;
+    margin: auto;
   }
 
   .header .mobileNavbar {
@@ -273,6 +285,12 @@ a {
 }
 
 @media screen and (max-width: 1100px) {
+
+  .center {
+    width: 42vw;
+    left: 30vw;
+  }
+
   .player {
     width: 18vw;
   }
