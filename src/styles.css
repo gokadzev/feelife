@@ -9,8 +9,12 @@ body {
     height: 100%;
 }
 
+.t-bg-accent-color {
+    background-color: #6ac7cc;
+}
 
-body.dark-mode {
+
+body.dark-mode, body.dark-mode .player-bar {
     background-color: #181818;
     color: #ffffff;
 }
@@ -19,12 +23,28 @@ body.dark-mode .svg {
     filter: invert(1);
 }
 
+body.dark-mode .t-color {
+    color: #ffffff;
+}
+
+body.light-mode .t-color {
+    color: #000000;
+}
+
+body.dark-mode .t-bg-color {
+    background-color: #ffffff;
+}
+
+body.light-mode .t-bg-color {
+    background-color: #000000;
+}
+
 body.dark-mode a, body.dark-mode p, body.dark-mode h1, body.dark-mode h3 {
     color: #ffffff!important;
 }
 
   
-body.light-mode {
+body.light-mode, body.light-mode .player-bar  {
     background-color: #F0F3F9;
     color: #2d3436;
 }

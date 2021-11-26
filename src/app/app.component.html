@@ -2,48 +2,39 @@
   <div class="mobileNavbar {{mobileNavStatus}}">
     <div class="tabs">
       <div class="tab">
-        <a [routerLink]="['/home']"><img src="../assets/icons/home.svg"
-            alt="">
+        <a [routerLink]="['/home']"><img src="../assets/icons/home.svg" alt="">
         </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['search']"><img
-            src="../assets/icons/search.svg" alt="">
+        <a [routerLink]="['search']"><img src="../assets/icons/search.svg" alt="">
         </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['discover']"><img
-            src="../assets/icons/discover.svg" alt="">
+        <a [routerLink]="['discover']"><img src="../assets/icons/discover.svg" alt="">
         </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['albums']"><img
-            src="../assets/icons/album.svg" alt="">
+        <a [routerLink]="['albums']"><img src="../assets/icons/album.svg" alt="">
         </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['artists']"><img
-            src="../assets/icons/artist.svg" alt="">
+        <a [routerLink]="['artists']"><img src="../assets/icons/artist.svg" alt="">
         </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['recent']"><img
-            src="../assets/icons/recent.svg" alt="">
+        <a [routerLink]="['recent']"><img src="../assets/icons/recent.svg" alt="">
         </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['favourites']"><img
-            src="../assets/icons/heart.svg" alt="">
+        <a [routerLink]="['favourites']"><img src="../assets/icons/heart.svg" alt="">
         </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['settings']"><img
-            src="../assets/icons/settings.svg" alt="">
+        <a [routerLink]="['settings']"><img src="../assets/icons/settings.svg" alt="">
         </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['logout']"><img
-            src="../assets/icons/exit.svg" alt="">
+        <a [routerLink]="['logout']"><img src="../assets/icons/exit.svg" alt="">
         </a>
       </div>
     </div>
@@ -69,7 +60,8 @@
         </a>
       </div>
       <div class="tab" [routerLinkActive]="['is-active-tab']">
-        <a [routerLink]="['discover']" [routerLinkActive]="['is-active']"><img src="../assets/icons/discover.svg" alt="">
+        <a [routerLink]="['discover']" [routerLinkActive]="['is-active']"><img src="../assets/icons/discover.svg"
+            alt="">
           <p>{{ 'Discover' | translate }}</p>
         </a>
       </div>
@@ -106,7 +98,8 @@
     <div class="tabs">
       <h1>{{ 'GENERAL' | translate }}</h1>
       <div class="tab" [routerLinkActive]="['is-active-tab']">
-        <a [routerLink]="['settings']" [routerLinkActive]="['is-active']"><img src="../assets/icons/settings.svg" alt="">
+        <a [routerLink]="['settings']" [routerLinkActive]="['is-active']"><img src="../assets/icons/settings.svg"
+            alt="">
           <p>{{ 'Settings' | translate }}</p>
         </a>
       </div>
@@ -135,72 +128,71 @@
     </div>
     <div class="feature tabs">
       <div class="flex">
-      <h1>{{ 'TOP ARTISTS' | translate }}</h1>
-      <button class="moreButton" [routerLink]="['/artists']">
-        <img class="svg" src="../../../assets/icons/more.svg" alt="">
-      </button>
-    </div>
+        <h1>{{ 'TOP ARTISTS' | translate }}</h1>
+        <button class="moreButton" [routerLink]="['/artists']">
+          <img class="svg" src="../../../assets/icons/more.svg" alt="">
+        </button>
+      </div>
       <div class="artists-list">
-        <app-artist *ngFor="let item of singers | slice:0:2" [singer]="item"></app-artist>
+        <app-artist *ngFor="let item of singers | slice:0:4" [singer]="item"></app-artist>
       </div>
-    </div>
-
-    <div class="player" [ngClass]="animationStatus == true ? 'animatedPlayer' : ''">
-      <h1>{{ 'NOW PLAYING' | translate }}</h1>
-      <div class="songInfo">
-        <img *ngIf="!activeSong?.coverphoto && this.songs"
-          [src]="this.songs[0].coverphoto" alt="">
-        <img *ngIf="activeSong?.coverphoto" [src]="activeSong?.coverphoto" alt="">
-        <h3 class="singer" *ngIf="!activeSong?.singer && this.songs">{{ songs[0].singer }}</h3>
-        <h3 class="singer">{{ activeSong?.singer }}</h3>
-        <p class="song" *ngIf="!activeSong?.songtitle && this.songs">{{ songs[0].songtitle }}</p>
-        <p class="song">{{ activeSong?.songtitle }}</p>
-      </div>
-
-      <div class="col-12">
-        <div class="container">
-          <div class="row row1">
-            <div class="left-side">
-              <div class="col-6 text-left">
-                {{ currentTime$ | async }}
-              </div>
-              <div class="progress-bar bg-info" role="progressbar"
-                [ngStyle]="{'width': (currentProgress$ | async) + '%'}"
-                [attr.aria-valuenow]="(currentProgress$ | async) " aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <div class="col-6 text-right" *ngIf="player?.duration">
-              {{ durationTime }}
-            </div>
-          </div>
-        </div>
-
-        <table class="playerControllers">
-          <button class="addFunc" (click)="shuffleChange()"><img src="../assets/icons/shuffle.svg"
-              alt=""></button>
-          <td><button type="button" class="btn btn-outline-dark" (click)="playPreviousSong()"><img
-                src="../assets/icons/skip-back.svg" alt=""></button></td>
-
-          <td [style.width]="isPlaying == true ? '72px' : '0px'"
-            [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button"
-              class="btn btn-outline-dark ppcontrol" *ngIf="isPlaying" (click)="player.pause()"><img
-                src="../assets/icons/pauze.svg" alt=""></button></td>
-          <td [style.width]="isPlaying == false ? '72px' : '0px'"
-            [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button"
-              class="btn btn-outline-dark ppcontrol" *ngIf="!isPlaying" (click)="playSong(activeSong)"><img
-                src="../assets/icons/play.svg" alt=""></button></td>
-
-          <td><button type="button" class="btn btn-outline-dark" (click)="playNextSong()"><img
-                src="../assets/icons/skip-forward.svg" alt=""></button></td>
-          <button class="addFunc" (click)="repeatChange()"><img src="../assets/icons/repeat.svg"
-              alt=""></button>
-        </table>
-      </div>
-
-
-      <audio #player (timeupdate)="onTimeUpdate()" (pause)="onPause()"></audio>
-
-
     </div>
 
   </aside>
+</div>
+
+<audio #player (timeupdate)="onTimeUpdate()" (pause)="onPause()"></audio>
+
+
+<div class="player-bar">
+  <div class="player-content">
+    <div class="music-info-area">
+      <img *ngIf="!activeSong?.coverphoto && this.songs" [src]="this.songs[0].coverphoto" alt="">
+      <img *ngIf="activeSong?.coverphoto" [src]="activeSong?.coverphoto" alt="">
+      <div class="music-info">
+        <h3 *ngIf="!activeSong?.singer && this.songs">{{ songs[0].singer }}</h3>
+        <h3 *ngIf="activeSong?.singer">{{ activeSong?.singer }}</h3>
+        <p *ngIf="!activeSong?.songtitle && this.songs">{{ songs[0].songtitle }}</p>
+        <p *ngIf="activeSong?.songtitle">{{ activeSong?.songtitle }}</p>
+      </div>
+    </div>
+    <div class="control-area">
+      <div class="left-side">
+        <table class="controller">
+          <button class="additional-func svg" (click)="shuffleChange()"><img src="../assets/icons/shuffle.svg"
+              alt=""></button>
+          <td><button type="button" class="svg" (click)="playPreviousSong()"><img src="../assets/icons/skip-back.svg"
+                alt=""></button></td>
+          <td [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button" class="play-button"
+              *ngIf="isPlaying" (click)="player.pause()"><img src="../assets/icons/pauze.svg" alt=""></button></td>
+          <td [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button" class="play-button"
+              *ngIf="!isPlaying" (click)="playSong(activeSong)"><img src="../assets/icons/play.svg" alt=""></button>
+          </td>
+
+          <td><button type="button" class="svg" (click)="playNextSong()"><img src="../assets/icons/skip-forward.svg"
+                alt=""></button></td>
+          <button class="additional-func svg" (click)="repeatChange()"><img src="../assets/icons/repeat.svg"
+              alt=""></button>
+        </table>
+        <div class="volume-slider" [ngStyle]="{ 'display': this.innerWidth < 768 ? 'none' : 'block'}">
+          <input id="vol-control" #volumeSlider type="range" [(ngModel)]="this.vol" (ngModelChange)="changeVolume()" min="0" max="100"
+            step="1">
+        </div>
+      </div>
+      <div class="timer">
+        <div class="left-side">
+          <div class="col-6 text-left">
+            {{ currentTime$ | async }}
+          </div>
+          <div class="progress-bar t-bg-accent-color" role="progress-bar"
+            [ngStyle]="{'width': (currentProgress$ | async) + '%'}" [attr.aria-valuenow]="(currentProgress$ | async) "
+            aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+        <div class="col-6 text-right" *ngIf="player?.duration">
+          {{ durationTime }}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

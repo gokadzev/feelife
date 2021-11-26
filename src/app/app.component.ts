@@ -26,6 +26,7 @@ export class AppComponent {
   currentTime$ = new Subject();
 
   @ViewChild('player', {static: true}) player!: ElementRef;
+  @ViewChild('volumeSlider', {static: true}) volumeSlider!: ElementRef;
 
   songs:any;
   singers: PLsinger[] = [];
@@ -52,13 +53,13 @@ export class AppComponent {
     public router: Router,
     private translate: TranslateService
     ){
-    if(this.language != null || this.language != undefined){
-      translate.setDefaultLang(this.language);
-      translate.use(this.language);
-    } else {
-      translate.setDefaultLang('en');
-      translate.use('en');
-    }
+      if(this.language != null || this.language != undefined){
+        translate.setDefaultLang(this.language);
+        translate.use(this.language);
+      } else {
+        translate.setDefaultLang('en');
+        translate.use('en');
+      }
   
   }
   
@@ -119,6 +120,10 @@ export class AppComponent {
       localStorage.setItem('dark-mode','false')
     }
 
+  }
+
+  ngAfterViewInit(){
+    this.changeVolume()
   }
 
 
@@ -241,6 +246,12 @@ export class AppComponent {
   repeatStatus:boolean=false;
   shuffleStatus:boolean=false;
 
+  vol:number = 100;
+
+  changeVolume(){
+    this.player.nativeElement.volume = this.vol / 100;
+    this.volumeSlider.nativeElement.style.background = "linear-gradient(to right, #82CFD0 0%, #82CFD0 " + this.vol + "%, #fff " + this.vol + "%, #fff 100%)"
+  }
 
   repeatChange(){
     if(this.repeatStatus == true){

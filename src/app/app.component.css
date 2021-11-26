@@ -171,6 +171,111 @@ a {
   color: black;
 }
 
+.player-bar {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.player-bar .player-content {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  padding: 5px 0px;
+}
+
+.player-bar .player-content .music-info-area {
+  display: flex;
+  height: 50px;
+}
+
+.player-bar .music-info-area img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.player-bar .player-content .music-info {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 200px
+}
+
+.player-bar .player-content .music-info h3 {
+  width: 100%;
+  margin: 5px 0px 0px 0px;
+  font-size: 15px;
+}
+
+.player-bar .player-content .music-info p {
+  margin: 0px;
+  font-size: 13px;
+  width: 100%;
+}
+
+.player-bar .player-content .control-area {
+  width: 85%;
+}
+
+.player-bar .player-content .control-area .left-side {
+  display: flex;
+  align-items: center;
+}
+
+.player-bar .player-content .control-area .left-side .volume-slider #vol-control {
+  border-radius: 8px;
+  height: 7px;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none
+}
+
+.player-bar .player-content .control-area .left-side .controller {
+  margin: auto;
+}
+
+.player-bar .player-content .control-area .left-side .controller button {
+  border: none;
+  background-color: unset;
+}
+
+.player-bar .player-content .control-area .left-side .controller button img {
+  width: 20px;
+  height: 20px;
+}
+
+.player-bar .player-content .control-area .left-side .controller .play-button {
+  width: 45px;
+  height: 45px;
+  background-color: #6ac7cc;
+  padding: 12px;
+  border-radius: 50%;
+}
+
+.player-bar .player-content .control-area .left-side .controller .play-button img {
+  filter: invert(1);
+}
+
+.player-bar .player-content .control-area .timer {
+  display: flex;
+  width: 60%;
+  margin: auto
+}
+
+.player-bar .player-content .control-area .timer .left-side {
+  display: flex;
+  width: 100%;
+  align-items: center
+}
+
+.player-bar .player-content .control-area .timer .left-side .progress-bar {
+  height: 4px;
+  margin-left: 5px;
+}
+
+
 .player {
   background-color: #4BA3A7;
   text-align: center;
@@ -259,8 +364,13 @@ a {
 
 .artists-list {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 300px;
+}
+
+.artists-list app-artist {
+  width: 49%;
 }
 
 

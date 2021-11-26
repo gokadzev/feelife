@@ -31,6 +31,7 @@ import { Global50Component } from './shared_components/global50/global50.compone
 import { SuggestionsComponent } from './shared_components/suggestions/suggestions.component';
 import { LanguageComponent } from './shared_components/settings/languages/language/language.component';
 import { LanguagesComponent } from './shared_components/settings/languages/languages.component';
+import { FormsModule } from '@angular/forms';
 
 
 export  function  HttpLoaderFactory(http:  HttpClient) {
@@ -66,6 +67,7 @@ export  function  HttpLoaderFactory(http:  HttpClient) {
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
