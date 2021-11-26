@@ -180,6 +180,7 @@ a {
 .player-bar .player-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 90%;
   margin: auto;
   padding: 5px 0px;
@@ -193,6 +194,7 @@ a {
 .player-bar .music-info-area img {
   width: 50px;
   height: 50px;
+  object-fit: cover;
   margin-right: 10px;
 }
 
@@ -377,6 +379,21 @@ a {
 
 @media screen and (max-width: 790px) {
 
+  .player-bar .player-content .control-area .left-side .controller {
+    width: 75%;
+    margin: 0px;
+  }
+
+  .player-bar .player-content .control-area .timer {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .player-bar .player-content .music-info {
+    width: 180px;
+    max-width: unset;
+  }
+  
   .left,
   .right {
     display: none;
