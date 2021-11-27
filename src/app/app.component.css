@@ -377,7 +377,35 @@ a {
 
 
 
-@media screen and (max-width: 790px) {
+
+@media screen and (max-width: 470px) {
+  .player-bar .player-content {
+    width: 100%;
+  }
+
+  .player-bar .player-content .control-area .left-side .controller .play-button {
+    width: 35px;
+    height: 35px;
+    padding: 7px;
+  }
+
+  .player-bar .player-content .music-info-area {
+    width: 50vw;
+  }
+
+  .player-bar .player-content .control-area .left-side .controller .additional-func {
+    display: none;
+  }
+
+
+}
+
+
+@media screen and (max-width: 767px) {
+
+  .player-bar .player-content .control-area {
+    width: unset!important;
+  }
 
   .player-bar .player-content .control-area .left-side .controller {
     width: 75%;
