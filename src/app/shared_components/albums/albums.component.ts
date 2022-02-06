@@ -14,7 +14,7 @@ export class AlbumsComponent implements OnInit {
   constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
-    this.manager.getAlbums((res) => {
+    this.manager.getAlbums((res:Album[]) => {
       this.albums = res;
     });
   }

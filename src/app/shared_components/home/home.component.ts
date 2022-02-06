@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.manager.getShuffledSongs('all',(res) => {
+    this.manager.getShuffledSongs('all',(res:any) => {
       this.songs = res;
     });
   }

@@ -16,28 +16,24 @@ export class DataManagerService {
 
   favoriteSongs:any [] = [];
 
-  
-  
-
-  randnum = Math.round(Math.random() * 900000)
-  apiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmpwa.json?' + this.randnum;
-  playlistsApiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmplaylists.json?' + this.randnum;
+  apiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmpwa.json';
+  playlistsApiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmplaylists.json';
 
 
-  getSongs(callback){
+  getSongs(callback:any){
       return this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
-        var tempdata = JSON.stringify(songs)
-        var convertedData = JSON.parse(tempdata);
+        let tempdata = JSON.stringify(songs)
+        let convertedData = JSON.parse(tempdata);
         return callback(convertedData);
       }); 
   }
 
-  getSingers(callback){
+  getSingers(callback:any){
       return this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
-        var tempdata = JSON.stringify(songs)
-        var convertedData = JSON.parse(tempdata);
-        var singers:PLsinger[] = [];
-        var singer = 'something'
+        let tempdata = JSON.stringify(songs)
+        let convertedData = JSON.parse(tempdata);
+        let singers:PLsinger[] = [];
+        let singer = 'something'
 
         for(var i = 0; i < convertedData.length; i++){
           if(singer != convertedData[i].coverphoto){
@@ -49,11 +45,11 @@ export class DataManagerService {
       })
   }
 
-  getAlbums(callback){
+  getAlbums(callback:any){
     return this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
-      var tempdata = JSON.stringify(songs)
-      var convertedData = JSON.parse(tempdata);
-      var convertedData1:Album [] = [];
+      let tempdata = JSON.stringify(songs)
+      let convertedData = JSON.parse(tempdata);
+      let convertedData1:Album [] = [];
 
       for(var i =0; i < convertedData.length; i++){
         let filteredArray = convertedData1.filter(value => value.album === convertedData[i].album)
@@ -65,23 +61,23 @@ export class DataManagerService {
     }); 
   }
 
-  getPlaylists(callback){
+  getPlaylists(callback:any){
       return this.httpserv.getSubscribableData(this.playlistsApiUrl).subscribe(playlists=>{
-        var tempdata = JSON.stringify(playlists)
-        var convertedData = JSON.parse(tempdata);
+        let tempdata = JSON.stringify(playlists)
+        let convertedData = JSON.parse(tempdata);
         return callback(convertedData);
       });
   }
 
-  getShuffledSongs(number:any, callback){
-    var shuffledArray:PLsong[] = [];
-    var songsList:PLsong[];
+  getShuffledSongs(number:any, callback:any){
+    let shuffledArray = [];
+    let songsList = [];
     this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
-      var tempdata = JSON.stringify(songs)
+      let tempdata = JSON.stringify(songs)
       songsList = JSON.parse(tempdata);
       if(number == 'all'){
         for(var i = 0; i < songsList.length; i++){
-          var randNum:number = Math.round(Math.random() * songsList.length)
+          let randNum:number = Math.round(Math.random() * songsList.length)
           if(songsList[randNum] != undefined){
             var tempArray = shuffledArray.filter(s => s.id == songsList[randNum].id);
             if(tempArray.length == 0){
@@ -92,9 +88,9 @@ export class DataManagerService {
         }
       } else {
         for(var i = 0; i < number; i++){
-          var randNum:number = Math.round(Math.random() * songsList.length)
+          let randNum:number = Math.round(Math.random() * songsList.length)
           if(songsList[randNum] != undefined){
-            var tempArray = shuffledArray.filter(s => s.id == songsList[randNum].id);
+            let tempArray = shuffledArray.filter(s => s.id == songsList[randNum].id);
             if(tempArray.length == 0){
               shuffledArray.push(songsList[randNum])
               tempArray = null;

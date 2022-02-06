@@ -30,7 +30,6 @@
               "src/styles.css"
             ],
             "scripts": [
-              "./node_modules/angular-dark-mode/angular-dark-mode.js"
             ]
           },
           "configurations": {

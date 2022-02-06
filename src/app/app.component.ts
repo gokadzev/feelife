@@ -8,6 +8,7 @@ import { PLsinger } from './shared_models/singer.model';
 import { PLsong } from './shared_models/song.model';
 import { DataManagerService } from './shared_services/data-manager.service';
 import { StatusExchangerService } from './shared_services/status-exchanger.service';
+import { DarkModeService } from './shared_services/dark-mode.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,6 @@ export class AppComponent {
 
   mobileNavStatus:string = '';
   animationStatus:boolean = JSON.parse(localStorage.getItem('animations'))
-  darkModeStatus:any = localStorage.getItem('dark-mode');
 
   currentProgress$ = new BehaviorSubject(0);
   currentTime$ = new Subject();
@@ -28,7 +28,7 @@ export class AppComponent {
   @ViewChild('player', {static: true}) player!: ElementRef;
   @ViewChild('volumeSlider', {static: true}) volumeSlider!: ElementRef;
 
-  songs:any;
+  songs:PLsong [];
   singers: PLsinger[] = [];
   playlists: Playlist[] = [];
   favoritedSongs:PLsong[] = [];
@@ -51,7 +51,8 @@ export class AppComponent {
     private statusExchanger:StatusExchangerService,
     private dataManager:DataManagerService,
     public router: Router,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private darkMode:DarkModeService
     ){
       if(this.language != null || this.language != undefined){
         translate.setDefaultLang(this.language);
@@ -66,13 +67,13 @@ export class AppComponent {
   ngOnInit() {
     this.innerWidth = window.innerWidth;
 
-    this.dataManager.getSongs((res) => {
+    this.dataManager.getSongs((res:PLsong[]) => {
       this.songs = res;
     });
-    this.dataManager.getSingers((res) => {
+    this.dataManager.getSingers((res:PLsinger[]) => {
       this.singers = res;
     });
-    this.dataManager.getPlaylists((res) => {
+    this.dataManager.getPlaylists((res:Playlist[]) => {
       this.playlists = res;
     });
 
@@ -115,11 +116,6 @@ export class AppComponent {
       this.animationStatus = status
     })
 
-    if(this.darkModeStatus == undefined){
-      this.darkModeStatus = 'false'
-      localStorage.setItem('dark-mode','false')
-    }
-
   }
 
   ngAfterViewInit(){
@@ -128,7 +124,7 @@ export class AppComponent {
 
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     this.innerWidth = window.innerWidth;
   }
 
