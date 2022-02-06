@@ -1,7 +1,7 @@
 <div class="song" *ngIf="!this.animationStatus">
   <div class="songCube">
     <img class="image" [src]="song.coverphoto" alt="">
-    <button (click)="playSong(song.id)" class="play"><img src="../../../../assets/icons/play.svg" alt=""></button>
+    <button (click)="playSong(song.id)" class="play"><img src="assets/icons/play.svg" alt=""></button>
   </div>
   <div class="songInfo">
     <h3>{{ song.singer }}</h3>
@@ -19,7 +19,7 @@
     <div id="clip1" class="clip" [ngStyle]="{'background-image': 'url(' + song.coverphoto + ')'}"></div>
     <div id="clip2" class="clip" [ngStyle]="{'background-image': 'url(' + song.coverphoto + ')'}"></div>
     <div id="clipb" class="clip" [ngStyle]="{'background-image': 'url(' + song.coverphoto + ')'}"></div>
-    <button (click)="playSong(song.id)" class="play"><img src="../../../../assets/icons/play.svg" alt=""></button>
+    <button (click)="playSong(song.id)" class="play"><img src="assets/icons/play.svg" alt=""></button>
   </div>
   <div class="songInfo">
     <h3>{{ song.singer }}</h3>

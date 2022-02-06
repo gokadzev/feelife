@@ -6,10 +6,10 @@
 </div>
 <div class="navigation">
     <button *ngIf="this.GlobalStart > 0" (click)="goTo('Back')">
-        <img class="svg" src="../../../assets/icons/chevrons-left.svg" alt="">
+        <img class="svg" src="assets/icons/chevrons-left.svg" alt="">
     </button>
     
     <button *ngIf="this.GlobalEnd + 16 < this.songs.length" (click)="goTo('Next')">
-        <img class="svg" src="../../../assets/icons/chevrons-right.svg" alt="">
+        <img class="svg" src="assets/icons/chevrons-right.svg" alt="">
     </button>
 </div>
