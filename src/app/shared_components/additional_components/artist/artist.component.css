@@ -2,7 +2,7 @@ img {
   width: 12vw;
   height: 12vw;
   object-fit: cover;
-  border-radius: 22px;
+  border-radius: 12px;
 }
 
 h3 {
@@ -12,22 +12,15 @@ h3 {
 
 .singer {
   text-align: center;
-  width: 8vw;
-  height: 12vw;
-  margin: 0.4vw;
+  width: 100%;
+  margin: 0.5vw;
 }
 
-@media screen and (max-width: 790px){
-  .singer {
-    width: 12vw;
-    height: 25vw;
-   }
-}
 
-@media screen and (min-width: 790px){
+@media screen and (min-width: 768px){
   img {
-    width: 7vw!important;
-    height: 7vw!important;
+    width: 6vw!important;
+    height: 6vw!important;
   }
 }
 
@@ -36,11 +29,6 @@ h3 {
   img {
     width: 5vw!important;
     height: 5vw!important;
-  }
-
-  .singer {
-    width: 8vw;
-    height: 8vw;
   }
 }
 

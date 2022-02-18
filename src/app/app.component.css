@@ -72,23 +72,22 @@
 }
 
 .left, .right{
-  width: 100%;
   padding: 5px;
 }
 
 .left {
-  max-width: 210px;
+  width: 17vw;
   position: fixed;
   border-right: 2px solid #dce2ea8c;
   height: -webkit-fill-available;
 }
 
 .right {
+  width: 20vw;
   position: fixed;
   left: 75%;
   border-left: 2px solid #dce2ea8c;
   padding-left: 2%;
-  width: 15vw;
   height: -webkit-fill-available;
 }
 
@@ -197,6 +196,7 @@ a {
   height: 50px;
   object-fit: cover;
   margin-right: 10px;
+  border-radius: 8px;
 }
 
 .player-bar .player-content .music-info {
@@ -369,11 +369,10 @@ a {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 300px;
 }
 
 .artists-list app-artist {
-  width: 49%;
+  width: 33%;
 }
 
 
@@ -441,11 +440,6 @@ a {
 }
 
 @media screen and (max-width: 1100px) {
-
-  .center {
-    width: 42vw;
-    left: 30vw;
-  }
 
   .player {
     width: 18vw;
