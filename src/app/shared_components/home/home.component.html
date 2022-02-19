@@ -23,5 +23,8 @@
   <div class="title">
     <h3>{{ 'Recently Played' | translate }}</h3>
   </div>
-  <app-song *ngFor="let item of songs | slice:0:10" [song]="item"></app-song>
+  <div class="list" *ngIf="this.recentSongs.length != 0" >
+    <app-song *ngFor="let item of recentSongs | slice:0:10" [song]="item"></app-song>
+  </div>
+  <h3 class="notFound" *ngIf="this.recentSongs.length == 0">You Haven't Played Any Songs Yet.</h3>
 </div>

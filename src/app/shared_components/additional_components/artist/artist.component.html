@@ -1,13 +1,4 @@
 <div class="singer" [routerLink]="['/artist-info/'+singer.id]">
-  <img [src]="singer.coverphoto" *ngIf="this.animationStatus == false" alt="">
-  <div class="animated" *ngIf="this.animationStatus == true">
-    <div id="background" class="clip" [ngStyle]="{'background-image': 'url(' + singer.coverphoto + ')'}"></div>
-    <div id="clip3" class="clip" [ngStyle]="{'background-image': 'url(' + singer.coverphoto + ')'}"></div>
-    <div id="clip4" class="clip" [ngStyle]="{'background-image': 'url(' + singer.coverphoto + ')'}"></div>
-    <div id="clipa" class="clip" [ngStyle]="{'background-image': 'url(' + singer.coverphoto + ')'}"></div>
-    <div id="clip1" class="clip" [ngStyle]="{'background-image': 'url(' + singer.coverphoto + ')'}"></div>
-    <div id="clip2" class="clip" [ngStyle]="{'background-image': 'url(' + singer.coverphoto + ')'}"></div>
-    <div id="clipb" class="clip" [ngStyle]="{'background-image': 'url(' + singer.coverphoto + ')'}"></div>
-  </div>
+  <img [src]="singer.coverphoto"alt="">
   <h3>{{ singer.singer }}</h3>
 </div>

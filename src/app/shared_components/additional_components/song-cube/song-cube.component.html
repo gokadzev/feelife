@@ -1,4 +1,4 @@
-<div class="song" *ngIf="!this.animationStatus">
+<div class="song">
   <div class="songCube">
     <img class="image" [src]="song.coverphoto" alt="">
     <button (click)="playSong(song.id)" class="play"><img src="assets/icons/play.svg" alt=""></button>
@@ -7,22 +7,4 @@
     <h3>{{ song.singer }}</h3>
     <p>{{ song.songtitle }}</p>
   </div>
-</div>
-
-
-<div class="animated" *ngIf="this.animationStatus">
-  <div class="songCube">
-    <div id="background" class="clip" [ngStyle]="{'background-image': 'url(' + song.coverphoto + ')'}"></div>
-    <div id="clip3" class="clip" [ngStyle]="{'background-image': 'url(' + song.coverphoto + ')'}"></div>
-    <div id="clip4" class="clip" [ngStyle]="{'background-image': 'url(' + song.coverphoto + ')'}"></div>
-    <div id="clipa" class="clip" [ngStyle]="{'background-image': 'url(' + song.coverphoto + ')'}"></div>
-    <div id="clip1" class="clip" [ngStyle]="{'background-image': 'url(' + song.coverphoto + ')'}"></div>
-    <div id="clip2" class="clip" [ngStyle]="{'background-image': 'url(' + song.coverphoto + ')'}"></div>
-    <div id="clipb" class="clip" [ngStyle]="{'background-image': 'url(' + song.coverphoto + ')'}"></div>
-    <button (click)="playSong(song.id)" class="play"><img src="assets/icons/play.svg" alt=""></button>
-  </div>
-  <div class="songInfo">
-    <h3>{{ song.singer }}</h3>
-    <p>{{ song.songtitle }}</p>
-   </div>
 </div>

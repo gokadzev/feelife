@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Album } from '../shared_models/album.model';
-import { Playlist } from '../shared_models/playlist.model';
 import { PLsinger } from '../shared_models/singer.model';
 import { PLsong } from '../shared_models/song.model';
 import { DataexchangerService } from './data-exchanger.service';
@@ -14,11 +13,26 @@ export class DataManagerService {
 
   constructor(private httpserv:HttpserviceService, public router:Router, private dataexchanger:DataexchangerService) { }
 
-  favoriteSongs:any [] = [];
+  favoritedSongs:any [] = [];
+  recentSongs:PLsong [] = [];
+
 
   apiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmpwa.json';
   playlistsApiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmplaylists.json';
 
+
+  //add
+
+  addRecentSong(song:PLsong){
+    this.recentSongs.unshift(song);
+  }
+
+
+  //get 
+
+  getRecentSongs(callback:any){
+    return callback(this.recentSongs);
+  }
 
   getSongs(callback:any){
       return this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{

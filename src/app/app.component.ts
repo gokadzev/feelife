@@ -2,7 +2,6 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
-import { trigger, animate, style, group, animateChild, query, stagger, transition, state } from '@angular/animations';
 import { Playlist } from './shared_models/playlist.model';
 import { PLsinger } from './shared_models/singer.model';
 import { PLsong } from './shared_models/song.model';
@@ -17,10 +16,9 @@ import { DarkModeService } from './shared_services/dark-mode.service';
 })
 
 export class AppComponent {
-  title = 'Feelify';
+  title = 'Feelife';
 
   mobileNavStatus:string = '';
-  animationStatus:boolean = JSON.parse(localStorage.getItem('animations'))
 
   currentProgress$ = new BehaviorSubject(0);
   currentTime$ = new Subject();
@@ -106,16 +104,6 @@ export class AppComponent {
       }
     }
     })
-
-    if(this.animationStatus == undefined){
-      this.animationStatus = false
-      localStorage.setItem('animations','false')
-    }
-
-    this.statusExchanger.animationsStatus.subscribe((status:boolean) => {
-      this.animationStatus = status
-    })
-
   }
 
   ngAfterViewInit(){

@@ -7,8 +7,6 @@ export class StatusExchangerService {
 
   constructor() { }
 
-  animationsStatus:EventEmitter<boolean> = new EventEmitter();
-
   shuffleStatus:EventEmitter<boolean> = new EventEmitter();
   activeSongId:EventEmitter<number> = new EventEmitter();
   activeLanguageCode:EventEmitter<string> = new EventEmitter();

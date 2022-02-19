@@ -1,8 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { DarkModeService } from 'src/app/shared_services/dark-mode.service';
-import { StatusExchangerService } from 'src/app/shared_services/status-exchanger.service';
-
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -10,11 +7,10 @@ import { StatusExchangerService } from 'src/app/shared_services/status-exchanger
 })
 export class SettingsComponent implements OnInit {
 
-  animationStatus:boolean = JSON.parse(localStorage.getItem('animations'));
   darkModeStatus:boolean = JSON.parse(localStorage.getItem('dark-mode'));
   innerWidth:any;
 
-  constructor(private darkModeService: DarkModeService, private statusExchanger:StatusExchangerService) { }
+  constructor(private darkModeService: DarkModeService) { }
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
@@ -31,17 +27,6 @@ export class SettingsComponent implements OnInit {
 
   changeNightMode(){
     this.darkModeService.changeDarkModeStatus();
-  }
-
-  changeAnimationStatus(){
-    if(this.animationStatus == true){
-      localStorage.setItem('animations','false')
-    } else {
-      localStorage.setItem('animations','true')
-    }
-
-    this.animationStatus = JSON.parse(localStorage.getItem('animations'))
-    this.statusExchanger.animationsStatus.emit(this.animationStatus)
   }
 
 }

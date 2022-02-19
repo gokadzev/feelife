@@ -9,8 +9,6 @@ import { StatusExchangerService } from 'src/app/shared_services/status-exchanger
 })
 export class SongCubeComponent implements OnInit {
 
-  animationStatus:boolean = JSON.parse(localStorage.getItem('animations'))
-
   @Input()
   song!: PLsong;
 

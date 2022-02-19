@@ -10,7 +10,7 @@
     justify-content: space-between;
 }
 
-.title h3 {
+.title h3, .notFound {
     color: #475476;
     font-size: 17px;
     font-family: 'Montserrat', sans-serif;
@@ -24,4 +24,8 @@
 .title button {
     background: none;
     border: none;
+}
+
+.notFound {
+    font-size: 14px;
 }
