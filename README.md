@@ -7,7 +7,6 @@
 **Features**: </br>
 **5 Languages** </br>
 **Dark Mode** </br>
-**Animations** </br>
 **Shuffle** </br>
 **Repeat** </br>
 **And others** </br>
