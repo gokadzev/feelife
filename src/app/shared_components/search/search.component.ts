@@ -10,39 +10,36 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 })
 export class SearchComponent implements OnInit {
 
+  songResults:PLsong [] = undefined;
+  singerResults:PLsinger[] = undefined;
   songs:PLsong [];
   singers:PLsinger [];
-  arrayForDataSave:PLsong[];
-  newArrayForDataSave:PLsinger[];
 
   constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
   
-    this.manager.getShuffledSongs(10,(res) => {
+    this.manager.getSongs((res:PLsong[]) => {
       this.songs = res;
-      this.arrayForDataSave = this.songs;
-      this.newArrayForDataSave = this.singers;
     });
-    this.manager.getSingers((res) => {
+    this.manager.getSingers((res:PLsinger[]) => {
       this.singers = res;
     });
 
   }
 
 
-  Search(newSong:any){
-    this.songs = this.arrayForDataSave;
-
-    let SingersFilter = this.arrayForDataSave.filter(value => value.singer.toLowerCase().slice(0,newSong.length) === newSong.toLowerCase())
-    let SongsFilter = this.arrayForDataSave.filter(value => value.songtitle.toLowerCase().slice(0,newSong.length) === newSong.toLowerCase())
-    SingersFilter = SingersFilter.concat(SongsFilter)
+  Search(newSong:string){
+    let SingersFilter = this.singers.filter(value => value.singer.toLowerCase().slice(0,newSong.length) === newSong.toLowerCase())
+    let SongsFilter = this.songs.filter(value => value.songtitle.toLowerCase().slice(0,newSong.length) === newSong.toLowerCase())
     if(newSong == ''){
-      this.songs = this.arrayForDataSave;
+      this.singerResults = undefined;
+      this.songResults = undefined;
       SingersFilter = [];
+      SongsFilter = []
     } else {
-      this.songs = [];
-      this.songs = SingersFilter;
+      this.singerResults = SingersFilter;
+      this.songResults = SongsFilter;
     }
   }
 

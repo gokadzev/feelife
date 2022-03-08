@@ -75,6 +75,8 @@ export class AppComponent {
       this.playlists = res;
     });
 
+
+
     if(this.language === null){
       this.language = 'en'
       localStorage.setItem("language", 'en');
@@ -86,23 +88,26 @@ export class AppComponent {
       this.translate.setDefaultLang(code);
       this.translate.use(code);
     })
+
     
-    this.statusExchanger.activeSongId.subscribe((item:number) => {
-      if(item == undefined){
-        this.chooseSong(this.songs[0]);
+    this.statusExchanger.activeSongId.subscribe((songId:number) => {
+      if(songId == undefined){
+        this.play(this.songs[0]);
         this.activedsong = true;
       } else {
       if(this.firstSongPlayer == true){
-      if(this.activeSong.id != this.songs[item].id){
-        this.playSong(this.songs[item]);
-        this.activedsong = true;
-      }        
+        if(this.activeSong.id != this.songs[songId].id){
+          this.play(this.songs[songId]);
+          this.activedsong = true;
+        }
       } else {
-        this.playSong(this.songs[item]);
-        this.firstSongPlayer = true;
-        this.activedsong = true;
+          this.play(this.songs[songId]);
+          this.firstSongPlayer = true;
+          this.activedsong = true;
       }
     }
+    let song = this.songs.filter(s => s.id == songId + 1);
+    this.dataManager.addRecentSong(song[0]);
     })
   }
 
@@ -116,7 +121,7 @@ export class AppComponent {
     this.innerWidth = window.innerWidth;
   }
 
-  playSong(song:any): void {
+  play(song:any): void {
     this.durationTime = undefined;
     this.audio.pause();
 
@@ -167,22 +172,25 @@ export class AppComponent {
 
   }
 
+  playSong(songId:number): void{
+    this.statusExchanger.activeSongId.emit(songId);
+  }
 
   playNextSong(): void {
     const songId:number = parseInt(this.activeSong.id);
     if (songId === -1) {
-      this.playSong(this.songs[0]);
+      this.statusExchanger.activeSongId.emit(0);
     } else {
-      this.playSong(this.songs[songId]);
+      this.statusExchanger.activeSongId.emit(songId);
     }
   }
 
   playPreviousSong(): void {
     const songId:number = parseInt(this.activeSong.id);
     if (songId === -1) {
-      this.playSong(this.songs[this.songs.length - 1]);
+      this.statusExchanger.activeSongId.emit(this.songs.length - 1)
     } else {
-      this.playSong(this.songs[songId]);
+      this.statusExchanger.activeSongId.emit(songId);
     }
   }
 

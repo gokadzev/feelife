@@ -22,14 +22,6 @@
         </a>
       </div>
       <div class="tab">
-        <a [routerLink]="['recent']"><img src="assets/icons/recent.svg" alt="">
-        </a>
-      </div>
-      <div class="tab">
-        <a [routerLink]="['favourites']"><img src="assets/icons/heart.svg" alt="">
-        </a>
-      </div>
-      <div class="tab">
         <a [routerLink]="['settings']"><img src="assets/icons/settings.svg" alt="">
         </a>
       </div>
@@ -153,7 +145,7 @@
           <td [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button" class="play-button"
               *ngIf="isPlaying" (click)="player.pause()"><img src="assets/icons/pauze.svg" alt=""></button></td>
           <td [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button" class="play-button"
-              *ngIf="!isPlaying" (click)="playSong(activeSong)"><img src="assets/icons/play.svg" alt=""></button>
+              *ngIf="!isPlaying" (click)="playSong(activeSong?.id)"><img src="assets/icons/play.svg" alt=""></button>
           </td>
 
           <td><button type="button" class="svg" (click)="playNextSong()"><img src="assets/icons/skip-forward.svg"

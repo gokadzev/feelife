@@ -24,14 +24,38 @@ export class DataManagerService {
   //add
 
   addRecentSong(song:PLsong){
-    this.recentSongs.unshift(song);
+    let isAlreadyAdded = this.recentSongs.filter(s => s.id == song.id);
+    if(isAlreadyAdded.length == 0){
+      this.recentSongs.unshift(song);
+      let recentSongsFromLocalstorage = JSON.parse(localStorage.getItem('recentSongs'));
+      if(recentSongsFromLocalstorage == undefined) {
+        recentSongsFromLocalstorage = [];
+      }
+      recentSongsFromLocalstorage.push(song.id);
+      localStorage.setItem('recentSongs',JSON.stringify(recentSongsFromLocalstorage));
+      if(this.recentSongs.length > 49){
+        this.recentSongs.pop();
+      }
+    }
   }
 
 
   //get 
 
   getRecentSongs(callback:any){
-    return callback(this.recentSongs);
+    const recentSongsFromLocalstorage = JSON.parse(localStorage.getItem('recentSongs'));
+    if(recentSongsFromLocalstorage != undefined && this.recentSongs.length != recentSongsFromLocalstorage.length) {
+      this.getSongs((songs: PLsong[]) => {
+        this.recentSongs = [];
+        recentSongsFromLocalstorage.forEach((id: number) => {
+          this.recentSongs.unshift(songs.filter((s: PLsong) => s.id == id)[0]);
+        });
+        return callback(this.recentSongs);
+      })
+    } else {
+      return callback(this.recentSongs)
+    }
+
   }
 
   getSongs(callback:any){

@@ -5,7 +5,7 @@
       <img class="svg" src="assets/icons/more.svg" alt="">
     </button>
   </div>
-  <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
+  <app-song-cube *ngFor="let item of top50songs | slice:0:4" [song]="item"></app-song-cube>
 </div>
 
 <div class="suggestions">
@@ -15,7 +15,7 @@
       <img class="svg" src="assets/icons/more.svg" alt="">
     </button>
   </div>
-  <app-song-cube *ngFor="let item of songs | slice:0:4" [song]="item"></app-song-cube>
+  <app-song-cube *ngFor="let item of recommendedSongs | slice:0:4" [song]="item"></app-song-cube>
 </div>
 
 
