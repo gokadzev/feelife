@@ -14,7 +14,7 @@ export class DiscoverComponent implements OnInit {
   constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
-    this.manager.getShuffledSongs(25,(res) => {
+    this.manager.getShuffledSongs(25,(res:PLsong[]) => {
       this.shuffledArray = res;
     });
   }

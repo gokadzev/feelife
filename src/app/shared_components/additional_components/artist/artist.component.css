@@ -7,13 +7,12 @@ img {
 
 h3 {
   font-size: 14px;
-  margin: unset;
+  margin: auto;
 }
 
 .singer {
   text-align: center;
   width: 100%;
-  margin: 0.5vw;
 }
 
 

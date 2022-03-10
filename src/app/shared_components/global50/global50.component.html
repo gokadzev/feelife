@@ -8,6 +8,8 @@
     <button *ngIf="this.GlobalStart > 0" (click)="goTo('Back')">
         <img class="svg" src="assets/icons/chevrons-left.svg" alt="">
     </button>
+    <button *ngIf="this.GlobalStart == 0">
+    </button>
     
     <button *ngIf="this.GlobalEnd + 16 < this.songs.length" (click)="goTo('Next')">
         <img class="svg" src="assets/icons/chevrons-right.svg" alt="">

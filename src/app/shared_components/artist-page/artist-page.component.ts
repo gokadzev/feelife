@@ -20,20 +20,16 @@ export class ArtistPageComponent implements OnInit {
   constructor(private router:ActivatedRoute, private manager:DataManagerService) { }
 
   ngOnInit(): void {
-    this.manager.getSongs((res) => {
-      this.songs = res;
-    });
-    this.manager.getSingers((res) => {
-      this.singers = res;
-    });
-
-
     this.router.paramMap.subscribe(params => {
       this.singerId = params.get('id')
-      setTimeout( () => {
+      this.manager.getSongs((res:PLsong[]) => {
+        this.songs = res;
+      });
+      this.manager.getSingers((res:PLsinger[]) => {
+        this.singers = res;
         this.singer = this.singers.filter(s => s.id == this.singerId);
         this.singerSongs = this.songs.filter(s => s.singer == this.singer[0].singer);
-      }, 500 );
+      });
     })
   }
 

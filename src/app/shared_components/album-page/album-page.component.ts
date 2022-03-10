@@ -22,21 +22,18 @@ export class AlbumPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.paramMap.subscribe(params => {
-      this.albumName = params.get('album')
+      this.albumName = params.get('album');
+      this.manager.getSongs((res:PLsong[]) => {
+        this.songs = res;
+        this.albumSongs = this.songs.filter(s => s.album == this.albumName)
+      });
+      this.manager.getAlbums((res:Album[]) => {
+        this.albums = res;
+        console.log(res);
+        var album = this.albums.filter(s => s.album == this.albumName)
+        this.albumCover = album[0].albumCover
+      });
     })
-
-    this.manager.getSongs((res) => {
-      this.songs = res;
-    });
-    this.manager.getAlbums((res) => {
-      this.albums = res;
-      var album = this.albums.filter(s => s.album == this.albumName)
-      this.albumCover = album[0].albumCover
-    });
-
-    setTimeout( () => {
-      this.albumSongs = this.songs.filter(s => s.album == this.albumName)
-    }, 500 );
 
 
   }

@@ -1,9 +1,15 @@
 .albums-list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
 }
 
 .album {
     margin: 0px 25px;
+}
+
+@media screen and (max-width:600px) {
+    .albums-list {
+        grid-template-columns: auto auto;
+    }
 }

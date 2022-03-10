@@ -16,16 +16,13 @@ export class Global50Component implements OnInit {
   constructor( private manager:DataManagerService) { }
 
   ngOnInit(): void {
-    this.manager.getShuffledSongs(50,(res) => {
+    this.manager.getShuffledSongs(50,(res:PLsong[]) => {
       this.songs = res;
     });
 
   }
 
   goTo(where:string){
-    console.log(where)
-    console.log('start: ' + this.GlobalStart)
-    console.log('end: ' + this.GlobalEnd)
       if(where == "Back"){
         this.GlobalStart = this.GlobalStart - 16
         this.GlobalEnd = this.GlobalEnd - 16

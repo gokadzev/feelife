@@ -14,7 +14,7 @@ export class SuggestionsComponent implements OnInit {
   constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
-    this.manager.getShuffledSongs(16,(res) => {
+    this.manager.getShuffledSongs(16,(res:PLsong[]) => {
       this.songs = res;
     });
   }

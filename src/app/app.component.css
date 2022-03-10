@@ -367,13 +367,9 @@ a {
 
 
 .artists-list {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.artists-list app-artist {
-  width: 33%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
 }
 
 

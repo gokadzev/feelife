@@ -20,8 +20,7 @@
 }
 
 .navigation {
-    width: 100%;
-    max-width: 120px;
+    width: 90%;
     padding: 35px;
     display: flex;
     justify-content: space-between;

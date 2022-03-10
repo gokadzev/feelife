@@ -22,26 +22,25 @@ export class PlaylistPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.paramMap.subscribe(params => {
-      this.playlistName = params.get('playlist')
+      this.playlistName = params.get('playlist');
+      this.manager.getSongs((res:PLsong[]) => {
+        this.songs = res;
+      });
+      this.manager.getPlaylists((res:Playlist[]) => {
+        this.playlists = res;
+        this.activePlaylist = this.playlists.filter(p => p.name == this.playlistName)
+        this.playlistCover = this.activePlaylist[0].cover
+  
+        if(this.activePlaylist != undefined){
+          var temporaryPlaylist=[]
+          var playlistSongs=[]
+          for(var i = 0; i < this.activePlaylist[0].songs.length; i++){
+            temporaryPlaylist = this.songs.filter(s => s.id == this.activePlaylist[0].songs[i])
+            playlistSongs.push(temporaryPlaylist[0])
+          }}
+          this.playlistSongs = playlistSongs
+      });
     })
-
-    this.manager.getSongs((res) => {
-      this.songs = res;
-    });
-    this.manager.getPlaylists((res) => {
-      this.playlists = res;
-      this.activePlaylist = this.playlists.filter(p => p.name == this.playlistName)
-      this.playlistCover = this.activePlaylist[0].cover
-
-      if(this.activePlaylist != undefined){
-        var temporaryPlaylist=[]
-        var playlistSongs=[]
-        for(var i = 0; i < this.activePlaylist[0].songs.length; i++){
-          temporaryPlaylist = this.songs.filter(s => s.id == this.activePlaylist[0].songs[i])
-          playlistSongs.push(temporaryPlaylist[0])
-        }}
-        this.playlistSongs = playlistSongs
-    });
   }
 
 
