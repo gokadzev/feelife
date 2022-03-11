@@ -18,7 +18,7 @@ export class SongCubeComponent implements OnInit {
   }
 
   playSong(songID:number){
-    this.statusExchanger.activeSongId.emit(songID - 1)
+    this.statusExchanger.activeSongId.emit(songID)
   }
 
   

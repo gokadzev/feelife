@@ -10,6 +10,7 @@ import { HomeComponent } from './shared_components/home/home.component';
 import { PlaylistPageComponent } from './shared_components/playlists/playlist-page/playlist-page.component';
 import { PlaylistsComponent } from './shared_components/playlists/playlists.component';
 import { ProfileComponent } from './shared_components/profile/profile.component';
+import { RecentComponent } from './shared_components/recent/recent.component';
 import { SearchComponent } from './shared_components/search/search.component';
 import { LanguagesComponent } from './shared_components/settings/languages/languages.component';
 import { SettingsComponent } from './shared_components/settings/settings.component';
@@ -46,6 +47,11 @@ const routes: Routes = [
     path:'suggestions',
     component:SuggestionsComponent,
     data: { state: 'suggestions' }
+  },
+  {
+    path:'recent',
+    component:RecentComponent,
+    data: { state: 'recent' }
   },
   {
     path:'playlists',

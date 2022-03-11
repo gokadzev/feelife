@@ -22,6 +22,9 @@
 <div class="recently">
   <div class="title">
     <h3>{{ 'Recently Played' | translate }}</h3>
+    <button [routerLink]="['/recent']">
+      <img class="svg" src="assets/icons/more.svg" alt="">
+    </button>
   </div>
   <div class="list" *ngIf="this.recentSongs.length != 0" >
     <app-song *ngFor="let item of recentSongs | slice:0:10" [song]="item"></app-song>

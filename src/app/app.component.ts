@@ -34,10 +34,9 @@ export class AppComponent {
 
   audio = new Audio();
   isPlaying = false;
-  activeSong:any;
+  activeSong:any = undefined;
   durationTime: any;
   songCoverImage:any;
-  firstSongPlayer:boolean = false;
 
   paramsSubscription: Subscription = null;
 
@@ -91,23 +90,15 @@ export class AppComponent {
 
     
     this.statusExchanger.activeSongId.subscribe((songId:number) => {
-      if(songId == undefined){
+      if(songId == undefined || songId <= 0){
         this.play(this.songs[0]);
         this.activedsong = true;
       } else {
-      if(this.firstSongPlayer == true){
-        if(this.activeSong.id != this.songs[songId].id){
-          this.play(this.songs[songId]);
-          this.activedsong = true;
-        }
-      } else {
-          this.play(this.songs[songId]);
-          this.firstSongPlayer = true;
-          this.activedsong = true;
+        this.play(this.songs[songId - 1]);
+        this.activedsong = true;
       }
-    }
-    let song = this.songs.filter(s => s.id == songId + 1);
-    this.dataManager.addRecentSong(song[0]);
+      
+    this.dataManager.addRecentSong(this.songs[songId - 1]);
     })
   }
 
@@ -121,7 +112,7 @@ export class AppComponent {
     this.innerWidth = window.innerWidth;
   }
 
-  play(song:any): void {
+  play(song:PLsong): void {
     this.durationTime = undefined;
     this.audio.pause();
 
@@ -129,6 +120,8 @@ export class AppComponent {
       this.player.nativeElement.src = this.songs[0].path;
       this.player.nativeElement.play();
       this.activeSong = this.songs[0];
+    } else if(this.activeSong != undefined && this.activeSong.id == song.id) {
+      this.player.nativeElement.play();
     } else {
       this.player.nativeElement.src = song.path;
       this.player.nativeElement.play();
@@ -136,7 +129,6 @@ export class AppComponent {
     }
 
     this.isPlaying = true;
-
 }
 
   chooseSong(song:any): void {

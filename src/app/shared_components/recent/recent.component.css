@@ -1,0 +1,34 @@
+.recent {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title button img {
+    width: 25px;
+    height: 25px;
+}
+
+.title button {
+    background: none;
+    border: none;
+}
+
+.navigation {
+    width: 90%;
+    padding: 35px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation button {
+    width: 35px;
+    height: 35px;
+    background: none;
+    border: none;
+}

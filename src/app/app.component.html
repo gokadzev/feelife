@@ -69,6 +69,14 @@
       </div>
     </div>
     <div class="tabs">
+      <h1>{{ 'LIBRARY' | translate }}</h1>
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['recent']" [routerLinkActive]="['is-active']"><img src="assets/icons/recent.svg" alt="">
+          <p>{{ 'Recent' | translate }}</p>
+        </a>
+      </div>
+    </div>
+    <div class="tabs">
       <h1>{{ 'PLAYLIST' | translate }}</h1>
       <div class="playlists-list">
         <app-playlist *ngFor="let item of playlists | slice:0:3" [playlist]="item"></app-playlist>
