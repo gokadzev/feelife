@@ -116,7 +116,7 @@
 .left .tabs h1,
 .mobileNavbar .tabs h1,
 .right .tabs h1 {
-  margin: 2.5vh;
+  margin: 2.5vh auto;
   letter-spacing: 3px;
   font-size: 14px;
   color: #687490;
