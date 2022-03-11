@@ -66,6 +66,7 @@ export class AppComponent {
 
     this.dataManager.getSongs((res:PLsong[]) => {
       this.songs = res;
+      this.chooseSong(this.songs[0]);
     });
     this.dataManager.getSingers((res:PLsinger[]) => {
       this.singers = res;
@@ -93,12 +94,13 @@ export class AppComponent {
       if(songId == undefined || songId <= 0){
         this.play(this.songs[0]);
         this.activedsong = true;
+        this.dataManager.addRecentSong(this.songs[0]);
       } else {
         this.play(this.songs[songId - 1]);
         this.activedsong = true;
+        this.dataManager.addRecentSong(this.songs[songId - 1]);
       }
       
-    this.dataManager.addRecentSong(this.songs[songId - 1]);
     })
   }
 
@@ -170,19 +172,19 @@ export class AppComponent {
 
   playNextSong(): void {
     const songId:number = parseInt(this.activeSong.id);
-    if (songId === -1) {
+    if (songId + 1 > this.songs.length) {
       this.statusExchanger.activeSongId.emit(0);
     } else {
-      this.statusExchanger.activeSongId.emit(songId);
+      this.statusExchanger.activeSongId.emit(songId + 1);
     }
   }
 
   playPreviousSong(): void {
     const songId:number = parseInt(this.activeSong.id);
-    if (songId === -1) {
+    if (songId - 1 < 0) {
       this.statusExchanger.activeSongId.emit(this.songs.length - 1)
     } else {
-      this.statusExchanger.activeSongId.emit(songId);
+      this.statusExchanger.activeSongId.emit(songId - 1);
     }
   }
 

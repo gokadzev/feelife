@@ -133,13 +133,10 @@
 
 <div class="player-bar">
   <div class="player-content">
-    <div class="music-info-area">
-      <img *ngIf="!activeSong?.coverphoto && this.songs" [src]="this.songs[0].coverphoto" alt="">
+    <div class="music-info-area" *ngIf="this.activeSong">
       <img *ngIf="activeSong?.coverphoto" [src]="activeSong?.coverphoto" alt="">
       <div class="music-info">
-        <h3 *ngIf="!activeSong?.singer && this.songs">{{ songs[0].singer }}</h3>
         <h3 *ngIf="activeSong?.singer">{{ activeSong?.singer }}</h3>
-        <p *ngIf="!activeSong?.songtitle && this.songs">{{ songs[0].songtitle }}</p>
         <p *ngIf="activeSong?.songtitle">{{ activeSong?.songtitle }}</p>
       </div>
     </div>
