@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Playlist } from 'src/app/shared_models/playlist.model';
+import { DataManagerService } from 'src/app/shared_services/data-manager.service';
 
 @Component({
   selector: 'app-playlists',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistsComponent implements OnInit {
 
-  constructor() { }
+  playlists:Playlist[] = [];
+
+  constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
+    this.manager.getPlaylists((res:Playlist[]) => {
+      this.playlists = res;
+    });
   }
 
 }

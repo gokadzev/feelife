@@ -1,0 +1,15 @@
+.playlists-list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+.playlist {
+    margin: 0px 25px;
+}
+
+@media screen and (max-width:600px) {
+    .playlists-list {
+        grid-template-columns: auto auto;
+    }
+}

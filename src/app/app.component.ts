@@ -189,7 +189,7 @@ export class AppComponent {
   }
 
 
-  setSongDuration(): void {
+  private setSongDuration(): void {
     const durationInMinutes = this.generateMinutes(this.player.nativeElement.duration);
     const durationInSeconds = this.generateSeconds(this.player.nativeElement.duration);
 
@@ -199,22 +199,22 @@ export class AppComponent {
   }
 
 
-  generateMinutes(currentTime: number): number {
+  private generateMinutes(currentTime: number): number {
     return Math.floor(currentTime / 60);
   }
 
 
-  generateSeconds(currentTime: number): number | string {
+  private generateSeconds(currentTime: number): number | string {
     const secsFormula = Math.floor(currentTime % 60);
     return secsFormula < 10 ? '0' + String(secsFormula) : secsFormula;
   }
 
-  generateTimeToDisplay(currentMinutes:any, currentSeconds:any): string {
+  private generateTimeToDisplay(currentMinutes:any, currentSeconds:any): string {
     return `${currentMinutes}:${currentSeconds}`;
   }
 
 
-  generatePercentage(currentTime: number, duration: number): number {
+  private generatePercentage(currentTime: number, duration: number): number {
     return Math.round((currentTime / duration) * 100);
   }
 

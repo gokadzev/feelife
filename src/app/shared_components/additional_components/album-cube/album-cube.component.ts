@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Album } from 'src/app/shared_models/album.model';
-import { StatusExchangerService } from 'src/app/shared_services/status-exchanger.service';
 
 @Component({
   selector: 'app-album-cube',
@@ -12,7 +11,7 @@ export class AlbumCubeComponent implements OnInit {
   @Input()
   album!: Album;
 
-  constructor(private statusExchanger:StatusExchangerService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

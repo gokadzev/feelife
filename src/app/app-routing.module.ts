@@ -59,7 +59,7 @@ const routes: Routes = [
     data: { state: 'playlists' }
   },
   {
-    path:'playlist/:playlist',
+    path:'playlist/:id',
     component:PlaylistPageComponent,
     data: { state: 'playlist' }
   },

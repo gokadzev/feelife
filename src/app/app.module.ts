@@ -32,6 +32,7 @@ import { SuggestionsComponent } from './shared_components/suggestions/suggestion
 import { LanguageComponent } from './shared_components/settings/languages/language/language.component';
 import { LanguagesComponent } from './shared_components/settings/languages/languages.component';
 import { FormsModule } from '@angular/forms';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 export  function  HttpLoaderFactory(http:  HttpClient) {
@@ -79,7 +80,7 @@ export  function  HttpLoaderFactory(http:  HttpClient) {
       }
   })
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 

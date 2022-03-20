@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PLsong } from 'src/app/shared_models/song.model';
 import { DataManagerService } from 'src/app/shared_services/data-manager.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 })
 export class ProfileComponent implements OnInit {
 
-  songs:any;
+  songs:PLsong[];
 
   navStart:number = 0;
   navEnd:number = 10;
@@ -16,7 +17,7 @@ export class ProfileComponent implements OnInit {
   constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
-    this.manager.getSongs((res) => {
+    this.manager.getSongs((res:PLsong[]) => {
       this.songs = res
     });
   }

@@ -1,6 +1,8 @@
-<div class="playlist" [routerLinkActive]="['is-active-tab']">
-    <img class="image" src="assets/icons/music-note-square.svg" alt=""> 
-<div class="songInfo">
-    <a [routerLink]="['/playlist/'+this.playlist.name]" [routerLinkActive]="['is-active']"> <p>{{ playlist.name }}</p> </a>
+<div class="playlist" [routerLink]="['/playlist/'+ this.playlist.id]">
+    <div class="playlistCube">
+    <img class="image" [src]="playlist.cover" alt="">
+</div>
+<div class="playlistInfo">
+    <h3>{{ playlist.name }}</h3>
    </div>
 </div>

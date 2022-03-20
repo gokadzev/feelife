@@ -1,6 +1,6 @@
-<div class="playlistInfo">
-    <h3>{{this.playlistName}}</h3>
-    <img class="playlistCover" [src]="this.playlistCover">
+<div class="playlistInfo" *ngIf="this.activePlaylist">
+    <h3>{{this.activePlaylist.name}}</h3>
+    <img class="playlistCover" [src]="this.activePlaylist.cover">
  
     <div class="playlistSongs">
      <app-song *ngFor="let item of playlistSongs" [song]="item"></app-song>

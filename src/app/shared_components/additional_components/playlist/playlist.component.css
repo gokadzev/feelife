@@ -1,32 +1,40 @@
-.is-active {
-  color: #FA7C05 !important;
+.playlistCube {
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
 }
 
-.is-active-tab {
-  border-right: 3px solid #FA7C05;
+.playlistInfo {
+  text-align: center;
 }
 
-
-.playlist {
-  display: flex;
-  align-items: center;
-  height: 25px;
+.image {
+  width: 11vw;
+  height: 11vw;
+  border-radius: 22px;
+  object-fit: cover;
 }
 
-img {
-  width: 25px;
-  height: 25px;
-}
-
-a {
-  font-weight: 600;
+h3 {
+  max-width: 119px;
+  font-size: 15px;
+  margin: auto;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
   font-weight: 600;
-  color: #687490;
-  text-decoration: none;
+  color: #3c4356;
 }
 
-a p {
-  margin-left: 10px;
+p {
+  font-size: 14px;
+  margin: auto;
+  margin-top: 3px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+@media screen and (max-width:767px) {
+  .image {
+    width: 21vw;
+    height: 21vw;
+  }
 }

@@ -14,12 +14,9 @@ export class ArtistsComponent implements OnInit {
   constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
-
-    this.manager.getSingers((res) => {
+    this.manager.getSingers((res:PLsinger[]) => {
       this.singers = res;
     });
-
-
   }
 
 }

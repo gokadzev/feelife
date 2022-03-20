@@ -1,1 +1,4 @@
-<p>playlists works!</p>
+<h3 class="greyTitle">{{ 'Playlists' | translate }}</h3>
+<div class="playlists-list">
+    <app-playlist *ngFor="let item of playlists" [playlist]="item"></app-playlist>
+</div>

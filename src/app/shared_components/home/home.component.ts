@@ -16,15 +16,15 @@ export class HomeComponent implements OnInit {
   constructor(private manager:DataManagerService) { }
 
   ngOnInit(): void {
-    this.manager.getRecentSongs((res:any) => {
+    this.manager.getRecentSongs((res:PLsong[]) => {
       this.recentSongs = res;
     });
 
-    this.manager.getShuffledSongs(50,(res:any) => {
+    this.manager.getShuffledSongs(50,(res:PLsong[]) => {
       this.top50songs = res;
     });
 
-    this.manager.getShuffledSongs(50,(res:any) => {
+    this.manager.getShuffledSongs(50,(res:PLsong[]) => {
       this.recommendedSongs = res;
     });
   }

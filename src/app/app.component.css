@@ -12,12 +12,8 @@
   margin-right: 0px !important;
 }
 
-.is-active {
-  color: #FA7C05 !important;
-}
-
 .is-active-tab {
-  border-right: 3px solid #FA7C05;
+  border-right: 3px solid #82FFD0;
 }
 
 .moreButton img {
@@ -149,7 +145,7 @@
 }
 
 .left .tabs .tab a:hover {
-  color: #FA7C05;
+  color: #62c49e;
 }
 
 .profile a {

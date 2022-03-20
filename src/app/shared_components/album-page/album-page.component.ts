@@ -29,7 +29,6 @@ export class AlbumPageComponent implements OnInit {
       });
       this.manager.getAlbums((res:Album[]) => {
         this.albums = res;
-        console.log(res);
         var album = this.albums.filter(s => s.album == this.albumName)
         this.albumCover = album[0].albumCover
       });
