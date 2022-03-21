@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Album } from '../shared_models/album.model';
 import { PLsinger } from '../shared_models/singer.model';
 import { PLsong } from '../shared_models/song.model';
-import { DataexchangerService } from './data-exchanger.service';
 import { HttpserviceService } from './httpservice.service';
 
 @Injectable({
@@ -11,14 +10,14 @@ import { HttpserviceService } from './httpservice.service';
 })
 export class DataManagerService {
 
-  constructor(private httpserv:HttpserviceService, public router:Router, private dataexchanger:DataexchangerService) { }
+  constructor(private httpserv:HttpserviceService, public router:Router) { }
 
   favoritedSongs:any [] = [];
   recentSongs:PLsong [] = [];
 
 
-  apiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmpwa.json';
-  playlistsApiUrl = 'https://raw.githubusercontent.com/gokadzev/mobile-music-player-fake-api/main/mmplaylists.json';
+  apiUrl = 'https://raw.githubusercontent.com/gokadzev/fake-apis-for-projects/main/feelife/mmpwa.json';
+  playlistsApiUrl = 'https://raw.githubusercontent.com/gokadzev/fake-apis-for-projects/main/feelife/mmplaylists.json';
 
 
   //add
