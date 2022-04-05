@@ -41,10 +41,6 @@
   width: 28px;
 }
 
-.navController {
-  display: none;
-}
-
 .header .mobileNavbar {
   display: none;
   flex-wrap: nowrap;
@@ -279,26 +275,6 @@ a {
   margin-left: 5px;
 }
 
-
-.player {
-  background-color: #4BA3A7;
-  text-align: center;
-  padding: 8px 13px 35px 13px;
-  border-radius: 14px;
-  width: 15vw;
-  height: 46vh;
-  color: white;
-  margin-top: 6%;
-  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.animatedPlayer {
-  animation: gradientChange 10s infinite;
-}
-
 .player .songInfo .singer,
 .song {
   margin: 3px auto;
@@ -316,13 +292,6 @@ a {
 
 }
 
-.player .container .row {
-  display: flex;
-  justify-content: space-between;
-  margin: 15px auto;
-  height: 20px;
-}
-
 .player .container .left-side {
   display: flex;
   width: 100%;
@@ -335,9 +304,6 @@ a {
   margin-left: 5px;
 }
 
-.playerControllers {
-  margin: auto;
-}
 
 .playerControllers button {
   border: none;
@@ -348,12 +314,6 @@ a {
   width: 20px;
   height: 20px;
   filter: invert(1);
-}
-
-.playerControllers .ppcontrol {
-  background-color: #6ac7cc;
-  padding: 12px;
-  border-radius: 7px;
 }
 
 .addFunc img {
@@ -436,36 +396,9 @@ a {
   }
 }
 
-@media screen and (max-width: 1100px) {
-
-  .player {
-    width: 18vw;
-  }
-}
-
 @media screen and (max-width: 1190px) {
 
-  .animatedPlayer .clip {
-    max-width: 145px !important;
-  }
-
-  .animatedPlayer .animated {
-    height: 100px !important;
-  }
-
-  .playerControllers {
-    display: table-cell;
-  }
-
-  .player .col-12 {
-    display: initial;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .player .songInfo img,
-  .animatedPlayer .clip {
+  .player .songInfo img {
     height: 18vh;
   }
 
@@ -493,143 +426,4 @@ a {
     height: 6vh;
   }
 
-}
-
-
-@keyframes gradientChange {
-  0% {
-    background-color: rgb(75, 163, 167);
-  }
-
-  25% {
-    background-color: rgb(52, 114, 116);
-  }
-
-  50% {
-    background-color: rgb(46, 102, 104);
-  }
-
-  75% {
-    background-color: rgb(22, 48, 50);
-  }
-
-  100% {
-    background-color: rgb(75, 163, 167);
-  }
-}
-
-
-/* animated */
-
-/* credits: https://codepen.io/meemaw1/pen/ZqEdZL */
-
-@keyframes clip1 {
-  0% {
-    clip-path: polygon(0% -50%, 50% -50%, -50% 50%, -100% 50%);
-  }
-
-  100% {
-    clip-path: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%);
-  }
-}
-
-@keyframes clipa {
-  0% {
-    clip-path: polygon(-5% -55%, 55% -45%, -45% 55%, -95% 55%);
-  }
-
-  100% {
-    clip-path: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%);
-  }
-}
-
-@keyframes clip2 {
-  0% {
-    clip-path: polygon(50% -50%, 100% -50%, 200% 50%, 150% 50%);
-  }
-
-  100% {
-    clip-path: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%);
-  }
-}
-
-@keyframes clipb {
-  0% {
-    clip-path: polygon(40% -60%, 100% -50%, 190% 40%, 150% 50%);
-  }
-
-  100% {
-    clip-path: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%);
-  }
-}
-
-@keyframes clip3 {
-  0% {
-    clip-path: polygon(-100% -150%, -50% -150%, -150% -50%, -200% -50%);
-  }
-
-  100% {
-    clip-path: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%);
-  }
-}
-
-@keyframes clip4 {
-  0% {
-    clip-path: polygon(150% -150%, 200% -150%, 300% -50%, 250% -50%);
-  }
-
-  100% {
-    clip-path: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%);
-  }
-}
-
-
-.animatedPlayer .animated {
-  height: 155px;
-  margin-left: 4%;
-}
-
-.animatedPlayer .songInfo {
-  margin-top: 8%;
-}
-
-.animatedPlayer .clip {
-  position: absolute;
-  width: 100%;
-  max-width: 180px;
-  height: 140px;
-  border-radius: 14px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transform-origin: center;
-  background-position: center;
-}
-
-.animatedPlayer #clip1 {
-  animation: clip1 4s linear infinite;
-}
-
-.animatedPlayer #clipa {
-  transform: scale(1.1, 1.1);
-  animation: clipa 9s linear infinite;
-}
-
-.animatedPlayer #clip2 {
-  transform: scale(1.12, 1.12);
-  animation: clip2 5s linear infinite;
-}
-
-.animatedPlayer #clipb {
-  transform: scale(1.14, 1.14);
-  animation: clipb 4s linear infinite;
-}
-
-.animatedPlayer #clip3 {
-  transform: scale(1.15, 1.15);
-  animation: clip3 7s linear infinite;
-}
-
-.animatedPlayer #clip4 {
-  transform: scale(1.13, 1.13);
-  animation: clip4 6s linear infinite;
 }

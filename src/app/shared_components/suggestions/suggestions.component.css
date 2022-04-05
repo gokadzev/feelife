@@ -18,18 +18,3 @@
     background: none;
     border: none;
 }
-
-.navigation {
-    float: right;
-    width: 100%;
-    max-width: 120px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.navigation button {
-    width: 35px;
-    height: 35px;
-    background: none;
-    border: none;
-}
