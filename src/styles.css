@@ -60,6 +60,6 @@ body:not(.dark-mode-preloading) {
 }
   
 ::-webkit-scrollbar {
-    width: 5px;  /* Remove scrollbar space */
-    background: #6ac7cc;  /* Optional: just make scrollbar invisible */
+    width: 5px;
+    background: #6ac7cc;
 }
