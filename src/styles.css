@@ -1,65 +1,91 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    background-color: #F0F3F9;
-    position: relative;
-    margin: 0;
-    border: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+  background-color: #F0F3F9;
+  position: relative;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .t-bg-accent-color {
-    background-color: #6ac7cc;
+  background-color: #6ac7cc;
 }
 
 
-body.dark-mode, body.dark-mode .player-bar {
-    background-color: #181818;
-    color: #ffffff;
+body.dark-mode,
+body.dark-mode .player-bar {
+  background-color: #181818;
+  color: #ffffff;
 }
 
 body.dark-mode .svg {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 body.dark-mode .t-color {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 body.light-mode .t-color {
-    color: #000000;
+  color: #000000;
 }
 
 body.dark-mode .t-bg-color {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 body.light-mode .t-bg-color {
-    background-color: #000000;
+  background-color: #000000;
 }
 
-body.dark-mode a, body.dark-mode p, body.dark-mode h1, body.dark-mode h3 {
-    color: #ffffff!important;
+body.dark-mode a,
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h3 {
+  color: #ffffff !important;
 }
 
-  
-body.light-mode, body.light-mode .player-bar  {
-    background-color: #F0F3F9;
-    color: #2d3436;
+
+body.light-mode,
+body.light-mode .player-bar {
+  background-color: #F0F3F9;
+  color: #2d3436;
 }
 
 body:not(.dark-mode-preloading) {
-    transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 
 .greyTitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    color: #687490;
-    letter-spacing: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #687490;
+  letter-spacing: 5px;
 }
-  
+
+
 ::-webkit-scrollbar {
-    width: 5px;
-    background: #6ac7cc;
+  width: 5px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6ac7cc;
+  outline: 1px solid #3d9da3;
+  border-radius: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+  }
 }
