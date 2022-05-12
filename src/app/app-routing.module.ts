@@ -7,8 +7,6 @@ import { ArtistsComponent } from './shared_components/artists/artists.component'
 import { DiscoverComponent } from './shared_components/discover/discover.component';
 import { Global50Component } from './shared_components/global50/global50.component';
 import { HomeComponent } from './shared_components/home/home.component';
-import { PlaylistPageComponent } from './shared_components/playlists/playlist-page/playlist-page.component';
-import { PlaylistsComponent } from './shared_components/playlists/playlists.component';
 import { ProfileComponent } from './shared_components/profile/profile.component';
 import { RecentComponent } from './shared_components/recent/recent.component';
 import { SearchComponent } from './shared_components/search/search.component';
@@ -25,6 +23,11 @@ const routes: Routes = [
   },
   {
     path:'home',
+    component:HomeComponent,
+    data: { state: 'home' }
+  },
+  {
+    path:'logout',
     component:HomeComponent,
     data: { state: 'home' }
   },
@@ -52,16 +55,6 @@ const routes: Routes = [
     path:'recent',
     component:RecentComponent,
     data: { state: 'recent' }
-  },
-  {
-    path:'playlists',
-    component:PlaylistsComponent,
-    data: { state: 'playlists' }
-  },
-  {
-    path:'playlist/:id',
-    component:PlaylistPageComponent,
-    data: { state: 'playlist' }
   },
   {
     path:'albums',
