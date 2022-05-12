@@ -21,9 +21,6 @@ import { SongComponent } from './shared_components/additional_components/song/so
 import { SongCubeComponent } from './shared_components/additional_components/song-cube/song-cube.component';
 import { ArtistComponent } from './shared_components/additional_components/artist/artist.component';
 import { ArtistPageComponent } from './shared_components/artist-page/artist-page.component';
-import { PlaylistComponent } from './shared_components/additional_components/playlist/playlist.component';
-import { PlaylistsComponent } from './shared_components/playlists/playlists.component';
-import { PlaylistPageComponent } from './shared_components/playlists/playlist-page/playlist-page.component';
 import { ProfileComponent } from './shared_components/profile/profile.component';
 import { AlbumCubeComponent } from './shared_components/additional_components/album-cube/album-cube.component';
 import { AlbumPageComponent } from './shared_components/album-page/album-page.component';
@@ -55,9 +52,6 @@ export  function  HttpLoaderFactory(http:  HttpClient) {
     SongCubeComponent,
     ArtistComponent,
     ArtistPageComponent,
-    PlaylistComponent,
-    PlaylistsComponent,
-    PlaylistPageComponent,
     ProfileComponent,
     AlbumCubeComponent,
     AlbumPageComponent,

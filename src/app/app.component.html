@@ -2,7 +2,7 @@
   <div class="mobileNavbar {{mobileNavStatus}}">
     <div class="tabs">
       <div class="tab">
-        <a [routerLink]="['/home']"><img src="assets/icons/home.svg" alt="">
+        <a [routerLink]="['home']"><img src="assets/icons/home.svg" alt="">
         </a>
       </div>
       <div class="tab">
@@ -35,14 +35,14 @@
 <div class="components">
   <aside class="left">
     <div class="logo">
-      <a [routerLink]="['/home']"><img class="svg" src="assets/icons/logo.svg" alt="">
+      <a [routerLink]="['home']"><img class="svg" src="assets/icons/logo.svg" alt="">
         <h3>Feelife</h3>
       </a>
     </div>
     <div class="tabs">
       <h1>{{ 'MENU' | translate }}</h1>
       <div class="tab" [routerLinkActive]="['is-active-tab']">
-        <a [routerLink]="['/home']"><img src="assets/icons/home.svg" alt="">
+        <a [routerLink]="['home']"><img src="assets/icons/home.svg" alt="">
           <p>{{ 'Home' | translate }}</p>
         </a>
       </div>
@@ -77,19 +77,16 @@
       </div>
     </div>
     <div class="tabs">
-      <h1>{{ 'PLAYLIST' | translate }}</h1>
-      <div class="tab" [routerLinkActive]="['is-active-tab']">
-        <a [routerLink]="['playlists']"><img src="assets/icons/music-note-square.svg" alt="">
-          <p>{{ 'Playlists' | translate }}</p>
-        </a>
-      </div>
-    </div>
-    <div class="tabs">
       <h1>{{ 'GENERAL' | translate }}</h1>
       <div class="tab" [routerLinkActive]="['is-active-tab']">
         <a [routerLink]="['settings']"><img src="assets/icons/settings.svg"
             alt="">
           <p>{{ 'Settings' | translate }}</p>
+        </a>
+      </div>
+      <div class="tab" [routerLinkActive]="['is-active-tab']">
+        <a [routerLink]="['logout']"><img src="assets/icons/exit.svg" alt="">
+          <p>{{ 'Log Out' | translate }}</p>
         </a>
       </div>
     </div>
