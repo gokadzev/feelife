@@ -337,7 +337,7 @@ a {
 
 @media screen and (max-width: 470px) {
   .player-bar .player-content {
-    width: 100%;
+    width: 95%;
   }
 
   .player-bar .player-content .control-area .left-side .controller .play-button {
