@@ -7,3 +7,9 @@
 app-artist {
     margin: auto 30px;
 }
+
+@media screen and (max-width:400px) {
+    app-artist {
+        margin: auto 0px;
+    }
+}
