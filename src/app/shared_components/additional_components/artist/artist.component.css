@@ -3,6 +3,7 @@ img {
   height: 12vw;
   object-fit: cover;
   border-radius: 12px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 h3 {
