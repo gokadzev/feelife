@@ -1,4 +1,4 @@
-.song, .animated {
+.song {
   width: 100%;
   max-width: 140px;
   margin: 0px 20px;
@@ -21,6 +21,7 @@
   height: 115px;
   border-radius: 22px;
   object-fit: cover;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 h3 {
@@ -52,4 +53,22 @@ p {
 .play img {
   width: 18px;
   height: 18px;
+}
+
+@media screen and (min-width:300px) and (max-width: 400px) {
+  .song {
+    margin: 0px;
+  }
+}
+
+@media screen and (max-width:300px) {
+  .song, .image {
+    width: 40vw;
+    height: 40vw;
+    margin: 0px;
+  }
+
+  .songInfo {
+    display: none;
+  }
 }
