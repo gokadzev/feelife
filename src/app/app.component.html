@@ -114,8 +114,13 @@
           <img class="svg" src="assets/icons/more.svg" alt="">
         </button>
       </div>
-      <div class="artists-list">
-        <app-artist *ngFor="let item of singers | slice:0:4" [singer]="item"></app-artist>
+      <div class="mini-artists-list">
+        <ng-container *ngFor="let item of singers | slice:0:9">
+          <div class="singer" [routerLink]="['/artist-info/' + item.id]">
+            <img [src]="item.coverphoto"alt="">
+            <h3>{{ item.singer }}</h3>
+          </div>
+        </ng-container>
       </div>
     </div>
 

@@ -1,9 +1,3 @@
-.suggestions, .global50 {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
 .title {
     width: 100%;
     display: flex;

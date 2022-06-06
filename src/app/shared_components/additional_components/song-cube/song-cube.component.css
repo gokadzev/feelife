@@ -60,15 +60,3 @@ p {
     margin: 0px;
   }
 }
-
-@media screen and (max-width:300px) {
-  .song, .image {
-    width: 40vw;
-    height: 40vw;
-    margin: 0px;
-  }
-
-  .songInfo {
-    display: none;
-  }
-}

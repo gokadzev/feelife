@@ -68,6 +68,13 @@ body:not(.dark-mode-preloading) {
   letter-spacing: 5px;
 }
 
+.title {
+  font-family: Montserrat,sans-serif;
+  font-size: 15px;
+  color: #687490;
+  letter-spacing: 5px;
+}
+
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -80,12 +87,54 @@ body:not(.dark-mode-preloading) {
   border-radius: 10px;
 }
 
+.suggestions, .albums-list, .global50, .artists-list, .recent {
+  display: grid;
+}
 
-@media screen and (max-width: 768px) {
+.suggestions, .global50, .artists-list, .recent {
+  justify-content: center;
+}
+
+@media screen and (min-width:1200px) {
+  .suggestions, .albums-list, .global50, .artists-list, .recent {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+@media screen and (min-width:900px) and (max-width:1200px) {
+  .suggestions, .albums-list, .global50, .artists-list, .recent  {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (min-width:768px) and (max-width:900px) {
+  .suggestions, .albums-list, .global50, .artists-list, .recent  {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (max-width:768px) {
   ::-webkit-scrollbar {
     width: 0;
     /* Remove scrollbar space */
     background: transparent;
     /* Optional: just make scrollbar invisible */
+  }
+
+  .suggestions, .albums-list, .global50, .artists-list, .recent  {
+    grid-template-columns: auto auto auto;
+  }
+
+}
+
+@media screen and (min-width:600px) and (max-width:768px) {
+  .suggestions, .albums-list, .global50, .artists-list, .recent  {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+@media screen and (max-width:430px) {
+  .suggestions, .albums-list, .global50, .artists-list, .recent  {
+    grid-template-columns: auto auto;
   }
 }
