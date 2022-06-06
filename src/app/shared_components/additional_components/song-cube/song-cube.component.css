@@ -55,7 +55,7 @@ p {
   height: 18px;
 }
 
-@media screen and (min-width:300px) and (max-width: 400px) {
+@media screen and (min-width:300px) and (max-width: 525px) {
   .song {
     margin: 0px;
   }
