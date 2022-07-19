@@ -1,9 +1,0 @@
-   <div class="singerInfo" *ngIf="this.singerId">
-   <h3>{{this.singer[0].singer}}</h3>
-   <img class="artistPhoto" [src]="this.singer[0].coverphoto">
-
-   <div class="singerSongs">
-    <app-song *ngFor="let item of singerSongs" [song]="item"></app-song>
-   </div>
-
-</div>
