@@ -24,8 +24,8 @@
     </button>
   </div>
 <div class="recently">
-  <div class="list" *ngIf="this.recentSongs.length != 0" >
+  <div class="list" *ngIf="this.recentSongs.length !== 0" >
     <app-song *ngFor="let item of recentSongs | slice:0:10" [song]="item"></app-song>
   </div>
-  <h3 class="notFound" *ngIf="this.recentSongs.length == 0">You Haven't Played Any Songs Yet.</h3>
+  <h3 class="notFound" *ngIf="this.recentSongs.length === 0">You Haven't Played Any Songs Yet.</h3>
 </div>

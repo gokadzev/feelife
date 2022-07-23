@@ -9,7 +9,7 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 })
 export class RecentComponent implements OnInit {
 
-  recentSongs:PLsong[];
+  recentSongs!: PLsong[];
   GlobalStart:number = 0;
   GlobalEnd:number = 16;
 

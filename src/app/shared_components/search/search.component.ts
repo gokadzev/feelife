@@ -10,10 +10,10 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 })
 export class SearchComponent implements OnInit {
 
-  songResults:PLsong [] = undefined;
-  singerResults:PLsinger[] = undefined;
-  songs:PLsong [];
-  singers:PLsinger [];
+  songResults:PLsong [] | undefined = undefined;
+  singerResults:PLsinger[] | undefined = undefined;
+  songs!: PLsong[];
+  singers!:PLsinger [];
 
   constructor(private manager:DataManagerService) { }
 
@@ -29,7 +29,8 @@ export class SearchComponent implements OnInit {
   }
 
 
-  Search(newSong:string){
+  Search(event: Event){
+    const newSong = (event.target as HTMLInputElement).value;
     let SingersFilter = this.singers.filter(value => value.singer.toLowerCase().slice(0,newSong.length) === newSong.toLowerCase())
     let SongsFilter = this.songs.filter(value => value.songtitle.toLowerCase().slice(0,newSong.length) === newSong.toLowerCase())
     if(newSong == ''){

@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class DarkModeService {
 
-  darkMode$ = new BehaviorSubject(JSON.parse(localStorage.getItem('dark-mode')));
+  darkMode$ = new BehaviorSubject(JSON.parse(localStorage.getItem('dark-mode')!));
 
   constructor() { 
     if(localStorage.getItem("dark-mode") == "true") {

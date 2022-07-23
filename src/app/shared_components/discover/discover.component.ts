@@ -9,7 +9,7 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 })
 export class DiscoverComponent implements OnInit {
 
-  shuffledArray:PLsong[];
+  shuffledArray!: PLsong[];
 
   constructor(private manager:DataManagerService) { }
 

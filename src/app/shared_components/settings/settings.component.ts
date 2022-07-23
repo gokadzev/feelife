@@ -7,7 +7,7 @@ import { DarkModeService } from 'src/app/shared_services/dark-mode.service';
 })
 export class SettingsComponent implements OnInit {
 
-  darkModeStatus:boolean = JSON.parse(localStorage.getItem('dark-mode'));
+  darkModeStatus:boolean = JSON.parse(localStorage.getItem('dark-mode')!);
   innerWidth:any;
 
   constructor(private darkModeService: DarkModeService) { }
@@ -21,7 +21,7 @@ export class SettingsComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     this.innerWidth = window.innerWidth;
   }
 

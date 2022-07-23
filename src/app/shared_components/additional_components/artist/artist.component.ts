@@ -6,15 +6,11 @@ import { PLsinger } from 'src/app/shared_models/singer.model';
   templateUrl: './artist.component.html',
   styleUrls: ['./artist.component.css']
 })
-export class ArtistComponent implements OnInit {
+export class ArtistComponent {
 
   @Input()
   singer!: PLsinger;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 
 }

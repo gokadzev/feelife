@@ -9,7 +9,7 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 })
 export class Global50Component implements OnInit {
 
-  songs:PLsong [];
+  songs!: PLsong[];
   GlobalStart:number = 0;
   GlobalEnd:number = 16;
 

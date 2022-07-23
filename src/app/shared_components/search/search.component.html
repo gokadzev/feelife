@@ -1,4 +1,4 @@
-<input class="searchBar" placeholder="{{ 'Search' | translate }}" (input)="Search($event.target.value)" >
+<input class="searchBar" placeholder="{{ 'Search' | translate }}" (input)="Search($event)" >
 
 <section class="results" *ngIf="this.songResults || this.singerResults">
     <h1 class="greyTitle">{{ 'SINGERS' | translate }}</h1>

@@ -146,9 +146,9 @@
               alt=""></button>
           <td><button type="button" class="svg" (click)="playPreviousSong()"><img src="assets/icons/skip-back.svg"
                 alt=""></button></td>
-          <td [style.display]="isPlaying == true ? 'table-cell' : 'none'"><button type="button" class="play-button"
+          <td [style.display]="isPlaying === true ? 'table-cell' : 'none'"><button type="button" class="play-button"
               *ngIf="isPlaying" (click)="player.pause()"><img src="assets/icons/pauze.svg" alt=""></button></td>
-          <td [style.display]="isPlaying == false ? 'table-cell' : 'none'"><button type="button" class="play-button"
+          <td [style.display]="isPlaying === false ? 'table-cell' : 'none'"><button type="button" class="play-button"
               *ngIf="!isPlaying" (click)="playSong(activeSong?.id)"><img src="assets/icons/play.svg" alt=""></button>
           </td>
 

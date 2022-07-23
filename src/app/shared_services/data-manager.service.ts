@@ -26,7 +26,7 @@ export class DataManagerService {
     let isAlreadyAdded = this.recentSongs.filter(s => s.id == song.id);
     if(isAlreadyAdded.length == 0){
       this.recentSongs.unshift(song);
-      let recentSongsFromLocalstorage = JSON.parse(localStorage.getItem('recentSongs'));
+      let recentSongsFromLocalstorage = JSON.parse(localStorage.getItem('recentSongs')!);
       if(recentSongsFromLocalstorage == undefined) {
         recentSongsFromLocalstorage = [];
       }
@@ -42,7 +42,7 @@ export class DataManagerService {
   //get 
 
   getRecentSongs(callback:any){
-    const recentSongsFromLocalstorage = JSON.parse(localStorage.getItem('recentSongs'));
+    const recentSongsFromLocalstorage = JSON.parse(localStorage.getItem('recentSongs')!);
     if(recentSongsFromLocalstorage != undefined && this.recentSongs.length != recentSongsFromLocalstorage.length) {
       this.getSongs((songs: PLsong[]) => {
         this.recentSongs = [];
@@ -107,8 +107,8 @@ export class DataManagerService {
   }
 
   getShuffledSongs(number:any, callback:any){
-    let shuffledArray = [];
-    let songsList = [];
+    let shuffledArray: any[] = [];
+    let songsList: any[] = [];
     this.httpserv.getSubscribableData(this.apiUrl).subscribe(songs=>{
       let tempdata = JSON.stringify(songs)
       songsList = JSON.parse(tempdata);
@@ -116,7 +116,7 @@ export class DataManagerService {
         for(var i = 0; i < songsList.length; i++){
           let randNum:number = Math.round(Math.random() * songsList.length)
           if(songsList[randNum] != undefined){
-            var tempArray = shuffledArray.filter(s => s.id == songsList[randNum].id);
+            var tempArray: any[] | null = shuffledArray.filter(s => s.id == songsList[randNum].id);
             if(tempArray.length == 0){
               shuffledArray.push(songsList[randNum])
               tempArray = null;
@@ -127,7 +127,7 @@ export class DataManagerService {
         for(var i = 0; i < number; i++){
           let randNum:number = Math.round(Math.random() * songsList.length)
           if(songsList[randNum] != undefined){
-            let tempArray = shuffledArray.filter(s => s.id == songsList[randNum].id);
+            let tempArray: any[] | null = shuffledArray.filter(s => s.id == songsList[randNum].id);
             if(tempArray.length == 0){
               shuffledArray.push(songsList[randNum])
               tempArray = null;

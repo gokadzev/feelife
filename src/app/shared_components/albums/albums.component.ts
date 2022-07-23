@@ -9,7 +9,7 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 })
 export class AlbumsComponent implements OnInit {
 
-  albums:Album [];
+  albums!: Album[];
 
   constructor(private manager:DataManagerService) { }
 

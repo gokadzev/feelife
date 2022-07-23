@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
@@ -15,7 +15,7 @@ import { DarkModeService } from './shared_services/dark-mode.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'Feelife';
 
   mobileNavStatus:string = '';
@@ -26,7 +26,7 @@ export class AppComponent {
   @ViewChild('player', {static: true}) player!: ElementRef;
   @ViewChild('volumeSlider', {static: true}) volumeSlider!: ElementRef;
 
-  songs:PLsong [];
+  songs!: PLsong[];
   singers: PLsinger[] = [];
   playlists: Playlist[] = [];
   favoritedSongs:PLsong[] = [];
@@ -38,11 +38,11 @@ export class AppComponent {
   durationTime: any;
   songCoverImage:any;
 
-  paramsSubscription: Subscription = null;
+  paramsSubscription: Subscription | null = null;
 
   activedsong = false;
 
-  language:string = localStorage.getItem('language');
+  language:string = localStorage.getItem('language') ?? 'en';
 
   constructor(
     private statusExchanger:StatusExchangerService,
@@ -74,13 +74,6 @@ export class AppComponent {
     this.dataManager.getPlaylists((res:Playlist[]) => {
       this.playlists = res;
     });
-
-
-
-    if(this.language === null){
-      this.language = 'en'
-      localStorage.setItem("language", 'en');
-    }
 
     this.statusExchanger.activeLanguageCode.subscribe((code:string) => {
       this.language = code;

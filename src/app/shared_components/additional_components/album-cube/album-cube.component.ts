@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Album } from 'src/app/shared_models/album.model';
 
 @Component({
@@ -6,16 +6,11 @@ import { Album } from 'src/app/shared_models/album.model';
   templateUrl: './album-cube.component.html',
   styleUrls: ['./album-cube.component.css']
 })
-export class AlbumCubeComponent implements OnInit {
+export class AlbumCubeComponent {
 
   @Input()
   album!: Album;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
-
 
 }

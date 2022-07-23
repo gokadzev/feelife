@@ -9,7 +9,7 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 })
 export class ProfileComponent implements OnInit {
 
-  songs:PLsong[];
+  songs!: PLsong[];
 
   navStart:number = 0;
   navEnd:number = 10;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Language } from 'src/app/shared_models/language.model';
 
 @Component({
@@ -6,12 +6,10 @@ import { Language } from 'src/app/shared_models/language.model';
   templateUrl: './languages.component.html',
   styleUrls: ['./languages.component.css']
 })
-export class LanguagesComponent implements OnInit {
+export class LanguagesComponent{
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
 
   languages:Language [] = [
     new Language('English','en'),

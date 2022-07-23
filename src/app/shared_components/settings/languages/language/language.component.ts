@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Language } from 'src/app/shared_models/language.model';
 import { StatusExchangerService } from 'src/app/shared_services/status-exchanger.service';
@@ -8,14 +8,12 @@ import { StatusExchangerService } from 'src/app/shared_services/status-exchanger
   templateUrl: './language.component.html',
   styleUrls: ['./language.component.css']
 })
-export class LanguageComponent implements OnInit {
+export class LanguageComponent {
 
   @Input()
   language!: Language;
 
   constructor(public router:Router, public statusExchanger:StatusExchangerService) { }
-
-  ngOnInit() {}
 
   changeLanguage(languageCode:string){
     localStorage.setItem("language", languageCode);

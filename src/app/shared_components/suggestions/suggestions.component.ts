@@ -9,7 +9,7 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 })
 export class SuggestionsComponent implements OnInit {
 
-  songs:PLsong [];
+  songs!: PLsong[];
 
   constructor(private manager:DataManagerService) { }
 

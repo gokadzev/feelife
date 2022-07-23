@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PLsong } from 'src/app/shared_models/song.model';
 import { StatusExchangerService } from 'src/app/shared_services/status-exchanger.service';
 
@@ -7,15 +7,12 @@ import { StatusExchangerService } from 'src/app/shared_services/status-exchanger
   templateUrl: './song-cube.component.html',
   styleUrls: ['./song-cube.component.css']
 })
-export class SongCubeComponent implements OnInit {
+export class SongCubeComponent {
 
   @Input()
   song!: PLsong;
 
   constructor(private statusExchanger:StatusExchangerService) { }
-
-  ngOnInit(): void {
-  }
 
   playSong(songID:number){
     this.statusExchanger.activeSongId.emit(songID)

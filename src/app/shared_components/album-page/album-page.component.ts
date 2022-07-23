@@ -11,12 +11,12 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 })
 export class AlbumPageComponent implements OnInit {
 
-  songs:PLsong [];
+  songs!: PLsong[];
 
-  albumName:string;
-  albumCover:string;
-  albums:Album[];
-  albumSongs:PLsong[];
+  albumName!: string | null;
+  albumCover!: string;
+  albums!: Album[];
+  albumSongs!: PLsong[];
 
   constructor(private router:ActivatedRoute,private manager:DataManagerService) { }
 

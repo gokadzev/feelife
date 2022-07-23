@@ -12,10 +12,10 @@ import { DataManagerService } from 'src/app/shared_services/data-manager.service
 export class ArtistPageComponent implements OnInit {
 
   singerId:any;
-  singer:PLsinger[];
-  singerSongs:PLsong [];
-  singers:PLsinger[];
-  songs:PLsong[];
+  singer!:PLsinger[];
+  singerSongs!:PLsong [];
+  singers!: PLsinger[];
+  songs!:PLsong[];
 
   constructor(private router:ActivatedRoute, private manager:DataManagerService) { }
 
